@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Amber,java,spring" />
+  <meta name="keywords" content="SSM框架," />
 
 
 
@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Amber">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="通常情况下，项目中所包含的图片是直接放在WebContent下面的，但是因为业务需求要保证图片的安全性的时候就需要另想他法了，因为WebContent下的文件可以直接访问。WEB-INF下的文件不允许直接的公共访问，所以把jsp页面、js、图片等放进去可以保证安全性。 但是如何将WEB-INF下受保护的图片显示在客户端的页面上是一个问题。在这个问题上卡了很久，终于找到了解决方法。下面贴出解决方">
+<meta name="keywords" content="SSM框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="访问WEB-INF下的图片等静态资源">
+<meta property="og:url" content="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/index.html">
 <meta property="og:site_name" content="Amber">
+<meta property="og:description" content="通常情况下，项目中所包含的图片是直接放在WebContent下面的，但是因为业务需求要保证图片的安全性的时候就需要另想他法了，因为WebContent下的文件可以直接访问。WEB-INF下的文件不允许直接的公共访问，所以把jsp页面、js、图片等放进去可以保证安全性。 但是如何将WEB-INF下受保护的图片显示在客户端的页面上是一个问题。在这个问题上卡了很久，终于找到了解决方法。下面贴出解决方">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/1.jpg">
+<meta property="og:updated_time" content="2018-04-10T08:19:01.611Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Amber">
+<meta name="twitter:title" content="访问WEB-INF下的图片等静态资源">
+<meta name="twitter:description" content="通常情况下，项目中所包含的图片是直接放在WebContent下面的，但是因为业务需求要保证图片的安全性的时候就需要另想他法了，因为WebContent下的文件可以直接访问。WEB-INF下的文件不允许直接的公共访问，所以把jsp页面、js、图片等放进去可以保证安全性。 但是如何将WEB-INF下受保护的图片显示在客户端的页面上是一个问题。在这个问题上卡了很久，终于找到了解决方法。下面贴出解决方">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/1.jpg">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/"/>
 
 
 
 
 
-  <title>归档 | Amber</title>
+  <title>访问WEB-INF下的图片等静态资源 | Amber</title>
   
 
 
@@ -140,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://amber80930.github.io/" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -294,418 +301,256 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amber">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amber">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">访问WEB-INF下的图片等静态资源</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T15:20:17+08:00">
+                2018-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SSM框架/" itemprop="url" rel="index">
+                    <span itemprop="name">SSM框架</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/10/访问WEB-INF下的图片等静态资源/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/10/访问WEB-INF下的图片等静态资源/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/10/访问WEB-INF下的图片等静态资源/" itemprop="url">
-              
-                <span itemprop="name">访问WEB-INF下的图片等静态资源</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-10T15:20:17+08:00"
-              content="2018-04-10" >
-          04-10
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/29/github-hexo博客无法显示图片解决办法/" itemprop="url">
-              
-                <span itemprop="name">github+hexo博客无法显示图片解决办法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-29T19:47:05+08:00"
-              content="2018-03-29" >
-          03-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/29/SSM框架搭建/" itemprop="url">
-              
-                <span itemprop="name">SSM框架搭建</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-29T18:47:03+08:00"
-              content="2018-03-29" >
-          03-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/15/装配SpringBean/" itemprop="url">
-              
-                <span itemprop="name">装配SpringBean</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-15T19:16:09+08:00"
-              content="2018-03-15" >
-          03-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <hr>
+<hr>
+<p>通常情况下，项目中所包含的图片是直接放在WebContent下面的，但是因为业务需求要保证图片的安全性的时候就需要另想他法了，因为WebContent下的文件可以直接访问。WEB-INF下的文件不允许直接的公共访问，所以把jsp页面、js、图片等放进去可以保证安全性。<br></p>
+<p>但是如何将WEB-INF下受保护的图片显示在客户端的页面上是一个问题。在这个问题上卡了很久，终于找到了解决方法。下面贴出解决方法共享。<a id="more"></a></p>
+<p>spring.3.0.4以后版本提供了<strong><mvc:resources></mvc:resources></strong>,<mvc:resources>允许静态资源放在任何地方，如WEB-INF目录下、类路径下等。通过location属性指定静态资源的位置，由于location属性是Resources类型，因此可以使用诸如”classpath:”等的资源前缀指定资源位置。传统Web容器的静态资源只能放在Web容器的根路径下，<mvc:resources>完全打破了这个限制。</mvc:resources></mvc:resources></p>
+<blockquote>
+<p>文件目录</p>
+</blockquote>
+<p><img src="1.jpg" alt="图片1"></p>
+<blockquote>
+<p>web.xml配置</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置DispatcherServlet --&gt;</span><br><span class="line">	&lt;servlet&gt;</span><br><span class="line">		&lt;servlet-name&gt;seckill-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">		&lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line">		&lt;!-- 配置springMVC需要加载的配置文件</span><br><span class="line">			spring-dao.xml,spring-service.xml,spring-web.xml</span><br><span class="line">			Mybatis - &gt; spring -&gt; springmvc</span><br><span class="line">		 --&gt;</span><br><span class="line">		&lt;init-param&gt;</span><br><span class="line">			&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">			&lt;param-value&gt;classpath:main/resources/spring-*.xml&lt;/param-value&gt;</span><br><span class="line">		&lt;/init-param&gt;</span><br><span class="line">		&lt;load-on-startup&gt;1&lt;/load-on-startup&gt; </span><br><span class="line">	&lt;/servlet&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;servlet-mapping&gt;</span><br><span class="line">		&lt;servlet-name&gt;seckill-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">		&lt;!-- 默认匹配所有的请求 --&gt;</span><br><span class="line">		&lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">	&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在spring-web.xml添加配置</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mvc:resources location=&quot;/WEB-INF/resources/&quot; mapping=&quot;/resources/**&quot; /&gt; &lt;mvc:default-servlet-handler/&gt;</span><br></pre></td></tr></table></figure>
+<p><mvc:resources> 中的location属性：指定静态文件的位置。mapping属性：指定访问时url，”/**”表示resources下可以有多级文件路径。</mvc:resources></p>
+<p>这样就可以通过设置的mapping来访问WEB-INF下面的资源了。</p>
+<p>需要注意两句话的顺序不能颠倒，原因未知。博主因为颠倒顺序一直卡了好久。</p>
+<blockquote>
+<p>在jsp中访问</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;&lt;%=request.getContextPath()%&gt;/resources/image/songshu.jpg&quot; width=&quot;200&quot; height=&quot;300&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，使用此方式需要导入版本大于3.0.4的spring框架的jar包到WEB-INF/lib目录下，否则，在开发环境下会产生对resources元素没找到情况。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/14/Spring的控制反转和依赖注入/" itemprop="url">
-              
-                <span itemprop="name">Spring的控制反转和依赖注入</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-14T16:34:36+08:00"
-              content="2018-03-14" >
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/12/Mybatis配置/" itemprop="url">
-              
-                <span itemprop="name">Mybatis配置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-12T14:51:48+08:00"
-              content="2018-03-12" >
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/11/Mybatis核心组件/" itemprop="url">
-              
-                <span itemprop="name">Mybatis核心组件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-11T16:32:17+08:00"
-              content="2018-03-11" >
-          03-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/11/SSM框架入门/" itemprop="url">
-              
-                <span itemprop="name">SSM框架入门</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-11T09:59:28+08:00"
-              content="2018-03-11" >
-          03-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/28/红豆奶茶的故事/" itemprop="url">
-              
-                <span itemprop="name">红豆奶茶的故事</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-28T18:18:13+08:00"
-              content="2018-01-28" >
-          01-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/25/first-day/" itemprop="url">
-              
-                <span itemprop="name">hexo g报错</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-25T16:09:06+08:00"
-              content="2018-01-25" >
-          01-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+	
+	<div>
+		
+			
+<div style="text-align:center;color: #ccc;font-size:30px;">
+------ 本文结束 ------</div>
+
+
+		
+	</div>
+	
+    
+	
+
+    
+
+    
+	
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SSM框架/" rel="tag"># SSM框架</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/29/github-hexo博客无法显示图片解决办法/" rel="next" title="github+hexo博客无法显示图片解决办法">
+                <i class="fa fa-chevron-left"></i> github+hexo博客无法显示图片解决办法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2018/04/10/访问WEB-INF下的图片等静态资源/"
+     data-title="访问WEB-INF下的图片等静态资源"
+     data-content=""
+     data-url="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/04/10/访问WEB-INF下的图片等静态资源/"
+           data-title="访问WEB-INF下的图片等静态资源" data-url="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/">
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -931,6 +776,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
