@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Amber">
 <meta property="og:description" content="利用可视化工具（如SQLyog、Navicat等）连接数据库时提示错误如下： error: 1045: Access denied for user ‘root’@’localhost’ (using password: YES) 这种情况一般是输入的用户名和密码有错误，首先检查大小写以及是否有空格。 如果还不行，参考以下几种方法：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-03T02:41:47.537Z">
+<meta property="og:updated_time" content="2018-05-03T02:52:35.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlyog错误代码1045">
 <meta name="twitter:description" content="利用可视化工具（如SQLyog、Navicat等）连接数据库时提示错误如下： error: 1045: Access denied for user ‘root’@’localhost’ (using password: YES) 这种情况一般是输入的用户名和密码有错误，首先检查大小写以及是否有空格。 如果还不行，参考以下几种方法：">
@@ -416,17 +416,23 @@
 <p>error: 1045: Access denied for user ‘root’@’localhost’ (using password: YES)</p>
 <p>这种情况一般是输入的用户名和密码有错误，首先检查大小写以及是否有空格。</p>
 <p>如果还不行，参考以下几种方法：<a id="more"></a></p>
-<p>####方法一：</p>
+<blockquote>
+<p>方法一：</p>
+</blockquote>
 <p> 第一步：首先停止Mysql服务：在../Mysql/bin下打开命令窗口输入—&gt;net stop mysql<br></p>
 <p>如果是双击mysqld.exe打开mysql服务的话，在命令窗口输入—&gt;mysql.exe -install 即可;</p>
 <p> 第二步：在mysql安装目录下找到my.ini配置文件，打开文件找到【mysqld】在其下方添加一句 skip-grant-tables；</p>
 <p> 第三步：启动mysql服务，可以在命令窗口输入net start mysql。</p>
-<p>####方法二：</p>
+<blockquote>
+<p>方法二：</p>
+</blockquote>
 <p> 第一步：在mysql安装目录的bin文件夹下，按住shift同时右键打开命令窗口；</p>
 <p> 第二步：mysql -u root -p （输入密码）；</p>
 <p> 第三步：grant all privileges on 库名.表名 to ‘用户名’@’IP地址’ identified by ‘密码’ with grant option;</p>
 <p> 第四步：flush privileges。</p>
-<p>####方法三:</p>
+<blockquote>
+<p>方法三:</p>
+</blockquote>
 <p> 确定用户名密码没有拼写错误，连接仍然出错时，可以修改mysql的密码，然后重试。</p>
 
       
