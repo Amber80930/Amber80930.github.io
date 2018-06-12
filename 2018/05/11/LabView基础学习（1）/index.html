@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="SSM框架," />
+  <meta name="keywords" content="LabView基础学习," />
 
 
 
@@ -79,20 +79,23 @@
 
 
 
-<meta name="description" content="通常情况下，项目中所包含的图片是直接放在WebContent下面的，但是因为业务需求要保证图片的安全性的时候就需要另想他法了，因为WebContent下的文件可以直接访问。WEB-INF下的文件不允许直接的公共访问，所以把jsp页面、js、图片等放进去可以保证安全性。 但是如何将WEB-INF下受保护的图片显示在客户端的页面上是一个问题。在这个问题上卡了很久，终于找到了解决方法。下面贴出解决方">
-<meta name="keywords" content="SSM框架">
+<meta name="description" content="最近在学习LabView的相关知识，将一些入门知识整理如下。 一些基本概念：">
+<meta name="keywords" content="LabView基础学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="访问WEB-INF下的图片等静态资源">
-<meta property="og:url" content="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/index.html">
+<meta property="og:title" content="LabView基础学习（1）">
+<meta property="og:url" content="http://yoursite.com/2018/05/11/LabView基础学习（1）/index.html">
 <meta property="og:site_name" content="Amber">
-<meta property="og:description" content="通常情况下，项目中所包含的图片是直接放在WebContent下面的，但是因为业务需求要保证图片的安全性的时候就需要另想他法了，因为WebContent下的文件可以直接访问。WEB-INF下的文件不允许直接的公共访问，所以把jsp页面、js、图片等放进去可以保证安全性。 但是如何将WEB-INF下受保护的图片显示在客户端的页面上是一个问题。在这个问题上卡了很久，终于找到了解决方法。下面贴出解决方">
+<meta property="og:description" content="最近在学习LabView的相关知识，将一些入门知识整理如下。 一些基本概念：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/1.jpg">
-<meta property="og:updated_time" content="2018-04-10T08:50:24.498Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/11/LabView基础学习（1）/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/11/LabView基础学习（1）/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/11/LabView基础学习（1）/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/05/11/LabView基础学习（1）/4.jpg">
+<meta property="og:updated_time" content="2018-06-12T01:53:48.605Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="访问WEB-INF下的图片等静态资源">
-<meta name="twitter:description" content="通常情况下，项目中所包含的图片是直接放在WebContent下面的，但是因为业务需求要保证图片的安全性的时候就需要另想他法了，因为WebContent下的文件可以直接访问。WEB-INF下的文件不允许直接的公共访问，所以把jsp页面、js、图片等放进去可以保证安全性。 但是如何将WEB-INF下受保护的图片显示在客户端的页面上是一个问题。在这个问题上卡了很久，终于找到了解决方法。下面贴出解决方">
-<meta name="twitter:image" content="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/1.jpg">
+<meta name="twitter:title" content="LabView基础学习（1）">
+<meta name="twitter:description" content="最近在学习LabView的相关知识，将一些入门知识整理如下。 一些基本概念：">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/11/LabView基础学习（1）/1.jpg">
 
 
 
@@ -122,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/11/LabView基础学习（1）/"/>
 
 
 
 
 
-  <title>访问WEB-INF下的图片等静态资源 | Amber</title>
+  <title>LabView基础学习（1） | Amber</title>
   
 
 
@@ -315,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/LabView基础学习（1）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Amber">
@@ -332,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">访问WEB-INF下的图片等静态资源</h1>
+          <h1 class="post-title" itemprop="name headline">LabView基础学习（1）</h1>
         
 
         <div class="post-meta">
@@ -344,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T15:20:17+08:00">
-                2018-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T09:06:27+08:00">
+                2018-05-11
               </time>
             
 
@@ -367,8 +370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SSM框架/" itemprop="url" rel="index">
-                    <span itemprop="name">SSM框架</span>
+                  <a href="/categories/LabView/" itemprop="url" rel="index">
+                    <span itemprop="name">LabView</span>
                   </a>
                 </span>
 
@@ -385,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/10/访问WEB-INF下的图片等静态资源/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/10/访问WEB-INF下的图片等静态资源/" itemprop="commentCount"></span>
+                <a href="/2018/05/11/LabView基础学习（1）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/05/11/LabView基础学习（1）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -415,30 +418,113 @@
 
       
         <hr>
-<hr>
-<p>通常情况下，项目中所包含的图片是直接放在WebContent下面的，但是因为业务需求要保证图片的安全性的时候就需要另想他法了，因为WebContent下的文件可以直接访问。WEB-INF下的文件不允许直接的公共访问，所以把jsp页面、js、图片等放进去可以保证安全性。<br></p>
-<p>但是如何将WEB-INF下受保护的图片显示在客户端的页面上是一个问题。在这个问题上卡了很久，终于找到了解决方法。下面贴出解决方法共享。<a id="more"></a></p>
-<p>spring.3.0.4以后版本提供了<strong>\&lt; mvc:resources / ></strong>,\&lt; mvc:resources / >允许静态资源放在任何地方，如WEB-INF目录下、类路径下等。通过location属性指定静态资源的位置，由于location属性是Resources类型，因此可以使用诸如”classpath:”等的资源前缀指定资源位置。传统Web容器的静态资源只能放在Web容器的根路径下，\&lt; mvc:resources / >完全打破了这个限制。</p>
+<p>最近在学习LabView的相关知识，将一些入门知识整理如下。</p>
+<p>一些基本概念：<a id="more"></a></p>
 <blockquote>
-<p>文件目录</p>
+<p>程序结构</p>
 </blockquote>
-<p><img src="1.jpg" alt="图片1"></p>
+<p>For循环：</p>
+<p>左上角N代表循环次数，左下角i代表当前运行的次数，可以加显示控件显示出来</p>
+<p>While循环：</p>
+<p>左下角i和for循环的一样，右下角代表循环条件，值为true时while循环停止，为false    时执行</p>
+<p>条件结构：</p>
+<p>左边有分支选择器，上边界确定条件为当前值时才执行，结构里面是进入后要执行的内    容</p>
+<p>事件结构：</p>
+<p>左上角设置事件等待时间，等待时间内一直检测有没有事件发生，上边界设置期望的事    件值。想要一直处于检测事件的状态的话，可以在外层加一个while循环</p>
 <blockquote>
-<p>web.xml配置</p>
+<p>数组与簇</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置DispatcherServlet --&gt;</span><br><span class="line">	&lt;servlet&gt;</span><br><span class="line">		&lt;servlet-name&gt;seckill-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">		&lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line">		&lt;!-- 配置springMVC需要加载的配置文件</span><br><span class="line">			spring-dao.xml,spring-service.xml,spring-web.xml</span><br><span class="line">			Mybatis - &gt; spring -&gt; springmvc</span><br><span class="line">		 --&gt;</span><br><span class="line">		&lt;init-param&gt;</span><br><span class="line">			&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">			&lt;param-value&gt;classpath:main/resources/spring-*.xml&lt;/param-value&gt;</span><br><span class="line">		&lt;/init-param&gt;</span><br><span class="line">		&lt;load-on-startup&gt;1&lt;/load-on-startup&gt; </span><br><span class="line">	&lt;/servlet&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;servlet-mapping&gt;</span><br><span class="line">		&lt;servlet-name&gt;seckill-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">		&lt;!-- 默认匹配所有的请求 --&gt;</span><br><span class="line">		&lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">	&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+<p>控件的左上角是数组的索引，有一个索引就是一维数组，两个索引就是二维数组。可以    用数组大小控件来查看数组大小。也可以利用索引查看对应的数组元素。</p>
+<p>簇里面可以放各种类型的数据，在详细信息里面可以查看。</p>
+<p>按名称解除捆绑：</p>
+<p>按名称捆绑：</p>
 <blockquote>
-<p>在spring-web.xml添加配置</p>
+<p>移位寄存器和隧道</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mvc:resources location=&quot;/WEB-INF/resources/&quot; mapping=&quot;/resources/**&quot; /&gt; &lt;mvc:default-servlet-handler/&gt;</span><br></pre></td></tr></table></figure>
-<p>\&lt; mvc:resources / >中的location属性：指定静态文件的位置。mapping属性：指定访问时url，”/**”表示resources下可以有多级文件路径。</p>
-<p>这样就可以通过设置的mapping来访问WEB-INF下面的资源了。</p>
-<p>需要注意两句话的顺序不能颠倒，原因未知。博主因为颠倒顺序一直卡了好久。</p>
+<p>移位寄存器：</p>
+<p>移位寄存器的图标是成对出现的，左边框一个，右边框一个，循环执行一次后，右边的得到运行结果，然后将结果转到左边的，使结果参加下一次循环。</p>
+<p><img src="1.jpg" alt="图片一"></p>
+<p>运行后的结果为：0+1+2+…+9=45 </p>
+<p>为了避免不可预见的混乱情况，通常需要初始化移位寄存器。把循环外指定值连接到移位寄存器的左侧端子就能对其赋初值。如上图，赋初值为0，那么下次再运行该vi时，寄存器的初始值为0。</p>
+<p><img src="2.jpg" alt="图片二"></p>
+<p>当不给移位寄存器赋初值时，如上图，第一次运行，值为3+3+3=9；但是第二次运行时移位寄存器的初值就为上次运行的结果9，那么结果就成了9+3+3+3=18。</p>
+<p>隧道：</p>
+<p>隧道记录的是最后一次循环的循环次数，上下两次循环之间的数据互相没有影响。</p>
+<p><img src="3.jpg" alt="图片三"></p>
+<p>运行结果为：9</p>
 <blockquote>
-<p>在jsp中访问</p>
+<p>数据流规则</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;&lt;%=request.getContextPath()%&gt;/resources/image/songshu.jpg&quot; width=&quot;200&quot; height=&quot;300&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，使用此方式需要导入版本大于3.0.4的spring框架的jar包到WEB-INF/lib目录下，否则，在开发环境下会产生对resources元素没找到情况。</p>
+<p>在所有的数据都到达输入端子时节点才可以运行。</p>
+<blockquote>
+<p>反馈节点</p>
+</blockquote>
+<p>在LabView中代码块的输出不能作为同一个代码块的输入，因为不符合数据流规则。但是，如果是在while或for循环内输入和输出端子之间放置一个反馈节点，就可以运行。</p>
+<p>实际上，反馈节点相当于一个伪以为寄存器，反馈节点上的箭头指明了数据的流向，反馈节点的输入等于移位寄存器的右端子，反馈节点的输出等于移位寄存器的左端子。</p>
+<blockquote>
+<p>Case结构</p>
+</blockquote>
+<p>如果是布尔型连接到分支选择器上，case结构就有两个分支–&gt; true 、false。</p>
+<p>如果是数值型或字符串型连接到分支选择器，case结构可以有无数个分支。</p>
+<p>初始值虽然只有两个，可以右键添加分支。也可以在一个分支制定多个值，用逗号隔开即可。此外，需要制定一个默认分支，当分支选择器输入的值和其他所有分支的值都不匹配的时候，就会执行默认分支。</p>
+<p>注：case结构必须处理输入到分支选择器里面的所有可能值，否则VI会处于中断状态。</p>
+<blockquote>
+<p>公式节点</p>
+</blockquote>
+<p>简单的数学方程式用框图实现比文本要麻烦，使用公式节点可以直接输入公式。在边框右键即可添加输入、输出变量。表达式后要加分号。</p>
+<blockquote>
+<p>表达式节点</p>
+</blockquote>
+<p>与公式节点不同，它不需要命名输入/输出端子，因为只有一个输入，一个输出，因为只有一个表达式，所以表达式结束不需要分号。</p>
+<p>在表达式节点只能使用一个变量，而在公式节点中可以使用多个输入变量，多个输出变量。</p>
+<blockquote>
+<p>数组</p>
+</blockquote>
+<p>左上角是纬度，可以右键添加纬度。如果列或行较多，可以右键添加数组滚动条。</p>
+<p><strong>注意</strong>：怎么理解自动索引隧道?</p>
+<p>如果没有自动索引，那么输出最后一个数值，如果有自动索引，输出一个数组。</p>
+<p>For 循环和While循环可以在边界上自动索引并累加数组——每次迭代创建一个新的元    素，该功能称为自动索引。</p>
+<p>自动索引功能 在for 循环中默认打开，在while 循环中默认关闭。</p>
+<p>使用自动索引设置for循环的循环次数：</p>
+<p>当打开for循环上输入数组的自动索引后，labview会将数组的大小设置为for循环的循环次数。如果同时使用外部定义循环次数N和自动索引数组，或者同时自动索引两个数组时，labview会取较小的值作为for循环次数。</p>
+<p>创建二维数组：</p>
+<p>可以在前面板增加维度输入数值，也可以利用for循环生成2D数组。如下图所示：</p>
+<p><img src="4.jpg" alt="图片四"></p>
+<p>这样会生成4行6列的2D数组。</p>
+<p>多态性：</p>
+<p>Labview中的多态性十分实用，多态性是指：这些函数的输入可以是不同的大小和类型。比如加法，支持标量+标量、标量+数组、数组+数组。</p>
+<p>如果两个大小不一样的数组相加，那么结果数组的元素个数取二者中小者。</p>
+<blockquote>
+<p>簇</p>
+</blockquote>
+<p>簇也是一个组合数据类型结构，与数组不同的是，簇可以组合不同类型的数据。</p>
+<p>簇内元素具有固定的逻辑顺序，与它们在框架内的位置无关。第一个放入簇内的对象为元素0，以此类推。如果中间有控件被删除，顺序可以自动调整。</p>
+<p>替换簇中的元素：</p>
+<p>要替换簇中的元素，连接该簇到Bundle函数中间的端子，将想替换的旧元素的新元素值连接到对应的输入上，只需要在要替换的端子上连线即可。</p>
+<p>簇和数组元素都是有序的，必须使用<a href="glang.chm::/Unbundle.html" target="_blank" rel="noopener">解除捆绑</a>函数一次取消捆绑所有元素。也可使用<a href="glang.chm::/Unbundle_By_Name.html" target="_blank" rel="noopener">按名称解除捆绑</a>函数，按名称解除捆绑簇元素。如使用按名称解除捆绑函数，则每个簇元素都必须带有标签。簇不同于数组的地方还在于簇的大小是固定的。与数组一样，簇包含的不是输入控件即是显示控件。簇不能同时含有输入控件和显示控件。</p>
+<p>错误簇：</p>
+<p>Labview 中错误簇是一个特殊的数据类型，用来传送labview 代码运行时产生的错    误信息。</p>
+<p>子VI 中错误的产生和响应：</p>
+<p>如果error in 包括错误，不需要做任何处理，除非进行“结尾”工作，如关闭相应的    文件，关闭相关的设备或断开相关的连接。</p>
+<p>如果错误发生在函数或者VI内部，函数就必须通过error out 输出错误信息。</p>
+<p>错误case结构：</p>
+<p>错误case结构就是一个有错误簇连接到其条件端子的case结构。只要将所有的功能    代码“打包”放入错误case结构，子VI 就能够完成所期望的工作。</p>
+<p>汇总错误：</p>
+<p>错误簇只能包含一个错误信息，Merge Error.vi 将多个错误簇输入汇总成一个单独的错误输出。</p>
+<p>如果同时有多个错误输出，那必须对错误设置优先级，按照优先级的顺序依次输出。</p>
+<blockquote>
+<p>数据采集</p>
+</blockquote>
+<p>DAQ系统在采集模拟时域信号时应满足下列指标：</p>
+<p>l 宽带：以高速率采样信号</p>
+<p>l 精确的采样时钟:在精确时间间隔内采样信号</p>
+<p>l 触发：在精确的时刻启动测量</p>
+<p>DAQ系统在采集模拟频域信号时应满足下列指标：</p>
+<p>n 宽带：以高速率采样信号，采样频率要求满足奈奎斯特定理</p>
+<p>n 精确的采样时钟：在精确时间间隔内采样信号</p>
+<p>n 触发：在精确的时刻启动测量</p>
+<p>n 分析功能：将时域信息转换为频域信息</p>
+<p>当建立DAQ系统时，要测量的任何信号最终都要变换为电压或电流。使用传感器可以将温度、压力、声音、光、湿度等物理现象转换为可测量的电信号。</p>
 
       
     </div>
@@ -469,7 +555,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SSM框架/" rel="tag"># SSM框架</a>
+            <a href="/tags/LabView基础学习/" rel="tag"># LabView基础学习</a>
           
         </div>
       
@@ -482,8 +568,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/29/github-hexo博客无法显示图片解决办法/" rel="next" title="github+hexo博客无法显示图片解决办法">
-                <i class="fa fa-chevron-left"></i> github+hexo博客无法显示图片解决办法
+              <a href="/2018/05/03/数据库转储sql文件导入导出问题/" rel="next" title="数据库转储sql文件导入导出问题">
+                <i class="fa fa-chevron-left"></i> 数据库转储sql文件导入导出问题
               </a>
             
           </div>
@@ -491,10 +577,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/15/web工程里的相对路径/" rel="prev" title="web工程里的相对路径">
-                web工程里的相对路径 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,10 +595,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2018/04/10/访问WEB-INF下的图片等静态资源/"
-     data-title="访问WEB-INF下的图片等静态资源"
+        <div class="ds-share flat" data-thread-key="2018/05/11/LabView基础学习（1）/"
+     data-title="LabView基础学习（1）"
      data-content=""
-     data-url="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/">
+     data-url="http://yoursite.com/2018/05/11/LabView基础学习（1）/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -547,8 +629,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/04/10/访问WEB-INF下的图片等静态资源/"
-           data-title="访问WEB-INF下的图片等静态资源" data-url="http://yoursite.com/2018/04/10/访问WEB-INF下的图片等静态资源/">
+      <div class="ds-thread" data-thread-key="2018/05/11/LabView基础学习（1）/"
+           data-title="LabView基础学习（1）" data-url="http://yoursite.com/2018/05/11/LabView基础学习（1）/">
       </div>
     </div>
 
