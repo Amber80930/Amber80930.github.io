@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="1. String 类**String是字符串常量，因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响。 注意： 123456789String s3 = &amp;quot;abc&amp;quot;;String s4 = new Str">
+<meta name="description" content="1. String 类**String是字符串常量，因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响。 注意：">
 <meta name="keywords" content="String、StringBuffer和StringBuilder">
 <meta property="og:type" content="article">
 <meta property="og:title" content="String、StringBuffer和StringBuilder">
 <meta property="og:url" content="http://yoursite.com/2018/06/20/String、StringBuffer和StringBuilder/index.html">
 <meta property="og:site_name" content="Amber">
-<meta property="og:description" content="1. String 类**String是字符串常量，因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响。 注意： 123456789String s3 = &amp;quot;abc&amp;quot;;String s4 = new Str">
+<meta property="og:description" content="1. String 类**String是字符串常量，因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响。 注意：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/String、StringBuffer和StringBuilder/图1.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/String、StringBuffer和StringBuilder/图2.jpg">
@@ -96,10 +96,10 @@
 <meta property="og:image" content="http://yoursite.com/2018/06/20/String、StringBuffer和StringBuilder/图7.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/String、StringBuffer和StringBuilder/图8.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/06/20/String、StringBuffer和StringBuilder/图9.jpg">
-<meta property="og:updated_time" content="2018-09-02T04:54:08.601Z">
+<meta property="og:updated_time" content="2018-09-02T05:05:09.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String、StringBuffer和StringBuilder">
-<meta name="twitter:description" content="1. String 类**String是字符串常量，因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响。 注意： 123456789String s3 = &amp;quot;abc&amp;quot;;String s4 = new Str">
+<meta name="twitter:description" content="1. String 类**String是字符串常量，因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响。 注意：">
 <meta name="twitter:image" content="http://yoursite.com/2018/06/20/String、StringBuffer和StringBuilder/图1.jpg">
 
 
@@ -423,14 +423,14 @@
 
       
         <h2 id="1-String-类"><a href="#1-String-类" class="headerlink" title="1. String 类**"></a>1. <strong>String 类<em>**</em></strong></h2><p>String是字符串常量，因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响。</p>
-<p><strong>注意：</strong></p>
+<p><strong>注意：</strong><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String s3 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">String s4 = new String(&quot;abc&quot;);</span><br><span class="line"></span><br><span class="line">System.out.println(s3==s4);//false</span><br><span class="line"></span><br><span class="line">System.out.println(s3.equals(s4));//true,</span><br><span class="line"></span><br><span class="line">//因为String重写了equals方法，建立了字符串自己的判断相同的依据（通过字符串对象中的字符来判断）</span><br></pre></td></tr></table></figure>
 <p>s3和s4的创建方式有什么不同呢？</p>
 <p>l s3创建，在内存中只有一个对象。这个对象在字符串常量池中</p>
 <p>l s4创建，在内存中有两个对象。一个new的对象在堆中，一个字符串本身对象，在字符串常量池中</p>
-<h3 id="1-1-String类的构造方法"><a href="#1-1-String类的构造方法" class="headerlink" title="1.1  String类的构造方法**"></a>1.1 <strong> String类的构造方法<em>**</em></strong></h3><p><img src="图1.jpg" alt="图一"> </p>
+<h3 id="1-1-String类的构造方法"><a href="#1-1-String类的构造方法" class="headerlink" title="1.1  String类的构造方法**"></a>1.1 <strong> String类的构造方法<em>**</em></strong></h3><p><img src="图1.jpg" alt="图1"></p>
 <h3 id="1-2-String类的常用方法"><a href="#1-2-String类的常用方法" class="headerlink" title="1.2 String类的常用方法**"></a>1.2 <strong>String类的常用方法<em>**</em></strong></h3><p>l 字符串中有多少个字符?</p>
-<p><img src="图2.jpg" alt="图二"></p>
+<p><img src="图2.jpg" alt="图2"></p>
 <p>l 获取部分字符串。</p>
 <p> <img src="图3.jpg" alt="图3"></p>
 <p>l 字符串是否以指定字符串开头。结尾同理。</p>
