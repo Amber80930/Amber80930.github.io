@@ -309,6 +309,456 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/20/String、StringBuffer和StringBuilder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amber">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amber">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/20/String、StringBuffer和StringBuilder/" itemprop="url">String、StringBuffer和StringBuilder</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T12:34:26+08:00">
+                2018-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/20/String、StringBuffer和StringBuilder/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/20/String、StringBuffer和StringBuilder/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-String-类"><a href="#1-String-类" class="headerlink" title="1. String 类**"></a>1. <strong>String 类<em>**</em></strong></h2><p>String是字符串常量，因此在每次对 String 类型进行改变的时候其实都等同于生成了一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响。</p>
+<p><strong>注意：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String s3 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">String s4 = new String(&quot;abc&quot;);</span><br><span class="line"></span><br><span class="line">System.out.println(s3==s4);//false</span><br><span class="line"></span><br><span class="line">System.out.println(s3.equals(s4));//true,</span><br><span class="line"></span><br><span class="line">//因为String重写了equals方法，建立了字符串自己的判断相同的依据（通过字符串对象中的字符来判断）</span><br></pre></td></tr></table></figure>
+<p>s3和s4的创建方式有什么不同呢？</p>
+<p>l s3创建，在内存中只有一个对象。这个对象在字符串常量池中</p>
+<p>l s4创建，在内存中有两个对象。一个new的对象在堆中，一个字符串本身对象，在字符串常量池中</p>
+<h3 id="1-1-String类的构造方法"><a href="#1-1-String类的构造方法" class="headerlink" title="1.1  String类的构造方法**"></a>1.1 <strong> String类的构造方法<em>**</em></strong></h3><p><img src="图1.jpg" alt="图一"> </p>
+<h3 id="1-2-String类的常用方法"><a href="#1-2-String类的常用方法" class="headerlink" title="1.2 String类的常用方法**"></a>1.2 <strong>String类的常用方法<em>**</em></strong></h3><p>l 字符串中有多少个字符?</p>
+<p><img src="图2.jpg" alt="图二"></p>
+<p>l 获取部分字符串。</p>
+<p> <img src="图3.jpg" alt="图3"></p>
+<p>l 字符串是否以指定字符串开头。结尾同理。</p>
+<p> <img src="图4.jpg" alt="图4"></p>
+<p>l 字符串中是否包含另一个字符串。</p>
+<p> <img src="图5.jpg" alt="图5"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str = &quot;abcde&quot;;</span><br><span class="line"></span><br><span class="line">int index = str.indexOf(“bcd”); //判断是否包含指定字符串，包含则返回第一次出现该字符串的索引，不包含则返回-1</span><br><span class="line"></span><br><span class="line">boolean b2 = str.contains(&quot;bcd&quot;);//判断是否包含指定字符串，包含返回true，不包含返回false</span><br></pre></td></tr></table></figure>
+<p>l 将字符串转成一个字符数组。或者字节数组。</p>
+<p><img src="图6.jpg" alt="tu6"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str = &quot;abcde&quot;;</span><br><span class="line"></span><br><span class="line">char[] chs = str.toCharArray();</span><br><span class="line"></span><br><span class="line">byte[] bytes = str.getBytes();</span><br></pre></td></tr></table></figure>
+<p>l 判断两个字符串中的内容是否相同</p>
+<p><img src="图7.jpg" alt="img"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String str = &quot;abcde&quot;;</span><br><span class="line"></span><br><span class="line">String str2 = &quot;abcde&quot;;</span><br><span class="line"></span><br><span class="line">String str3 = &quot;hello&quot;;</span><br><span class="line"></span><br><span class="line">boolean b1 = str.equals(str2);</span><br><span class="line"></span><br><span class="line">boolean b2 = str.equals(str3);</span><br></pre></td></tr></table></figure>
+<p>l 获取该字符串对象中的内容</p>
+<p><img src="图8.jpg" alt="img"> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str = new String(&quot;hello&quot;);</span><br><span class="line"></span><br><span class="line">System.out.println( str.toString() );</span><br><span class="line"></span><br><span class="line">System.out.pintln( str );</span><br></pre></td></tr></table></figure>
+<h2 id="2-StringBuffer类（字符串缓冲区）"><a href="#2-StringBuffer类（字符串缓冲区）" class="headerlink" title="2. StringBuffer类（字符串缓冲区）**"></a>2. <strong>StringBuffer类（字符串缓冲区）<em>**</em></strong></h2><p>StringBuffer又称为可变字符序列，它是一个类似于 String 的字符串缓冲区，通过某些方法调用可以改变该序列的长度和内容。</p>
+<p>原来StringBuffer是个字符串的缓冲区，即就是它是一个容器，容器中可以装很多字符串。并且能够对其中的字符串进行各种操作。</p>
+<h3 id="2-1-StringBuffer类的常用方法"><a href="#2-1-StringBuffer类的常用方法" class="headerlink" title="2.1 StringBuffer类的常用方法**"></a>2.1 <strong>StringBuffer类的常用方法<em>**</em></strong></h3><p><img src="图9.jpg" alt="img"> </p>
+<p>例子：</p>
+<p>int[] arr = {34,12,89,68};将一个int[]中元素转成字符串格式 [34,12,89,68]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public static String toString_2(int[] arr) &#123;</span><br><span class="line"></span><br><span class="line">		StringBuffer sb = new StringBuffer();		</span><br><span class="line"></span><br><span class="line">		sb.append(&quot;[&quot;);</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">			if(i!=arr.length-1)&#123;</span><br><span class="line"></span><br><span class="line">				sb.append(arr[i]+&quot;,&quot;);</span><br><span class="line"></span><br><span class="line">			&#125;else&#123;</span><br><span class="line"></span><br><span class="line">				sb.append(arr[i]+&quot;]&quot;);</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;		</span><br><span class="line"></span><br><span class="line">		return sb.toString();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>l 无论多少数据，数据是什么类型都不重要，只要最终变成字符串就可以使用StringBuffer这个容器</p>
+<h2 id="3-StringBuilder类"><a href="#3-StringBuilder类" class="headerlink" title="3. StringBuilder类**"></a>3. <strong>StringBuilder类<em>**</em></strong></h2><p>此类提供一个与 StringBuffer 兼容的 API，但不保证同步。与StringBuffer类区别在于StringBuffer中很多方法可以带有synchronized关键字，所以是线程安全的，但StringBuilder的方法则没有该关键字，所以不能保证线程安全。</p>
+<p>StringBuilder和StringBuffer的对象是变量，对变量进行操作就是直接对该对象进行更改，而不进行创建和回收的操作，所以速度要比String快很多。</p>
+<p>总结：</p>
+<p>l String：适用于少量的字符串操作的情况</p>
+<p>l StringBuilder：适用于单线程下在字符缓冲区进行大量操作的情况</p>
+<p>l StringBuffer：适用多线程下在字符缓冲区进行大量操作的情况</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+	</div>
+	
+    
+	
+
+    
+
+    
+	
+	
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/14/static、final、匿名内部类、代码块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amber">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amber">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/14/static、final、匿名内部类、代码块/" itemprop="url">static、final、匿名内部类、代码块</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-14T11:00:22+08:00">
+                2018-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/14/static、final、匿名内部类、代码块/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/14/static、final、匿名内部类、代码块/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-Final关键字"><a href="#1-Final关键字" class="headerlink" title="1.Final关键字**"></a><strong>1.Final关键字<em>**</em></strong></h2><p>继承的出现提高了代码的复用性，并方便开发。但随之也有问题，有些类在描述完之后，不想被继承，或者有些类中的部分方法功能是固定的，不想让子类重写。</p>
+<h3 id="1-1-final的特点"><a href="#1-1-final的特点" class="headerlink" title="1.1**final的特点**"></a><strong>1.1**</strong>final的特点<strong>**</strong></h3><p>l final修饰类不可以被继承，但是可以继承其他类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Yy &#123;&#125;</span><br><span class="line"></span><br><span class="line">final class Fu extends Yy&#123;&#125; //可以继承Yy类</span><br><span class="line"></span><br><span class="line">class Zi extends Fu&#123;&#125; //不能继承Fu类</span><br></pre></td></tr></table></figure>
+<p>l final修饰的方法不可以被覆盖,但父类中没有被final修饰方法，子类覆盖后可以加final。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Fu &#123;</span><br><span class="line"></span><br><span class="line">	// final修饰的方法，不可以被覆盖，但可以继承使用</span><br><span class="line"></span><br><span class="line">    public final void method1()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    public void method2()&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Zi extends Fu &#123;</span><br><span class="line"></span><br><span class="line">	//重写method2方法</span><br><span class="line"></span><br><span class="line">	public final void method2()&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>l final修饰的变量称为常量，这些变量只能赋值一次。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">final int i = 20;</span><br><span class="line"></span><br><span class="line">i = 30; //赋值报错，final修饰的变量只能赋值一次</span><br></pre></td></tr></table></figure>
+<p>l 引用类型的变量值为对象地址值，地址值不能更改，但是地址内的对象属性值可以修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">final Person p = new Person();</span><br><span class="line"></span><br><span class="line">Person p2 = new Person();</span><br><span class="line"></span><br><span class="line">p = p2; //final修饰的变量p，所记录的地址值不能改变</span><br><span class="line"></span><br><span class="line">p.name = &quot;小明&quot;;//可以更改p对象中name属性值</span><br><span class="line"></span><br><span class="line">p不能为别的对象，而p对象中的name或age属性值可更改。</span><br></pre></td></tr></table></figure>
+<p>l 修饰成员变量，需要在创建对象前赋值，否则报错。(当没有显式赋值时，多个构造方法的均需要为其赋值。)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Demo &#123;</span><br><span class="line"></span><br><span class="line">	//直接赋值</span><br><span class="line"></span><br><span class="line">	final int m = 100;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	//final修饰的成员变量，需要在创建对象前赋值，否则报错。</span><br><span class="line"></span><br><span class="line">	final int n; </span><br><span class="line"></span><br><span class="line">	public Demo()&#123;</span><br><span class="line"></span><br><span class="line">		//可以在创建对象时所调用的构造方法中，为变量n赋值</span><br><span class="line"></span><br><span class="line">		n = 2016;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Static关键字"><a href="#2-Static关键字" class="headerlink" title="2. Static关键字**"></a>2. <strong>Static关键字<em>**</em></strong></h2><h3 id="2-1-static特点"><a href="#2-1-static特点" class="headerlink" title="2.1**static特点**"></a><strong>2.1**</strong>static特点<strong>**</strong></h3><p>l 被static修饰的成员变量属于类，不属于这个类的某个对象。（也就是说，多个对象在访问或修改static修饰的成员变量时，其中一个对象将static成员变量值进行了修改，其他对象中的static成员变量值跟着改变，即多个对象共享同一个static成员变量）</p>
+<p>l 被static修饰的成员可以并且建议通过类名直接访问。</p>
+<p>访问静态成员的格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">类名.静态成员变量名</span><br><span class="line"></span><br><span class="line">类名.静态成员方法名(参数)</span><br><span class="line"></span><br><span class="line">对象名.静态成员变量名     	------不建议使用该方式，会出现警告</span><br><span class="line"></span><br><span class="line">对象名.静态成员方法名(参数) 	------不建议使用该方式，会出现警告</span><br></pre></td></tr></table></figure>
+<p>​        代码演示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Demo &#123;</span><br><span class="line"></span><br><span class="line">	//静态成员变量</span><br><span class="line"></span><br><span class="line">	public static int num = 100;</span><br><span class="line"></span><br><span class="line">	//静态方法</span><br><span class="line"></span><br><span class="line">	public static void method()&#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;静态方法&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Test &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(Demo.num);</span><br><span class="line"></span><br><span class="line">		Demo.method();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-static注意事项"><a href="#2-2-static注意事项" class="headerlink" title="2.2 **static注意事项**"></a><strong>2.2 **</strong>static注意事项<strong>**</strong></h3><p>l 静态内容是优先于对象存在，只能访问静态，不能使用this/super。静态修饰的内容存于静态区。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Demo &#123;</span><br><span class="line"></span><br><span class="line">	//成员变量</span><br><span class="line"></span><br><span class="line">	public int num = 100;</span><br><span class="line"></span><br><span class="line">	//静态方法</span><br><span class="line"></span><br><span class="line">	public static void method()&#123;</span><br><span class="line"></span><br><span class="line">		//this.num; 不能使用this/super。</span><br><span class="line"></span><br><span class="line">		System.out.println(this.num);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>l 同一个类中，静态成员只能访问静态成员</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Demo &#123;</span><br><span class="line"></span><br><span class="line">	//成员变量</span><br><span class="line"></span><br><span class="line">	public int num = 100;</span><br><span class="line"></span><br><span class="line">	//静态成员变量</span><br><span class="line"></span><br><span class="line">	public static int count = 200;</span><br><span class="line"></span><br><span class="line">	//静态方法</span><br><span class="line"></span><br><span class="line">	public static void method()&#123;</span><br><span class="line"></span><br><span class="line">		//System.out.println(num); 静态方法中，只能访问静态成员变量或静态成员方法</span><br><span class="line"></span><br><span class="line">		System.out.println(count);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>l main方法为静态方法仅仅为程序执行入口，它不属于任何一个对象，可以定义在任意类中。</p>
+<h3 id="2-3定义静态常量"><a href="#2-3定义静态常量" class="headerlink" title="2.3定义静态常量**"></a><strong>2.3定义静态常量<em>**</em></strong></h3><p>开发中，我们想在类中定义一个静态常量，通常使用public static final修饰的变量来完成定义。此时变量名用全部大写，多个单词使用下划线连接。</p>
+<p>定义格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static final 数据类型 变量名 = 值;</span><br></pre></td></tr></table></figure>
+<p>当我们想使用类的静态成员时，不需要创建对象，直接使用类名来访问即可。</p>
+<p>l 注意：</p>
+<p>接口中的每个成员变量都默认使用public static final修饰。</p>
+<p>所有接口中的成员变量已是静态常量，由于接口没有构造方法，所以必须显示赋值。可以直接用接口名访问。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">interface Inter &#123;</span><br><span class="line"></span><br><span class="line">	public static final int COUNT = 100;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    访问接口中的静态变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Inter.COUNT</span><br></pre></td></tr></table></figure>
+<h2 id="3-匿名内部类"><a href="#3-匿名内部类" class="headerlink" title="3. 匿名内部类**"></a>3. <strong>匿名内部类<em>**</em></strong></h2><h3 id="3-1匿名对象"><a href="#3-1匿名对象" class="headerlink" title="3.1匿名对象**"></a><strong>3.1匿名对象<em>**</em></strong></h3><p> 匿名对象是指创建对象时，只有创建对象的语句，却没有把对象地址值赋值给某个变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">创建一个普通对象</span><br><span class="line"></span><br><span class="line">Person p = new Person();</span><br><span class="line"></span><br><span class="line">创建一个匿名对象</span><br><span class="line"></span><br><span class="line">new Person();</span><br></pre></td></tr></table></figure>
+<p><strong>匿名对象的特点：<em>**</em></strong></p>
+<hr>
+<p>l 创建匿名对象直接使用，没有变量名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Person().eat()  //eat方法被一个没有名字的Person对象调用了。</span><br></pre></td></tr></table></figure>
+<p>l 匿名对象在没有指定其引用变量时，只能使用一次。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Person().eat(); 创建一个匿名对象，调用eat方法</span><br><span class="line"></span><br><span class="line">new Person().eat(); 想再次调用eat方法，重新创建了一个匿名对象</span><br></pre></td></tr></table></figure>
+<p>l 匿名对象可以作为方法接收的参数、方法返回值使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">class Demo &#123;</span><br><span class="line"></span><br><span class="line">	public static Person getPerson()&#123;</span><br><span class="line"></span><br><span class="line">		//普通方式</span><br><span class="line"></span><br><span class="line">		//Person p = new Person();	</span><br><span class="line"></span><br><span class="line">		//return p;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		//匿名对象作为方法返回值</span><br><span class="line"></span><br><span class="line">		return new Person(); </span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	public static void method(Person p)&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">class Test &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//调用getPerson方法，得到一个Person对象</span><br><span class="line"></span><br><span class="line">		Person person = Demo.getPerson();</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		//调用method方法</span><br><span class="line"></span><br><span class="line">		Demo.method(person);</span><br><span class="line"></span><br><span class="line">		//匿名对象作为方法接收的参数</span><br><span class="line"></span><br><span class="line">		Demo.method(new Person());</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-内部类"><a href="#3-2-内部类" class="headerlink" title="3.2 内部类**"></a><strong>3.2 内部类<em>**</em></strong></h3><p><strong>3.2.1 内部类概念<em>**</em></strong></p>
+<hr>
+<p>l 什么是内部类</p>
+<p>将类写在其他类的内部，可以写在其他类的成员位置和局部位置，这时写在其他类内部的类就称为内部类。其他类也称为外部类。</p>
+<p>l 什么时候使用内部类</p>
+<p>在描述事物时，若一个事物内部还包含其他可能包含的事物，比如在描述汽车时，汽车中还包含这发动机，这时发动机就可以使用内部类来描述。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class 汽车 &#123; //外部类</span><br><span class="line"></span><br><span class="line">	class 发动机 &#123; //内部类</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>l 内部类的分类</p>
+<p>内部类分为成员内部类与局部内部类。</p>
+<p>我们定义内部类时，就是一个正常定义类的过程，同样包含各种修饰符、继承与实现关系等。在内部类中可以直接访问外部类的所有成员。</p>
+<p><strong>3.2.2 成员内部类<em>**</em></strong></p>
+<hr>
+<p>成员内部类，定义在外部类中的成员位置。与类中的成员变量相似，可通过外部类对象进行访问</p>
+<p>l 定义格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class 外部类 &#123; </span><br><span class="line"></span><br><span class="line">	修饰符 class 内部类 &#123;</span><br><span class="line"></span><br><span class="line">		//其他代码</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>l 访问方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">外部类名.内部类名 变量名 = new 外部类名().new 内部类名();</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>3.2.3 局部内部类</strong></p>
+<p>局部内部类，定义在外部类方法中的局部位置。与访问方法中的局部变量相似，可通过调用方法进行访问</p>
+<p>l 定义格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class 外部类 &#123; </span><br><span class="line"></span><br><span class="line">	修饰符 返回值类型 方法名(参数) &#123;</span><br><span class="line"></span><br><span class="line">class 内部类 &#123;</span><br><span class="line"></span><br><span class="line">//其他代码</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>l 访问方式</p>
+<p>在外部类方法中，创建内部类对象，进行访问</p>
+<p>l 局部内部类代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">定义类</span><br><span class="line"></span><br><span class="line">class Party &#123;//外部类，聚会</span><br><span class="line"></span><br><span class="line">	public void puffBall()&#123;// 吹气球方法</span><br><span class="line"></span><br><span class="line">		class Ball &#123;// 内部类，气球</span><br><span class="line"></span><br><span class="line">              public void puff()&#123;</span><br><span class="line"></span><br><span class="line">     System.out.println(&quot;气球膨胀了&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//创建内部类对象，调用puff方法</span><br><span class="line"></span><br><span class="line">new Ball().puff();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">访问内部类</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">	//创建外部类对象</span><br><span class="line"></span><br><span class="line">	Party p = new Party();</span><br><span class="line"></span><br><span class="line">	//调用外部类中的puffBall方法</span><br><span class="line"></span><br><span class="line">	p.puffBall();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-匿名内部类"><a href="#3-3-匿名内部类" class="headerlink" title="3.3 匿名内部类**"></a><strong>3.3 匿名内部类<em>**</em></strong></h3><p><strong>作用：</strong>匿名内部类是创建某个类型子类对象的快捷方式。</p>
+<p><strong>格式：<em>**</em></strong></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">new 父类或接口()&#123;</span><br><span class="line"></span><br><span class="line">	//进行抽象方法重写</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>使用匿名对象的方式，将定义子类与创建子类对象两个步骤由一个格式一次完成，。虽然是两个步骤，但是两个步骤是连在一起完成的。</p>
+<p>匿名内部类如果不定义变量引用，则也是匿名对象。代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">new Person()&#123;</span><br><span class="line"></span><br><span class="line">	public void eat() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(“我吃了”);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;.eat();</span><br></pre></td></tr></table></figure>
+<h2 id="4-代码块"><a href="#4-代码块" class="headerlink" title="4. 代码块**"></a>4. <strong>代码块<em>**</em></strong></h2><h3 id="4-1-局部代码块"><a href="#4-1-局部代码块" class="headerlink" title="4.1 局部代码块**"></a>4.1 <strong>局部代码块<em>**</em></strong></h3><p>局部代码块是定义在方法或语句中</p>
+<p>特点：</p>
+<p>l 以”{}”划定的代码区域，此时只需要关注作用域的不同即可</p>
+<p>l 方法和类都是以代码块的方式划定边界的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Demo&#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args)	&#123;</span><br><span class="line"></span><br><span class="line">		&#123;</span><br><span class="line"></span><br><span class="line">         		 int x = 1;</span><br><span class="line"></span><br><span class="line">        		 System.out.println(&quot;普通代码块&quot; + x);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		int x = 99;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;代码块之外&quot; + x);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p>普通代码块1</p>
+<p>代码块之外99</p>
+<h3 id="4-2-构造代码块"><a href="#4-2-构造代码块" class="headerlink" title="4.2 构造代码块**"></a>4.2 <strong>构造代码块<em>**</em></strong></h3><p>构造代码块是定义在类中成员位置的代码块</p>
+<p>特点：</p>
+<p>l 优先于构造方法执行，构造代码块用于执行所有对象均需要的初始化动作</p>
+<p>l 每创建一个对象均会执行一次构造代码块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line"></span><br><span class="line">	private String name;</span><br><span class="line"></span><br><span class="line">	private int age;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">     //构造代码块</span><br><span class="line"></span><br><span class="line">	&#123;****</span><br><span class="line"></span><br><span class="line">**		System.out.println(&quot;构造代码块执行了&quot;);**</span><br><span class="line"></span><br><span class="line">**	&#125;**</span><br><span class="line"></span><br><span class="line">	Person()&#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;Person无参数的构造函数执行&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Person(int age)&#123;</span><br><span class="line"></span><br><span class="line">		this.age = age;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;Person（age）参数的构造函数执行&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class PersonDemo&#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args)	&#123;</span><br><span class="line"></span><br><span class="line">		Person p = new Person();</span><br><span class="line"></span><br><span class="line">		Person p1 = new Person(23);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-静态代码块"><a href="#4-3-静态代码块" class="headerlink" title="4.3 静态代码块**"></a>4.3 <strong>静态代码块<em>**</em></strong></h3><p>静态代码块是定义在成员位置，使用static修饰的代码块。</p>
+<p>特点：</p>
+<p>l 它优先于主方法执行、优先于构造代码块执行，当以任意形式第一次使用到该类时执行。</p>
+<p>l 该类不管创建多少对象，静态代码块只执行一次。</p>
+<p>l 可用于给静态变量赋值，用来给类进行初始化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line"></span><br><span class="line">	private String name;</span><br><span class="line"></span><br><span class="line">	private int age;</span><br><span class="line"></span><br><span class="line">     //静态代码块</span><br><span class="line"></span><br><span class="line">	static&#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;静态代码块执行了&quot;);</span><br></pre></td></tr></table></figure>
+<p>​    }</p>
+<p>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+	</div>
+	
+    
+	
+
+    
+
+    
+	
+	
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/10/继承抽象类和接口多态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -411,8 +861,7 @@
 
       
         
-          
-            <h2 id="1-1-继承"><a href="#1-1-继承" class="headerlink" title="1.1 继承"></a>1.1 继承</h2><h3 id="1-1-1继承的好处-amp-注意事项"><a href="#1-1-1继承的好处-amp-注意事项" class="headerlink" title="1.1.1继承的好处&amp;注意事项"></a>1.1.1继承的好处&amp;注意事项</h3><p><strong>继承的好处：</strong></p>
+          <h2 id="1-1-继承"><a href="#1-1-继承" class="headerlink" title="1.1 继承"></a>1.1 继承</h2><h3 id="1-1-1继承的好处-amp-注意事项"><a href="#1-1-1继承的好处-amp-注意事项" class="headerlink" title="1.1.1继承的好处&amp;注意事项"></a>1.1.1继承的好处&amp;注意事项</h3><p><strong>继承的好处：</strong></p>
 <p>1、继承的出现提高了代码的复用性，提高软件开发效率。</p>
 <p>2、继承的出现让类与类之间产生了关系，提供了多态的前提。</p>
 <p><strong>在类的继承中，需要注意一些问题，具体如下：</strong></p>
@@ -420,155 +869,14 @@
 <li><p>在Java中，类只支持单继承，不允许多继承，也就是说一个类只能有一个直接父类，例如下面这种情况是不合法的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;&#125; </span><br><span class="line">     class B&#123;&#125;</span><br><span class="line">     class C extends A,B&#123;&#125;  // C类不可以同时继承A类和B类</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>多个类可以继承一个父类，例如下面这种情况是允许的。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;&#125;</span><br><span class="line">    class B extends A&#123;&#125;</span><br><span class="line">    class C extends A&#123;&#125;   // 类B和类C都可以继承类A</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>l在Java中，多层继承是可以的，即一个类的父类可以再去继承另外的父类，例如C类继承自B类，而B类又可以去继承A类，这时，C类也可称作A类的子类。下面这种情况是允许的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;&#125;</span><br><span class="line">     class B extends A&#123;&#125;   // 类B继承类A，类B是类A的子类</span><br><span class="line">     class C extends B&#123;&#125;   // 类C继承类B，类C是类B的子类，同时也是类A的子类</span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>在Java中，子类和父类是一种相对概念，也就是说一个类是某个类父类的同时，也可以是另一个类的子类。例如上面的这种情况中，B类是A类的子类，同时又是C类的父类。</p>
-<h3 id="1-1-2-子类和父类的成员变量——访问"><a href="#1-1-2-子类和父类的成员变量——访问" class="headerlink" title="1.1.2 子类和父类的成员变量——访问"></a>1.1.2 子类和父类的成员变量——访问</h3><p><strong>几种访问权限：</strong></p>
-<p><img src="访问权限.jpg" alt="访问权限"></p>
-<p>当子父类中出现了同名成员变量时，在子类中若要访问父类中的成员变量，必须使用关键字super来完成。super用来表示当前对象中包含的父类对象空间的引用。</p>
-<p>​    在子类中，访问父类中的成员变量格式：</p>
-<p>​    super.父类中的成员变量</p>
-<h3 id="1-1-3-子类和父类的成员方法——重写"><a href="#1-1-3-子类和父类的成员方法——重写" class="headerlink" title="1.1.3 子类和父类的成员方法——重写"></a>1.1.3 子类和父类的成员方法——重写</h3><p><strong>成员方法特殊情况——覆盖</strong></p>
-<p>子类中出现与父类一模一样的方法时，会出现覆盖操作，也称为override重写、复写或者覆盖。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Fu</span><br><span class="line">&#123;</span><br><span class="line">	public void show()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;Fu show&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Zi extends Fu</span><br><span class="line">&#123;</span><br><span class="line">	//子类复写了父类的show方法</span><br><span class="line">	public void show()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;Zi show&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>方法重写的注意事项</strong></p>
-<p>重写需要注意的细节问题：</p>
-<ul>
-<li>子类方法覆盖父类方法，必须要保证权限大于等于父类权限。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Fu()&#123;	</span><br><span class="line"></span><br><span class="line">void show()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    public void method()&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Zi() extends Fu&#123;</span><br><span class="line"></span><br><span class="line">public void show()&#123;&#125;  //编译运行没问题</span><br><span class="line"></span><br><span class="line">    void method()&#123;&#125;      //编译错误</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>​</p>
-<ul>
-<li>写法上稍微注意:必须一模一样:方法的返回值类型 方法名 参数列表都要一样。</li>
-</ul>
-<p>总结：当一个类是另一个类中的一种时，可以通过继承，来继承属性与功能。如果父类具备的功能内容需要子类特殊定义时，进行方法重写。</p>
-<p><strong>重写和重载的区别</strong></p>
-<p><strong>重写(Override)</strong></p>
-<p>重写是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。即外壳不变，核心重写！ </p>
-<p><strong>方法的重写规则</strong></p>
-<p>l 参数列表必须完全与被重写方法的相同；</p>
-<p>l 返回类型必须完全与被重写方法的返回类型相同；</p>
-<p>l 访问权限不能比父类中被重写的方法的访问权限更低；（例如：如果父类的一个方法被声明为public，那么在子类中重写该方法就不能声明为protected）</p>
-<p>l 父类的成员方法只能被它的子类重写；</p>
-<p>l 声明为final的方法不能被重写；</p>
-<p>l 声明为static的方法不能被重写，但是能够被再次声明；</p>
-<p>l 子类和父类在同一个包中，那么子类可以重写父类所有方法，除了声明为private和final的方法；</p>
-<p>l 子类和父类不在同一个包中，那么子类只能够重写父类的声明为public和protected的非final方法；</p>
-<p>l 重写的方法能够抛出任何非强制异常，无论被重写的方法是否抛出异常。但是，重写的方法不能抛出新的强制性异常，或者比被重写方法声明的更广泛的强制性异常，反之则可以。</p>
-<p>l 构造方法不能被重写；</p>
-<p>l 如果不能继承一个方法，则不能重写这个方法。</p>
-</li>
-</ul>
-<p>  <strong>重载(overloading) </strong></p>
-<p>  重载是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。</p>
-<p>  每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。</p>
-<p>  只能重载构造函数</p>
-<p>  <strong>重载规则</strong></p>
-<p>  l 被重载的方法必须改变参数列表(参数个数或类型或顺序不一样)；</p>
-<p>  l 被重载的方法可以改变返回类型；</p>
-<p>  l 被重载的方法可以改变访问修饰符；</p>
-<p>  l 被重载的方法可以声明新的或更广的检查异常；</p>
-<p>  l 方法能够在同一个类中或者在一个子类中被重载；</p>
-<p>  l 无法以返回值类型作为重载函数的区分标准。</p>
-<h2 id="1-2-抽象类"><a href="#1-2-抽象类" class="headerlink" title="1.2 抽象类**"></a>1.2 <strong>抽象类<em>**</em></strong></h2><p>当编写一个类时，我们往往会为该类定义一些方法，这些方法是用来描述该类的功能具体实现方式，那么这些方法都有具体的方法体。</p>
-<p>但是有的时候，某个父类只是知道子类应该包含怎么样的方法，但是无法准确知道子类如何实现这些方法。方法功能声明相同，但方法功能主体不同。那么这时也可以抽取，但只抽取方法声明，不抽取方法主体。那么此方法就是一个抽象方法。</p>
-<h5 id="1-2-1-抽象类-amp-抽象方法的定义"><a href="#1-2-1-抽象类-amp-抽象方法的定义" class="headerlink" title="1.2.1**抽象类&amp;抽象方法的定义**"></a><strong>1.2.1**</strong>抽象类&amp;抽象方法的定义<strong>**</strong></h5><p>抽象方法定义的格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract 返回值类型 方法名(参数);</span><br></pre></td></tr></table></figure>
-<p>抽象类定义的格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">abstract class 类名 &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="1-2-2-抽象类的特点："><a href="#1-2-2-抽象类的特点：" class="headerlink" title="1.2.2**抽象类的特点：**"></a><strong>1.2.2**</strong>抽象类的特点：<strong>**</strong></h5><p>1、抽象类和抽象方法都需要被abstract修饰。抽象方法一定要定义在抽象类中。</p>
-<p>2、抽象类不可以直接创建对象，原因：调用抽象方法没有意义。</p>
-<p>3、只有覆盖了抽象类中所有的抽象方法后，其子类才可以创建对象。否则该子类还是一个抽象类。</p>
-<p>之所以继承抽象类，更多的是在思想，是面对共性类型操作会更简单。</p>
-<h5 id="1-2-3-抽象类的细节问题："><a href="#1-2-3-抽象类的细节问题：" class="headerlink" title="1.2.3**抽象类的细节问题：**"></a><strong>1.2.3**</strong>抽象类的细节问题：<strong>**</strong></h5><p>1、抽象类一定是个父类？    </p>
-<p>​        是的，因为不断抽取而来的。</p>
-<p>2、抽象类中是否可以不定义抽象方法。</p>
-<p>是可以的，那这个抽象类的存在到底有什么意义呢？不让该类创建对象,方法可以直接让子类去使用</p>
-<p>3、抽象关键字abstract不可以和哪些关键字共存？    </p>
-<ul>
-<li>1、private：私有的方法子类是无法继承到的，也不存在覆盖，而abstract和private一起使用修饰方法，abstract既要子类去实现这个方法，而private修饰子类根本无法得到父类这个方法。互相矛盾。</li>
-<li>2、final，暂时不关注，后面学</li>
-<li>3、static，暂时不关注，后面学</li>
-</ul>
-<h2 id="1-3-接口"><a href="#1-3-接口" class="headerlink" title="1.3 接口**"></a>1.3 <strong>接口<em>**</em></strong></h2><p>接口是功能的集合，同样可看做是一种数据类型，是比抽象类更为抽象的”类”。</p>
-<p>接口只描述所应该具备的方法，并没有具体实现，具体的实现由接口的实现类(相当于接口的子类)来完成。这样将功能的定义与实现分离，优化了程序设计。</p>
-<h5 id="1-3-1-类实现接口"><a href="#1-3-1-类实现接口" class="headerlink" title="1.3.1**类实现接口**"></a><strong>1.3.1**</strong>类实现接口<strong>**</strong></h5><p>类与接口的关系为实现关系，即类实现接口。实现的动作类似继承，只是关键字不同，实现使用implements。</p>
-<p>其他类(实现类)实现接口后，就相当于声明：”我应该具备这个接口中的功能”。实现类仍然需要重写方法以实现具体的功能。</p>
-<p>格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class 类 implements 接口 &#123;</span><br><span class="line"></span><br><span class="line">	重写接口中方法</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在类实现接口后，该类就会将接口中的抽象方法继承过来，此时该类需要重写该抽象方法，完成具体的逻辑。</p>
-<p>l 接口中定义功能，当需要具有该功能时，可以让类实现该接口，只声明了应该具备该方法，是功能的声明。</p>
-<p>l 在具体实现类中重写方法，实现功能，是方法的具体实现。</p>
-<p>于是，通过以上两个动作将功能的声明与实现便分开了。</p>
-<p>一个类可以实现多个接口，即多实现；也可以继承类的同时实现接口，即多继承。</p>
-<h5 id="1-3-2-接口的思想"><a href="#1-3-2-接口的思想" class="headerlink" title="1.3.2**接口的思想**"></a><strong>1.3.2**</strong>接口的思想<strong>**</strong></h5><p>前面学习了接口的代码体现，现在来学习接口的思想，接下里从生活中的例子进行说明。</p>
-<p><strong>举例：</strong>我们都知道电脑上留有很多个插口，而这些插口可以插入相应的设备，这些设备为什么能插在上面呢？主要原因是这些设备在生产的时候符合了这个插口的使用规则，否则将无法插入接口中，更无法使用。发现这个插口的出现让我们使用更多的设备。</p>
-<p><strong>总结：</strong>接口在开发中的它好处</p>
-<p>1、接口的出现扩展了功能。</p>
-<p>2、接口其实就是暴漏出来的规则。</p>
-<p>3、接口的出现降低了耦合性，即设备与设备之间实现了解耦。</p>
-<p>接口的出现方便后期使用和维护，一方是在使用接口（如电脑），一方在实现接口（插在插口上的设备）。例如：笔记本使用这个规则（接口），电脑外围设备实现这个规则（接口）。</p>
-<h5 id="1-3-3-接口和抽象类的区别"><a href="#1-3-3-接口和抽象类的区别" class="headerlink" title="1.3.3**接口和抽象类的区别**"></a><strong>1.3.3**</strong>接口和抽象类的区别<strong>**</strong></h5><p><strong>相同点:<em>**</em></strong></p>
-<p>l 都位于继承的顶端,用于被其他类实现或继承;</p>
-<p>l 都不能直接实例化对象;</p>
-<p>l 都包含抽象方法,其子类都必须覆写这些抽象方法;</p>
-<p><strong>区别:<em>**</em></strong></p>
-<p>l 抽象类为部分方法提供实现,避免子类重复实现这些方法,提高代码重用性;接口只能包含抽象方法;</p>
-<p>l 一个类只能继承一个直接父类(可能是抽象类),却可以实现多个接口;(接口弥补了Java的单继承)</p>
-<p>l 抽象类是这个事物中应该具备的你内容, 继承体系是一种 is..a关系</p>
-<p>l 接口是这个事物中的额外内容,继承体系是一种 like..a关系</p>
-<p>二者的选用:</p>
-<p>l 优先选用接口,尽量少用抽象类;</p>
-<p>l 需要定义子类的行为,又要为子类提供共性功能时才选用抽象类;</p>
-<h2 id="1-4-多态"><a href="#1-4-多态" class="headerlink" title="1.4 多态**"></a>1.4 <strong>多态<em>**</em></strong></h2><p>最终多态体现为父类引用变量可以指向子类对象。</p>
-<p>多态的前提是必须有子父类关系或者类实现接口关系，否则无法完成多态。</p>
-<p>在使用多态后的父类引用变量调用方法时，会调用子类重写后的方法。</p>
-<h5 id="1-4-1-多态的定义与使用格式"><a href="#1-4-1-多态的定义与使用格式" class="headerlink" title="1.4.1**多态的定义与使用格式**"></a><strong>1.4.1**</strong>多态的定义与使用格式<strong>**</strong></h5><p>多态的定义格式：就是父类的引用变量指向子类对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父类类型  变量名 = new 子类类型();</span><br><span class="line"></span><br><span class="line">变量名.方法名();</span><br></pre></td></tr></table></figure>
-<p>l 普通类多态定义的格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">父类 变量名 = new 子类();</span><br><span class="line"></span><br><span class="line">如：	class Fu &#123;&#125;</span><br><span class="line"></span><br><span class="line">	class Zi extends Fu &#123;&#125;</span><br><span class="line"></span><br><span class="line">	//类的多态使用</span><br><span class="line"></span><br><span class="line">Fu f = new Zi();</span><br></pre></td></tr></table></figure>
-<p>l 抽象类多态定义的格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">抽象类 变量名 = new 抽象类子类();</span><br><span class="line"></span><br><span class="line">如：	abstract class Fu &#123;</span><br><span class="line"></span><br><span class="line">         public abstract void method();</span><br><span class="line"></span><br><span class="line">	     &#125;</span><br><span class="line"></span><br><span class="line">class Zi extends Fu &#123;</span><br><span class="line"></span><br><span class="line">public void method()&#123;</span><br><span class="line"></span><br><span class="line">		      System.out.println(“重写父类抽象方法”);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//类的多态使用</span><br><span class="line"></span><br><span class="line">Fu fu= new Zi();</span><br></pre></td></tr></table></figure>
-<p>l 接口多态定义的格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">接口 变量名 = new 接口实现类();</span><br><span class="line"></span><br><span class="line">如： interface Fu &#123;</span><br><span class="line"></span><br><span class="line">		     public abstract void method();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Zi implements Fu &#123;</span><br><span class="line"></span><br><span class="line">		     public void method()&#123;</span><br><span class="line"></span><br><span class="line">              System.out.println(“重写接口抽象方法”);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//接口的多态使用</span><br><span class="line"></span><br><span class="line">Fu fu = new Zi();</span><br></pre></td></tr></table></figure>
-<p>l 注意事项</p>
-<p>同一个父类的方法会被不同的子类重写。在调用方法时，调用的为各个子类重写后的方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">如 Person p1 = new Student();</span><br><span class="line"></span><br><span class="line">   Person p2 = new Teacher();</span><br><span class="line"></span><br><span class="line">   p1.work(); //p1会调用Student类中重写的work方法</span><br><span class="line"></span><br><span class="line">   p2.work(); //p2会调用Teacher类中重写的work方法</span><br></pre></td></tr></table></figure>
-<p>当变量名指向不同的子类对象时，由于每个子类重写父类方法的内容不同，所以会调用不同的方法。</p>
-<h5 id="1-4-2多态——成员变量和成员方法"><a href="#1-4-2多态——成员变量和成员方法" class="headerlink" title="1.4.2多态——成员变量和成员方法**"></a><strong>1.4.2多态——成员变量和成员方法<em>**</em></strong></h5><p>l 多态成员变量</p>
-<p>当子父类中出现同名的成员变量时，多态调用该变量时：</p>
-<p>编译时期：参考的是引用型变量所属的类中是否有被调用的成员变量。没有，编译失败。</p>
-<p>运行时期：也是调用引用型变量所属的类中的成员变量。</p>
-<p>简单记：编译和运行都参考等号的左边。编译运行看左边。</p>
-<p>l 多态成员方法</p>
-<p>编译时期：参考引用变量所属的类，如果没有类中没有调用的方法，编译失败。</p>
-<p>运行时期：参考引用变量所指的对象所属的类，并运行对象所属类中的成员方法。</p>
-<p>简而言之：编译看左边，运行看右边。</p>
-<h5 id="1-4-3-Instanceof-关键字"><a href="#1-4-3-Instanceof-关键字" class="headerlink" title="1.4.3 Instanceof 关键字**"></a><strong>1.4.3 Instanceof 关键字<em>**</em></strong></h5><p>我们可以通过instanceof关键字来判断某个对象是否属于某种数据类型。如学生的对象属于学生类，学生的对象也属于人类。</p>
-<p>使用格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boolean  b  = 对象  instanceof  数据类型;</span><br></pre></td></tr></table></figure>
-<p>​    如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Person p1 = new Student(); // 前提条件，学生类已经继承了人类</span><br><span class="line"></span><br><span class="line">boolean flag1 = p1 instanceof Student; //flag结果为true</span><br><span class="line"></span><br><span class="line">boolean flag2 = p1 instanceof Teacher; //flag结果为false</span><br></pre></td></tr></table></figure>
-<h5 id="1-4-4-多态-转型"><a href="#1-4-4-多态-转型" class="headerlink" title="1.4.4**多态-转型**"></a><strong>1.4.4**</strong>多态-转型<strong>**</strong></h5><p>多态的转型分为向上转型与向下转型两种：</p>
-<p>l 向上转型：当有子类对象赋值给一个父类引用时，便是向上转型，多态本身就是向上转型的过程。</p>
-<p>使用格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父类类型  变量名 = new 子类类型();</span><br><span class="line"></span><br><span class="line">如：Person p = new Student();</span><br></pre></td></tr></table></figure>
-<p>l 向下转型：一个已经向上转型的子类对象可以使用强制类型转换的格式，将父类引用转为子类引用，这个过程是向下转型。如果是直接创建父类对象，是无法向下转型的！</p>
-<p>使用格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">子类类型 变量名 = (子类类型) 父类类型的变量;</span><br><span class="line"></span><br><span class="line">如:Student stu = (Student) p;  //变量p 实际上指向Student对象</span><br></pre></td></tr></table></figure>
-<h2 id="1-5-面向对象的三大特征"><a href="#1-5-面向对象的三大特征" class="headerlink" title="1.5 面向对象的三大特征**"></a>1.5 <strong>面向对象的三大特征<em>**</em></strong></h2><p>总结下面向对象的三大特征封装、继承、多态的作用：</p>
-<p>l 封装：把对象的属性与方法的实现细节隐藏，仅对外提供一些公共的访问方式</p>
-<p>l 继承：子类会自动拥有父类所有可继承的属性和方法。</p>
-<p>l 多态：配合继承与方法重写提高了代码的复用性与扩展性；如果没有方法重写，则多态同样没有意义。</p>
-
-          
+<li><p>多个类可以继承一个父类，例如下面这种情况是允许的。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/10/继承抽象类和接口多态/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1779,336 +2087,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/23/Invalid-bound-statement-not-found/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amber">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amber">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/23/Invalid-bound-statement-not-found/" itemprop="url">Invalid-bound-statement-not-found</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-23T15:04:40+08:00">
-                2018-04-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/常见错误解决/" itemprop="url" rel="index">
-                    <span itemprop="name">常见错误解决</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/23/Invalid-bound-statement-not-found/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/23/Invalid-bound-statement-not-found/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <hr>
-<hr>
-<p>利用SSM框架搭建的web工程中 ，报错如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.thinkgem.jeesite.modules.sam.dao.SamTraboxinfoMapper.selectByExcemple</span><br><span class="line">   org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978)</span><br><span class="line">   org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:868)</span><br><span class="line">   javax.servlet.http.HttpServlet.service(HttpServlet.java:647)</span><br><span class="line">   org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842)</span><br><span class="line">   javax.servlet.http.HttpServlet.service(HttpServlet.java:728)</span><br><span class="line">   org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)</span><br><span class="line">   org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)</span><br><span class="line">   org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/23/Invalid-bound-statement-not-found/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-	
-	<div>
-		
-	</div>
-	
-    
-	
-
-    
-
-    
-	
-	
-	
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/根据经纬度显示路径地图/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amber">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amber">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/18/根据经纬度显示路径地图/" itemprop="url">根据经纬度显示路径地图</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T17:26:22+08:00">
-                2018-04-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SSM框架/" itemprop="url" rel="index">
-                    <span itemprop="name">SSM框架</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/18/根据经纬度显示路径地图/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/18/根据经纬度显示路径地图/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这几天做了一个根据经纬度在地图上显示运动路径的案例，下面做一下总结。</p>
-<p>一条运动路径的经纬度数据包含在一个txt文本文档中，存放在WEB-INF下的一个文件夹。主要的流程就是从数据库查询出txt文档的路径，获取里面的经纬度信息，存放到一个集合中，然后利用百度地图API实现地图和路径的显示。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/18/根据经纬度显示路径地图/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-	
-	<div>
-		
-	</div>
-	
-    
-	
-
-    
-
-    
-	
-	
-	
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2163,7 +2141,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2185,7 +2163,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
