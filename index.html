@@ -309,6 +309,319 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/10/继承抽象类和接口多态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amber">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amber">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/10/继承抽象类和接口多态/" itemprop="url">继承抽象类和接口多态</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-10T09:46:38+08:00">
+                2018-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/10/继承抽象类和接口多态/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/10/继承抽象类和接口多态/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-1-继承"><a href="#1-1-继承" class="headerlink" title="1.1 继承"></a>1.1 继承</h2><h3 id="1-1-1继承的好处-amp-注意事项"><a href="#1-1-1继承的好处-amp-注意事项" class="headerlink" title="1.1.1继承的好处&amp;注意事项"></a>1.1.1继承的好处&amp;注意事项</h3><p><strong>继承的好处：</strong></p>
+<p>1、继承的出现提高了代码的复用性，提高软件开发效率。</p>
+<p>2、继承的出现让类与类之间产生了关系，提供了多态的前提。</p>
+<p><strong>在类的继承中，需要注意一些问题，具体如下：</strong></p>
+<ul>
+<li><p>在Java中，类只支持单继承，不允许多继承，也就是说一个类只能有一个直接父类，例如下面这种情况是不合法的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;&#125; </span><br><span class="line">     class B&#123;&#125;</span><br><span class="line">     class C extends A,B&#123;&#125;  // C类不可以同时继承A类和B类</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多个类可以继承一个父类，例如下面这种情况是允许的。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;&#125;</span><br><span class="line">    class B extends A&#123;&#125;</span><br><span class="line">    class C extends A&#123;&#125;   // 类B和类C都可以继承类A</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>l在Java中，多层继承是可以的，即一个类的父类可以再去继承另外的父类，例如C类继承自B类，而B类又可以去继承A类，这时，C类也可称作A类的子类。下面这种情况是允许的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;&#125;</span><br><span class="line">     class B extends A&#123;&#125;   // 类B继承类A，类B是类A的子类</span><br><span class="line">     class C extends B&#123;&#125;   // 类C继承类B，类C是类B的子类，同时也是类A的子类</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>在Java中，子类和父类是一种相对概念，也就是说一个类是某个类父类的同时，也可以是另一个类的子类。例如上面的这种情况中，B类是A类的子类，同时又是C类的父类。</p>
+<h3 id="1-1-2-子类和父类的成员变量——访问"><a href="#1-1-2-子类和父类的成员变量——访问" class="headerlink" title="1.1.2 子类和父类的成员变量——访问"></a>1.1.2 子类和父类的成员变量——访问</h3><p><strong>几种访问权限：</strong></p>
+<p><img src="访问权限.jpg" alt="访问权限"></p>
+<p>当子父类中出现了同名成员变量时，在子类中若要访问父类中的成员变量，必须使用关键字super来完成。super用来表示当前对象中包含的父类对象空间的引用。</p>
+<p>​    在子类中，访问父类中的成员变量格式：</p>
+<p>​    super.父类中的成员变量</p>
+<h3 id="1-1-3-子类和父类的成员方法——重写"><a href="#1-1-3-子类和父类的成员方法——重写" class="headerlink" title="1.1.3 子类和父类的成员方法——重写"></a>1.1.3 子类和父类的成员方法——重写</h3><p><strong>成员方法特殊情况——覆盖</strong></p>
+<p>子类中出现与父类一模一样的方法时，会出现覆盖操作，也称为override重写、复写或者覆盖。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Fu</span><br><span class="line">&#123;</span><br><span class="line">	public void show()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;Fu show&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Zi extends Fu</span><br><span class="line">&#123;</span><br><span class="line">	//子类复写了父类的show方法</span><br><span class="line">	public void show()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;Zi show&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>方法重写的注意事项</strong></p>
+<p>重写需要注意的细节问题：</p>
+<ul>
+<li>子类方法覆盖父类方法，必须要保证权限大于等于父类权限。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Fu()&#123;	</span><br><span class="line"></span><br><span class="line">void show()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    public void method()&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Zi() extends Fu&#123;</span><br><span class="line"></span><br><span class="line">public void show()&#123;&#125;  //编译运行没问题</span><br><span class="line"></span><br><span class="line">    void method()&#123;&#125;      //编译错误</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<ul>
+<li>写法上稍微注意:必须一模一样:方法的返回值类型 方法名 参数列表都要一样。</li>
+</ul>
+<p>总结：当一个类是另一个类中的一种时，可以通过继承，来继承属性与功能。如果父类具备的功能内容需要子类特殊定义时，进行方法重写。</p>
+<p><strong>重写和重载的区别</strong></p>
+<p><strong>重写(Override)</strong></p>
+<p>重写是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。即外壳不变，核心重写！ </p>
+<p><strong>方法的重写规则</strong></p>
+<p>l 参数列表必须完全与被重写方法的相同；</p>
+<p>l 返回类型必须完全与被重写方法的返回类型相同；</p>
+<p>l 访问权限不能比父类中被重写的方法的访问权限更低；（例如：如果父类的一个方法被声明为public，那么在子类中重写该方法就不能声明为protected）</p>
+<p>l 父类的成员方法只能被它的子类重写；</p>
+<p>l 声明为final的方法不能被重写；</p>
+<p>l 声明为static的方法不能被重写，但是能够被再次声明；</p>
+<p>l 子类和父类在同一个包中，那么子类可以重写父类所有方法，除了声明为private和final的方法；</p>
+<p>l 子类和父类不在同一个包中，那么子类只能够重写父类的声明为public和protected的非final方法；</p>
+<p>l 重写的方法能够抛出任何非强制异常，无论被重写的方法是否抛出异常。但是，重写的方法不能抛出新的强制性异常，或者比被重写方法声明的更广泛的强制性异常，反之则可以。</p>
+<p>l 构造方法不能被重写；</p>
+<p>l 如果不能继承一个方法，则不能重写这个方法。</p>
+</li>
+</ul>
+<p>  <strong>重载(overloading) </strong></p>
+<p>  重载是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。</p>
+<p>  每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。</p>
+<p>  只能重载构造函数</p>
+<p>  <strong>重载规则</strong></p>
+<p>  l 被重载的方法必须改变参数列表(参数个数或类型或顺序不一样)；</p>
+<p>  l 被重载的方法可以改变返回类型；</p>
+<p>  l 被重载的方法可以改变访问修饰符；</p>
+<p>  l 被重载的方法可以声明新的或更广的检查异常；</p>
+<p>  l 方法能够在同一个类中或者在一个子类中被重载；</p>
+<p>  l 无法以返回值类型作为重载函数的区分标准。</p>
+<h2 id="1-2-抽象类"><a href="#1-2-抽象类" class="headerlink" title="1.2 抽象类**"></a>1.2 <strong>抽象类<em>**</em></strong></h2><p>当编写一个类时，我们往往会为该类定义一些方法，这些方法是用来描述该类的功能具体实现方式，那么这些方法都有具体的方法体。</p>
+<p>但是有的时候，某个父类只是知道子类应该包含怎么样的方法，但是无法准确知道子类如何实现这些方法。方法功能声明相同，但方法功能主体不同。那么这时也可以抽取，但只抽取方法声明，不抽取方法主体。那么此方法就是一个抽象方法。</p>
+<h5 id="1-2-1-抽象类-amp-抽象方法的定义"><a href="#1-2-1-抽象类-amp-抽象方法的定义" class="headerlink" title="1.2.1**抽象类&amp;抽象方法的定义**"></a><strong>1.2.1**</strong>抽象类&amp;抽象方法的定义<strong>**</strong></h5><p>抽象方法定义的格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract 返回值类型 方法名(参数);</span><br></pre></td></tr></table></figure>
+<p>抽象类定义的格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">abstract class 类名 &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="1-2-2-抽象类的特点："><a href="#1-2-2-抽象类的特点：" class="headerlink" title="1.2.2**抽象类的特点：**"></a><strong>1.2.2**</strong>抽象类的特点：<strong>**</strong></h5><p>1、抽象类和抽象方法都需要被abstract修饰。抽象方法一定要定义在抽象类中。</p>
+<p>2、抽象类不可以直接创建对象，原因：调用抽象方法没有意义。</p>
+<p>3、只有覆盖了抽象类中所有的抽象方法后，其子类才可以创建对象。否则该子类还是一个抽象类。</p>
+<p>之所以继承抽象类，更多的是在思想，是面对共性类型操作会更简单。</p>
+<h5 id="1-2-3-抽象类的细节问题："><a href="#1-2-3-抽象类的细节问题：" class="headerlink" title="1.2.3**抽象类的细节问题：**"></a><strong>1.2.3**</strong>抽象类的细节问题：<strong>**</strong></h5><p>1、抽象类一定是个父类？    </p>
+<p>​        是的，因为不断抽取而来的。</p>
+<p>2、抽象类中是否可以不定义抽象方法。</p>
+<p>是可以的，那这个抽象类的存在到底有什么意义呢？不让该类创建对象,方法可以直接让子类去使用</p>
+<p>3、抽象关键字abstract不可以和哪些关键字共存？    </p>
+<ul>
+<li>1、private：私有的方法子类是无法继承到的，也不存在覆盖，而abstract和private一起使用修饰方法，abstract既要子类去实现这个方法，而private修饰子类根本无法得到父类这个方法。互相矛盾。</li>
+<li>2、final，暂时不关注，后面学</li>
+<li>3、static，暂时不关注，后面学</li>
+</ul>
+<h2 id="1-3-接口"><a href="#1-3-接口" class="headerlink" title="1.3 接口**"></a>1.3 <strong>接口<em>**</em></strong></h2><p>接口是功能的集合，同样可看做是一种数据类型，是比抽象类更为抽象的”类”。</p>
+<p>接口只描述所应该具备的方法，并没有具体实现，具体的实现由接口的实现类(相当于接口的子类)来完成。这样将功能的定义与实现分离，优化了程序设计。</p>
+<h5 id="1-3-1-类实现接口"><a href="#1-3-1-类实现接口" class="headerlink" title="1.3.1**类实现接口**"></a><strong>1.3.1**</strong>类实现接口<strong>**</strong></h5><p>类与接口的关系为实现关系，即类实现接口。实现的动作类似继承，只是关键字不同，实现使用implements。</p>
+<p>其他类(实现类)实现接口后，就相当于声明：”我应该具备这个接口中的功能”。实现类仍然需要重写方法以实现具体的功能。</p>
+<p>格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class 类 implements 接口 &#123;</span><br><span class="line"></span><br><span class="line">	重写接口中方法</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在类实现接口后，该类就会将接口中的抽象方法继承过来，此时该类需要重写该抽象方法，完成具体的逻辑。</p>
+<p>l 接口中定义功能，当需要具有该功能时，可以让类实现该接口，只声明了应该具备该方法，是功能的声明。</p>
+<p>l 在具体实现类中重写方法，实现功能，是方法的具体实现。</p>
+<p>于是，通过以上两个动作将功能的声明与实现便分开了。</p>
+<p>一个类可以实现多个接口，即多实现；也可以继承类的同时实现接口，即多继承。</p>
+<h5 id="1-3-2-接口的思想"><a href="#1-3-2-接口的思想" class="headerlink" title="1.3.2**接口的思想**"></a><strong>1.3.2**</strong>接口的思想<strong>**</strong></h5><p>前面学习了接口的代码体现，现在来学习接口的思想，接下里从生活中的例子进行说明。</p>
+<p><strong>举例：</strong>我们都知道电脑上留有很多个插口，而这些插口可以插入相应的设备，这些设备为什么能插在上面呢？主要原因是这些设备在生产的时候符合了这个插口的使用规则，否则将无法插入接口中，更无法使用。发现这个插口的出现让我们使用更多的设备。</p>
+<p><strong>总结：</strong>接口在开发中的它好处</p>
+<p>1、接口的出现扩展了功能。</p>
+<p>2、接口其实就是暴漏出来的规则。</p>
+<p>3、接口的出现降低了耦合性，即设备与设备之间实现了解耦。</p>
+<p>接口的出现方便后期使用和维护，一方是在使用接口（如电脑），一方在实现接口（插在插口上的设备）。例如：笔记本使用这个规则（接口），电脑外围设备实现这个规则（接口）。</p>
+<h5 id="1-3-3-接口和抽象类的区别"><a href="#1-3-3-接口和抽象类的区别" class="headerlink" title="1.3.3**接口和抽象类的区别**"></a><strong>1.3.3**</strong>接口和抽象类的区别<strong>**</strong></h5><p><strong>相同点:<em>**</em></strong></p>
+<p>l 都位于继承的顶端,用于被其他类实现或继承;</p>
+<p>l 都不能直接实例化对象;</p>
+<p>l 都包含抽象方法,其子类都必须覆写这些抽象方法;</p>
+<p><strong>区别:<em>**</em></strong></p>
+<p>l 抽象类为部分方法提供实现,避免子类重复实现这些方法,提高代码重用性;接口只能包含抽象方法;</p>
+<p>l 一个类只能继承一个直接父类(可能是抽象类),却可以实现多个接口;(接口弥补了Java的单继承)</p>
+<p>l 抽象类是这个事物中应该具备的你内容, 继承体系是一种 is..a关系</p>
+<p>l 接口是这个事物中的额外内容,继承体系是一种 like..a关系</p>
+<p>二者的选用:</p>
+<p>l 优先选用接口,尽量少用抽象类;</p>
+<p>l 需要定义子类的行为,又要为子类提供共性功能时才选用抽象类;</p>
+<h2 id="1-4-多态"><a href="#1-4-多态" class="headerlink" title="1.4 多态**"></a>1.4 <strong>多态<em>**</em></strong></h2><p>最终多态体现为父类引用变量可以指向子类对象。</p>
+<p>多态的前提是必须有子父类关系或者类实现接口关系，否则无法完成多态。</p>
+<p>在使用多态后的父类引用变量调用方法时，会调用子类重写后的方法。</p>
+<h5 id="1-4-1-多态的定义与使用格式"><a href="#1-4-1-多态的定义与使用格式" class="headerlink" title="1.4.1**多态的定义与使用格式**"></a><strong>1.4.1**</strong>多态的定义与使用格式<strong>**</strong></h5><p>多态的定义格式：就是父类的引用变量指向子类对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父类类型  变量名 = new 子类类型();</span><br><span class="line"></span><br><span class="line">变量名.方法名();</span><br></pre></td></tr></table></figure>
+<p>l 普通类多态定义的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">父类 变量名 = new 子类();</span><br><span class="line"></span><br><span class="line">如：	class Fu &#123;&#125;</span><br><span class="line"></span><br><span class="line">	class Zi extends Fu &#123;&#125;</span><br><span class="line"></span><br><span class="line">	//类的多态使用</span><br><span class="line"></span><br><span class="line">Fu f = new Zi();</span><br></pre></td></tr></table></figure>
+<p>l 抽象类多态定义的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">抽象类 变量名 = new 抽象类子类();</span><br><span class="line"></span><br><span class="line">如：	abstract class Fu &#123;</span><br><span class="line"></span><br><span class="line">         public abstract void method();</span><br><span class="line"></span><br><span class="line">	     &#125;</span><br><span class="line"></span><br><span class="line">class Zi extends Fu &#123;</span><br><span class="line"></span><br><span class="line">public void method()&#123;</span><br><span class="line"></span><br><span class="line">		      System.out.println(“重写父类抽象方法”);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//类的多态使用</span><br><span class="line"></span><br><span class="line">Fu fu= new Zi();</span><br></pre></td></tr></table></figure>
+<p>l 接口多态定义的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">接口 变量名 = new 接口实现类();</span><br><span class="line"></span><br><span class="line">如： interface Fu &#123;</span><br><span class="line"></span><br><span class="line">		     public abstract void method();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Zi implements Fu &#123;</span><br><span class="line"></span><br><span class="line">		     public void method()&#123;</span><br><span class="line"></span><br><span class="line">              System.out.println(“重写接口抽象方法”);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//接口的多态使用</span><br><span class="line"></span><br><span class="line">Fu fu = new Zi();</span><br></pre></td></tr></table></figure>
+<p>l 注意事项</p>
+<p>同一个父类的方法会被不同的子类重写。在调用方法时，调用的为各个子类重写后的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">如 Person p1 = new Student();</span><br><span class="line"></span><br><span class="line">   Person p2 = new Teacher();</span><br><span class="line"></span><br><span class="line">   p1.work(); //p1会调用Student类中重写的work方法</span><br><span class="line"></span><br><span class="line">   p2.work(); //p2会调用Teacher类中重写的work方法</span><br></pre></td></tr></table></figure>
+<p>当变量名指向不同的子类对象时，由于每个子类重写父类方法的内容不同，所以会调用不同的方法。</p>
+<h5 id="1-4-2多态——成员变量和成员方法"><a href="#1-4-2多态——成员变量和成员方法" class="headerlink" title="1.4.2多态——成员变量和成员方法**"></a><strong>1.4.2多态——成员变量和成员方法<em>**</em></strong></h5><p>l 多态成员变量</p>
+<p>当子父类中出现同名的成员变量时，多态调用该变量时：</p>
+<p>编译时期：参考的是引用型变量所属的类中是否有被调用的成员变量。没有，编译失败。</p>
+<p>运行时期：也是调用引用型变量所属的类中的成员变量。</p>
+<p>简单记：编译和运行都参考等号的左边。编译运行看左边。</p>
+<p>l 多态成员方法</p>
+<p>编译时期：参考引用变量所属的类，如果没有类中没有调用的方法，编译失败。</p>
+<p>运行时期：参考引用变量所指的对象所属的类，并运行对象所属类中的成员方法。</p>
+<p>简而言之：编译看左边，运行看右边。</p>
+<h5 id="1-4-3-Instanceof-关键字"><a href="#1-4-3-Instanceof-关键字" class="headerlink" title="1.4.3 Instanceof 关键字**"></a><strong>1.4.3 Instanceof 关键字<em>**</em></strong></h5><p>我们可以通过instanceof关键字来判断某个对象是否属于某种数据类型。如学生的对象属于学生类，学生的对象也属于人类。</p>
+<p>使用格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boolean  b  = 对象  instanceof  数据类型;</span><br></pre></td></tr></table></figure>
+<p>​    如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Person p1 = new Student(); // 前提条件，学生类已经继承了人类</span><br><span class="line"></span><br><span class="line">boolean flag1 = p1 instanceof Student; //flag结果为true</span><br><span class="line"></span><br><span class="line">boolean flag2 = p1 instanceof Teacher; //flag结果为false</span><br></pre></td></tr></table></figure>
+<h5 id="1-4-4-多态-转型"><a href="#1-4-4-多态-转型" class="headerlink" title="1.4.4**多态-转型**"></a><strong>1.4.4**</strong>多态-转型<strong>**</strong></h5><p>多态的转型分为向上转型与向下转型两种：</p>
+<p>l 向上转型：当有子类对象赋值给一个父类引用时，便是向上转型，多态本身就是向上转型的过程。</p>
+<p>使用格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父类类型  变量名 = new 子类类型();</span><br><span class="line"></span><br><span class="line">如：Person p = new Student();</span><br></pre></td></tr></table></figure>
+<p>l 向下转型：一个已经向上转型的子类对象可以使用强制类型转换的格式，将父类引用转为子类引用，这个过程是向下转型。如果是直接创建父类对象，是无法向下转型的！</p>
+<p>使用格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">子类类型 变量名 = (子类类型) 父类类型的变量;</span><br><span class="line"></span><br><span class="line">如:Student stu = (Student) p;  //变量p 实际上指向Student对象</span><br></pre></td></tr></table></figure>
+<h2 id="1-5-面向对象的三大特征"><a href="#1-5-面向对象的三大特征" class="headerlink" title="1.5 面向对象的三大特征**"></a>1.5 <strong>面向对象的三大特征<em>**</em></strong></h2><p>总结下面向对象的三大特征封装、继承、多态的作用：</p>
+<p>l 封装：把对象的属性与方法的实现细节隐藏，仅对外提供一些公共的访问方式</p>
+<p>l 继承：子类会自动拥有父类所有可继承的属性和方法。</p>
+<p>l 多态：配合继承与方法重写提高了代码的复用性与扩展性；如果没有方法重写，则多态同样没有意义。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+	</div>
+	
+    
+	
+
+    
+
+    
+	
+	
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/01/LabView的高级数据概念/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1796,171 +2109,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/web工程里的相对路径/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amber">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amber">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/web工程里的相对路径/" itemprop="url">web工程里的相对路径</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T16:29:55+08:00">
-                2018-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SSM框架/" itemprop="url" rel="index">
-                    <span itemprop="name">SSM框架</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/15/web工程里的相对路径/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/15/web工程里的相对路径/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<hr>
-<p>一直搞不清楚web工程里面的各种相对路径应该怎么写，用了很多时间来来回回的试。今天发现了一个方法。</p>
-<p>相对路径，就是相对于一个“基准”的路径，这个“基准”就是你要写的Java代码 所在的路径。</p>
-<p>如果你不能确定当前代码所在的具体路径，可以先打印一下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(new File(&quot;.&quot;).getAbsolutePath());</span><br></pre></td></tr></table></figure>
-<p>这样就可以根据这个路径，去写你的相对路径，利用符号”../“可以实现向上一级目录的跳转。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-	
-	<div>
-		
-	</div>
-	
-    
-	
-
-    
-
-    
-	
-	
-	
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2015,7 +2163,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2026,7 +2174,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2037,7 +2185,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
