@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/线程2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/网络编程UDP、TCP协议/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Amber">
@@ -328,7 +328,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/03/线程2/" itemprop="url">线程2</a></h1>
+                <a class="post-title-link" href="/2018/09/03/网络编程UDP、TCP协议/" itemprop="url">网络编程UDP、TCP协议</a></h1>
         
 
         <div class="post-meta">
@@ -340,7 +340,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T11:44:04+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T12:54:47+08:00">
                 2018-09-03
               </time>
             
@@ -351,6 +351,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -359,8 +381,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/03/线程2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/03/线程2/" itemprop="commentCount"></span>
+                <a href="/2018/09/03/网络编程UDP、TCP协议/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/03/网络编程UDP、TCP协议/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -390,7 +412,107 @@
       
         
           
-            
+            <h2 id="1-网络通信协议"><a href="#1-网络通信协议" class="headerlink" title="1. 网络通信协议"></a>1. <strong>网络通信协议</strong></h2><p><img src="1.jpg" alt="img"> </p>
+<p><strong>图一TCP/IP网络模型</strong> </p>
+<p>链路层：<a href="http://zhidao.baidu.com/search?word=%CA%FD%BE%DD%C1%B4%C2%B7%B2%E3&amp;fr=qb_search_exp&amp;ie=gbk" target="_blank" rel="noopener">链路层</a>是用于定义物理传输通道，通常是对某些网络连接设备的驱动协议，例如针对光纤、<a href="http://zhidao.baidu.com/search?word=%CB%AB%BD%CA%CF%DF&amp;fr=qb_search_exp&amp;ie=gbk" target="_blank" rel="noopener">网线</a>提供的驱动。</p>
+<p>网络层：网络层是整个TCP/IP协议的核心，它主要用于将传输的数据进行分组，将分组数据发送到目标计算机或者网络。</p>
+<p>传输层：主要使网络程序进行通信，在进行网络通信时，可以采用TCP协议，也可以采用UDP协议。</p>
+<p>应用层：主要负责应用程序的协议，例如HTTP协议、FTP协议等。</p>
+<h3 id="1-1-IP地址和端口号"><a href="#1-1-IP地址和端口号" class="headerlink" title="1.1 IP地址和端口号**"></a><strong>1.1 </strong>IP地址和端口号<em>**</em></h3><font color="blue">要想使网络中的计算机能够进行通信，必须为每台计算机指定一个标识号，通过这个标识号来指定接受数据的计算机或者发送数据的计算机。</font>
+
+<p>在TCP/IP协议中，这个标识号就是IP地址，它可以唯一标识一台计算机。</p>
+<p>通过IP地址可以连接到指定计算机，但如果想访问目标计算机中的某个应用程序，还需要指定端口号。<font color="blue">不同的在计算机中，应用程序是通过端口号区分的。</font>端口号是用两个字节（16位的二进制数）表示的，它的取值范围是0~65535，其中，0~1023之间的端口号用于一些知名的网络服务和系统应用，用户的普通应用程序需要使用1024以上的端口号，从而避免端口号被另外一个应用或服务所占用。</p>
+<p><img src="2.jpg" alt="img"> </p>
+<h3 id="1-2-InetAddress类"><a href="#1-2-InetAddress类" class="headerlink" title="1.2 InetAddress类"></a><strong>1.2 </strong>InetAddress<strong><strong>类</strong></strong></h3><p>JDK中提供了一个InetAdderss类，该类用于封装一个IP地址，并提供了一系列与IP地址相关的方法，下表中列出了InetAddress类的一些常用方法。</p>
+<p><img src="3.jpg" alt="img"> </p>
+<p>上图中，列举了InetAddress的四个常用方法。其中，前两个方法用于获得该类的实例对象，第一个方法用于获得表示指定主机的InetAddress对象，第二个方法用于获得表示本地的InetAddress对象。</p>
+<h2 id="2-UDP与TCP协议"><a href="#2-UDP与TCP协议" class="headerlink" title="2. UDP与TCP协议"></a>2. <strong>UDP与TCP协议</strong></h2><p>UDP和TCP是传输层的两个重要的高级协议，其中UDP是User Datagram Protocol的简称，称为用户数据报协议，TCP是Transmission Control Protocol的简称，称为传输控制协议。</p>
+<h3 id="2-1-UDP协议"><a href="#2-1-UDP协议" class="headerlink" title="2.1 UDP协议**"></a><strong>2.1 </strong>UDP协议<em>**</em></h3><font color="blue">UDP是无连接通信协议，即在数据传输时，数据的发送端和接收端不建立逻辑连接。</font>简单来说，当一台计算机向另外一台计算机发送数据时，发送端不会确认接收端是否存在，就会发出数据，同样接收端在收到数据时，也不会向发送端反馈是否收到数据。<br><br>由于使用UDP协议消耗资源小，通信效率高，所以通常都会用于音频、视频和普通数据的传输例如视频会议都使用UDP协议，因为这种情况即使偶尔丢失一两个数据包，也不会对接收结果产生太大影响。<br><br>### <strong>2.2 TCP协议</strong><br><br><font color="blue">TCP协议是面向连接的通信协议，即在传输数据前先在发送端和接收端建立逻辑连接，然后再传输数据，它提供了两台计算机之间可靠无差错的数据传输。</font>在TCP连接中必须要明确客户端与服务器端，由客户端向服务端发出连接请求，每次连接的创建都需要经过“三次握手”。第一次握手，客户端向服务器端发出连接请求，等待服务器确认，第二次握手，服务器端向客户端回送一个响应，通知客户端收到了连接请求，第三次握手，客户端再次向服务器端发送确认信息，确认连接。整个交互过程如下图所示。<br><br><img src="4.jpg" alt="img"><br><br>由于TCP协议的面向连接特性，它可以保证传输数据的安全性，所以是一个被广泛采用的协议，例如在下载文件时，如果数据接收不完整，将会导致文件数据丢失而不能被打开，因此，下载文件时必须采用TCP协议。<br><br>## 3. <strong>UDP通信</strong><br><br>### 3.1 <strong>DatagramPacket</strong>类<em>**</em><br><br>JDK中提供了一个DatagramPacket类，该类的实例对象就相当于一个集装箱，用于封装UDP通信中发送或者接收的数据。<br><br>在创建发送端和接收端的DatagramPacket对象时，使用的构造方法有所不同，接收端的构造方法只需要接收一个字节数组来存放接收到的数据，而发送端的构造方法不但要接收存放了发送数据的字节数组，还需要指定发送端IP地址和端口号。<br><br><img src="5.jpg" alt="img"><br><br>使用该构造方法在创建DatagramPacket对象时，没有指定IP地址和端口号。很明显，这样的对象<font color="blue">只能用于接收端</font>，不能用于发送端。因为发送端一定要明确指出数据的目的地(ip地址和端口号)，<font color="red">而接收端不需要明确知道数据的来源，只需要接收到数据即可。</font>
+
+<p><img src="6.jpg" alt="img"> </p>
+<p>使用该构造方法在创建DatagramPacket对象时，不仅指定了封装数据的字节数组和数据的大小，还指定了数据包的目标IP地址（addr）和端口号（port）。该对象通常用于发送端，因为在<font color="red">发送数据时必须指定接收端的IP地址和端口号，就好像发送货物的集装箱上面必须标明接收人的地址一样。</font></p>
+<p>DatagramPacket类中的常用方法如下表所示。</p>
+<p><img src="7.jpg" alt="img"> </p>
+<h3 id="3-2-DatagramSocket类"><a href="#3-2-DatagramSocket类" class="headerlink" title="3.2 DatagramSocket类**"></a>3.2 <strong>DatagramSocket</strong>类<em>**</em></h3><p>DatagramSocket类的作用就类似于码头，使用这个类的实例对象就可以发送和接收DatagramPacket数据包，发送数据的过程如下图所示。</p>
+<p>​    <img src="8.png" alt="img">    </p>
+<p>l DatagramSocket类的构造方法：</p>
+<p><img src="9.jpg" alt="img"> </p>
+<p>该构造方法用于创建发送端的DatagramSocket对象，在创建DatagramSocket对象时，并没有指定端口号，此时，系统会分配一个没有被其它网络程序所使用的端口号。</p>
+<p><img src="10.jpg" alt="img"> </p>
+<p>该构造方法既可用于创建接收端的DatagramSocket对象，又可以创建发送端的DatagramSocket对象，在创建接收端的DatagramSocket对象时，必须要指定一个端口号，这样就可以监听指定的端口。</p>
+<p>l DatagramSocket类的常用方法：</p>
+<p><img src="11.jpg" alt="img"> </p>
+<h3 id="3-3-UDP实现网络通信"><a href="#3-3-UDP实现网络通信" class="headerlink" title="3.3 UDP实现网络通信"></a>3.3 <strong>UDP实现网络通信</strong></h3><p>要实现UDP通信需要创建一个发送端程序和一个接收端程序，很明显，在通信时只有接收端程序先运行，才能避免因发送端发送的数据无法接收，而造成数据丢失。因此，首先需要来完成接收端程序的编写。</p>
+<ul>
+<li>UDP完成数据的发送</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"></span><br><span class="line">* 发送端</span><br><span class="line"></span><br><span class="line"> * 1,创建DatagramSocket对象</span><br><span class="line"></span><br><span class="line"> * 2，创建DatagramPacket对象，并封装数据</span><br><span class="line"></span><br><span class="line"> * 3，发送数据</span><br><span class="line"></span><br><span class="line"> * 4，释放流资源</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">public class UDPSend &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line"></span><br><span class="line">		//1,创建DatagramSocket对象</span><br><span class="line"></span><br><span class="line">		DatagramSocket sendSocket = new DatagramSocket();</span><br><span class="line"></span><br><span class="line">		//2，创建DatagramPacket对象，并封装数据</span><br><span class="line"></span><br><span class="line">		//public DatagramPacket(byte[] buf, int length, InetAddress address,  int port)</span><br><span class="line"></span><br><span class="line">		//构造数据报包，用来将长度为 length 的包发送到指定主机上的指定端口号。</span><br><span class="line"></span><br><span class="line">		byte[] buffer = &quot;hello,UDP&quot;.getBytes();</span><br><span class="line"></span><br><span class="line">		DatagramPacket dp = new DatagramPacket(buffer, buffer.length, InetAddress.getByName(&quot;192.168.75.58&quot;), 12306);</span><br><span class="line"></span><br><span class="line">		//3，发送数据</span><br><span class="line"></span><br><span class="line">		//public void send(DatagramPacket p) 从此套接字发送数据报包</span><br><span class="line"></span><br><span class="line">		sendSocket.send(dp);</span><br><span class="line"></span><br><span class="line">		//4，释放流资源</span><br><span class="line"></span><br><span class="line">		sendSocket.close();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>UDP完成数据的接收</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"></span><br><span class="line"> * UDP接收端</span><br><span class="line"></span><br><span class="line"> * </span><br><span class="line"></span><br><span class="line"> * 1,创建DatagramSocket对象</span><br><span class="line"></span><br><span class="line"> * 2,创建DatagramPacket对象</span><br><span class="line"></span><br><span class="line"> * 3,接收数据存储到DatagramPacket对象中</span><br><span class="line"></span><br><span class="line"> * 4,获取DatagramPacket对象的内容</span><br><span class="line"></span><br><span class="line"> * 5,释放流资源</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">public class UDPReceive &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line"></span><br><span class="line">		//1,创建DatagramSocket对象,并指定端口号</span><br><span class="line"></span><br><span class="line">		DatagramSocket receiveSocket = new DatagramSocket(12306);</span><br><span class="line"></span><br><span class="line">		//2,创建DatagramPacket对象, 创建一个空的仓库</span><br><span class="line"></span><br><span class="line">		byte[] buffer = new byte[1024];</span><br><span class="line"></span><br><span class="line">		DatagramPacket dp = new DatagramPacket(buffer, 1024);</span><br><span class="line"></span><br><span class="line">		//3,接收数据存储到DatagramPacket对象中</span><br><span class="line"></span><br><span class="line">		receiveSocket.receive(dp);</span><br><span class="line"></span><br><span class="line">		//4,获取DatagramPacket对象的内容</span><br><span class="line"></span><br><span class="line">		//谁发来的数据  getAddress()</span><br><span class="line"></span><br><span class="line">		InetAddress ipAddress = dp.getAddress();</span><br><span class="line"></span><br><span class="line">		String ip = ipAddress.getHostAddress();//获取到了IP地址</span><br><span class="line"></span><br><span class="line">		//发来了什么数据  getData()</span><br><span class="line"></span><br><span class="line">		byte[] data = dp.getData();</span><br><span class="line"></span><br><span class="line">		//发来了多少数据 getLenth()</span><br><span class="line"></span><br><span class="line">		int length = dp.getLength();</span><br><span class="line"></span><br><span class="line">		//显示收到的数据</span><br><span class="line"></span><br><span class="line">		String dataStr = new String(data,0,length);</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;IP地址：&quot;+ip+ &quot;数据是&quot;+ dataStr);</span><br><span class="line"></span><br><span class="line">		//5,释放流资源</span><br><span class="line"></span><br><span class="line">		receiveSocket.close();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-TCP通信"><a href="#4-TCP通信" class="headerlink" title="4. TCP通信"></a>4. <strong>TCP通信</strong></h2><p>TCP通信同UDP通信一样，都能实现两台计算机之间的通信，通信的两端都需要创建socket对象。</p>
+<p>区别在于，UDP中只有发送端和接收端，不区分客户端与服务器端，计算机之间可以任意地发送数据。</p>
+<p>而<font color="blue">TCP通信是严格区分客户端与服务器端的，</font>在通信时，必须先由客户端去连接服务器端才能实现通信，服务器端不可以主动连接客户端，并且服务器端程序需要事先启动，等待客户端的连接。</p>
+<p>在JDK中提供了两个类用于实现TCP程序，<font color="red">一个是ServerSocket类，用于表示服务器端，一个是Socket类，用于表示客户端。</font></p>
+<h2 id="4-1-ServerSocket类"><a href="#4-1-ServerSocket类" class="headerlink" title="4.1 ServerSocket类"></a><strong>4.1 </strong>ServerSocket<strong><strong>类</strong></strong></h2><p>JDK的java.net包中提供了一个ServerSocket类，该类的实例对象可以实现一个服务器段的程序。</p>
+<ul>
+<li>ServerSocket的构造方法：</li>
+</ul>
+<p><img src="12.jpg" alt="img"> </p>
+<p>使用该构造方法在创建ServerSocket对象时，就可以将其绑定到一个指定的端口号上（参数port就是端口号）。</p>
+<p>接下来学习一下ServerSocket的常用方法，如表所示。</p>
+<p><img src="13.jpg" alt="img"> </p>
+<p>ServerSocket对象负责监听某台计算机的某个端口号，<font color="blue">在创建ServerSocket对象后，需要继续调用该对象的accept()方法，接收来自客户端的请求。</font></p>
+<p>当执行了accept()方法之后，服务器端程序会发生阻塞，直到客户端发出连接请求，accept()方法才会返回一个Scoket对象用于和客户端实现通信，程序才能继续向下执行。</p>
+<h3 id="4-2-Socket类"><a href="#4-2-Socket类" class="headerlink" title="4.2 Socket类"></a><strong>4.2 </strong>Socket<strong><strong>类</strong></strong></h3><ul>
+<li>Socket类同样提供了多种构造方法：</li>
+</ul>
+<p><img src="14.jpg" alt="img"></p>
+<p>使用该构造方法在创建Socket对象时，会根据参数去连接在指定地址和端口上运行的服务器程序，其中参数host接收的是一个字符串类型的IP地址。</p>
+<p><img src="15.jpg" alt="img"></p>
+<p>该方法在使用上与第二个构造方法类似，参数address用于接收一个InetAddress类型的对象，该对象用于封装一个IP地址。</p>
+<p>在以上Socket的构造方法中，最常用的是第一个构造方法。</p>
+<ul>
+<li>接下来学习一下Socket的常用方法：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>方法声明<em>**</em></strong></th>
+<th><strong>功能描述<em>**</em></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int getPort()</td>
+<td>该方法返回一个int类型对象，该对象是Socket对象与服务器端连接的端口号</td>
+</tr>
+<tr>
+<td>InetAddress getLocalAddress()</td>
+<td>该方法用于获取Socket对象绑定的本地IP地址，并将IP地址封装成InetAddress类型的对象返回</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>该方法用于关闭Socket连接，结束本次通信。在关闭socket之前，应将与socket相关的所有的输入/输出流全部关闭，这是因为一个良好的程序应该在执行完毕时释放所有的资源</td>
+</tr>
+<tr>
+<td>InputStream getInputStream()</td>
+<td>该方法返回一个InputStream类型的输入流对象，如果该对象是由服务器端的Socket返回，就用于读取客户端发送的数据，反之，用于读取服务器端发送的数据</td>
+</tr>
+<tr>
+<td>OutputStream getOutputStream()</td>
+<td>该方法返回一个OutputStream类型的输出流对象，如果该对象是由服务器端的Socket返回，就用于向客户端发送数据，反之，用于向服务器端发送数据</td>
+</tr>
+</tbody>
+</table>
+<p>在Socket类的常用方法中，getInputStream()和getOutStream()方法分别用于获取输入流和输出流。<font color="blue">当客户端和服务端连接建立后,自动创建IO流对象，所以使用流对象的时候不需要new，直接用socket类的get方法获取，数据是以IO流的形式进行交互的，从而实现通信。</font></p>
+<p>接下来通过一张图来描述服务器端和客户端的数据传输，如下图所示。</p>
+<p><img src="17.jpg" alt="img"> </p>
+<h3 id="4-3-TCP实现网络通信"><a href="#4-3-TCP实现网络通信" class="headerlink" title="4.3 TCP实现网络通信"></a><strong>4.3 TCP实现网络通信</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"></span><br><span class="line"> * TCP 服务器端</span><br><span class="line"></span><br><span class="line"> * </span><br><span class="line"></span><br><span class="line"> * 1,创建服务器ServerSocket对象（指定服务器端口号）</span><br><span class="line"></span><br><span class="line"> * 2，开启服务器了，等待客户端的连接，当客户端连接后，可以获取到连接服务器的客户端Socket对象</span><br><span class="line"></span><br><span class="line"> * 3,给客户端反馈信息</span><br><span class="line"></span><br><span class="line"> * 4,关闭流资源</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">public class TCPServer &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line"></span><br><span class="line">		//1,创建服务器ServerSocket对象（指定服务器端口号）</span><br><span class="line"></span><br><span class="line">		ServerSocket ss = new ServerSocket(8888);</span><br><span class="line"></span><br><span class="line">		//2，开启服务器了，等待客户端的连接，当客户端连接后，可以获取到连接服务器的客户端Socket对象</span><br><span class="line"></span><br><span class="line">		Socket s = ss.accept();</span><br><span class="line"></span><br><span class="line">		//3,给客户端反馈信息</span><br><span class="line"></span><br><span class="line">		/*</span><br><span class="line"></span><br><span class="line">		 * a,获取客户端的输出流</span><br><span class="line"></span><br><span class="line">		 * b,在服务端端，通过客户端的输出流写数据给客户端</span><br><span class="line"></span><br><span class="line">		 */</span><br><span class="line"></span><br><span class="line">		//a,获取客户端的输出流</span><br><span class="line"></span><br><span class="line">		OutputStream out = s.getOutputStream();</span><br><span class="line"></span><br><span class="line">		//b,在服务端端，通过客户端的输出流写数据给客户端</span><br><span class="line"></span><br><span class="line">		out.write(&quot;你已经连接上了服务器&quot;.getBytes());</span><br><span class="line"></span><br><span class="line">		//4,关闭流资源</span><br><span class="line"></span><br><span class="line">		out.close();</span><br><span class="line"></span><br><span class="line">		s.close();</span><br><span class="line"></span><br><span class="line">		//ss.close();  服务器流 通常都是不关闭的</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完成了服务器端程序的编写，接下来编写客户端程序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"></span><br><span class="line"> * TCP 客户端</span><br><span class="line"></span><br><span class="line"> * </span><br><span class="line"></span><br><span class="line"> * 1，创建客户端Socket对象,（指定要连接的服务器地址与端口号）</span><br><span class="line"></span><br><span class="line"> * 2,获取服务器端的反馈回来的信息</span><br><span class="line"></span><br><span class="line"> * 3,关闭流资源</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">public class TCPClient &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line"></span><br><span class="line">		//1，创建客户端Socket对象,（指定要连接的服务器地址与端口号）</span><br><span class="line"></span><br><span class="line">		Socket s = new Socket(&quot;192.168.74.58&quot;, 8888);</span><br><span class="line"></span><br><span class="line">		//2,获取服务器端的反馈回来的信息</span><br><span class="line"></span><br><span class="line">		InputStream in = s.getInputStream();</span><br><span class="line"></span><br><span class="line">		//获取获取流中的数据</span><br><span class="line"></span><br><span class="line">		byte[] buffer = new byte[1024];</span><br><span class="line"></span><br><span class="line">		//把流中的数据存储到数组中，并记录读取字节的个数</span><br><span class="line"></span><br><span class="line">		int length = in.read(buffer);</span><br><span class="line"></span><br><span class="line">		//显示数据</span><br><span class="line"></span><br><span class="line">		System.out.println( new String(buffer, 0 , length) );</span><br><span class="line"></span><br><span class="line">		//3,关闭流资源</span><br><span class="line"></span><br><span class="line">		in.close();</span><br><span class="line"></span><br><span class="line">		s.close();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -445,7 +567,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/线程1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/27/线程2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Amber">
@@ -464,7 +586,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/03/线程1/" itemprop="url">线程1</a></h1>
+                <a class="post-title-link" href="/2018/08/27/线程2/" itemprop="url">线程2</a></h1>
         
 
         <div class="post-meta">
@@ -476,8 +598,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T11:43:44+08:00">
-                2018-09-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T11:44:04+08:00">
+                2018-08-27
               </time>
             
 
@@ -487,6 +609,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -495,8 +639,173 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/03/线程1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/03/线程1/" itemprop="commentCount"></span>
+                <a href="/2018/08/27/线程2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/27/线程2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1-线程安全"><a href="#1-线程安全" class="headerlink" title="1. 线程安全"></a>1. <strong>线程安全</strong></h2><p>如果有多个线程在同时运行，而这些线程可能会同时运行这段代码。程序每次运行结果和单线程运行的结果是一样的，而且其他的变量的值也和预期的是一样的，就是线程安全的。</p>
+<p>其实，线程安全问题都是由全局变量及静态变量引起的。若每个线程中对全局变量、静态变量只有读操作，而无写操作，一般来说，这个全局变量是线程安全的；若有多个线程同时执行写操作，一般都需要考虑线程同步，否则的话就可能影响线程安全。</p>
+<h3 id="1-1线程同步（Synchronized-关键字）"><a href="#1-1线程同步（Synchronized-关键字）" class="headerlink" title="1.1线程同步（Synchronized 关键字）"></a><strong>1.1</strong>线程同步（Synchronized 关键字）
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/27/线程2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+	</div>
+	
+    
+	
+
+    
+
+    
+	
+	
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/线程1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amber">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amber">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/03/线程1/" itemprop="url">线程1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-03T11:43:44+08:00">
+                2018-08-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/03/线程1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/03/线程1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -526,7 +835,169 @@
       
         
           
-            
+            <h2 id="1-线程的概念"><a href="#1-线程的概念" class="headerlink" title="1. 线程的概念"></a>1. <strong>线程的概念</strong></h2><p>进程：进程指正在运行的程序。确切的来说，当一个程序进入内存运行，即变成一个进程，进程是处于运行过程中的程序，并且具有一定独立功能。</p>
+<p>线程：线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中是可以有多个线程的，这个应用程序也可以称之为多线程程序。</p>
+<font color="bule">jvm启动后，必然有一个执行路径(线程)从main方法开始的，一直执行到main方法结束，这个线程在java中称之为主线程。</font>
+
+<h2 id="2-创建线程的方法"><a href="#2-创建线程的方法" class="headerlink" title="2. 创建线程的方法"></a>2. <strong>创建线程的方法</strong></h2><p>创建新执行线程有两种方法。</p>
+<ul>
+<li>一种方法是将类声明为 Thread 的子类。该子类应重写 Thread 类的 run 方法。创建对象，开启线程。run方法相当于其他线程的main方法。</li>
+<li>另一种方法是声明一个实现 Runnable 接口的类。该类然后实现 run 方法。然后创建Runnable的子类对象，传入到某个线程的构造方法中，开启线程。</li>
+</ul>
+<h3 id="2-1-Thread类"><a href="#2-1-Thread类" class="headerlink" title="2.1 Thread类"></a>2.1 <strong>Thread类</strong></h3><p>构造方法：</p>
+<p><img src="1.jpg" alt="img"> </p>
+<p>常用方法：</p>
+<p><img src="2.jpg" alt="img"> </p>
+<h3 id="2-2-创建线程方法1——继承Thread类"><a href="#2-2-创建线程方法1——继承Thread类" class="headerlink" title="2.2 创建线程方法1——继承Thread类"></a>2.2 <strong>创建线程方法1——继承Thread类</strong></h3><ul>
+<li><p>创建线程的步骤：</p>
+<p>​    1 定义一个类继承Thread。</p>
+<p>​    2 重写run方法。</p>
+<p>​    3 创建子类对象，就是创建线程对象。</p>
+<p>​    4 调用start方法，开启线程并让线程执行，同时还会告诉jvm去调用run方法。</p>
+</li>
+</ul>
+<ul>
+<li>测试类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Demo01 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//创建自定义线程对象</span><br><span class="line"></span><br><span class="line">		MyThread mt = new MyThread(&quot;新的线程！&quot;);</span><br><span class="line"></span><br><span class="line">		//开启新线程</span><br><span class="line"></span><br><span class="line">		mt.start();</span><br><span class="line"></span><br><span class="line">		//在主方法中执行for循环</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(&quot;main线程！&quot;+i);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>自定义线程类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public class MyThread extends Thread &#123;</span><br><span class="line"></span><br><span class="line">	//定义指定线程名称的构造方法</span><br><span class="line"></span><br><span class="line">	public MyThread(String name) &#123;</span><br><span class="line"></span><br><span class="line">		//调用父类的String参数的构造方法，指定线程的名称</span><br><span class="line"></span><br><span class="line">		super(name);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line"></span><br><span class="line">	 * 重写run方法，完成该线程执行的逻辑</span><br><span class="line"></span><br><span class="line">	 */</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(getName()+&quot;：正在执行！&quot;+i);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="blue">线程对象调用 run方法和调用start方法区别？<br><br>线程对象调用run方法不开启线程，仅是对象调用方法。线程对象调用start开启线程，并让jvm调用run方法在开启的线程中执行。</font>
+
+<h3 id="2-3-创建线程方式2—实现Runnable接口"><a href="#2-3-创建线程方式2—实现Runnable接口" class="headerlink" title="2.3 创建线程方式2—实现Runnable接口"></a><strong>2.3 创建线程方式2</strong>—<strong><strong>实现Runnable接口</strong></strong></h3><p>创建线程的另一种方法是声明实现 Runnable 接口的类。该类然后实现 run 方法。然后创建Runnable的子类对象，传入到某个线程的构造方法中，开启线程。</p>
+<p>Runnable接口用来指定每个线程要执行的任务。包含了一个 run 的无参数抽象方法，需要由接口实现类重写该方法。</p>
+<ul>
+<li>接口中的方法</li>
+</ul>
+<p><img src="3.jpg" alt="img"> </p>
+<ul>
+<li>Thread类构造方法</li>
+</ul>
+<p><img src="4.jpg" alt="img"> </p>
+<ul>
+<li><p>创建线程的步骤。</p>
+<p>​    1、定义类实现Runnable接口。</p>
+<p>​    2、覆盖接口中的run方法。。</p>
+<p>​    3、创建Thread类的对象</p>
+<p>​    4、将Runnable接口的子类对象作为参数传递给Thread类的构造函数。</p>
+<p>​    5、调用Thread类的start方法开启线程。</p>
+</li>
+<li><p>代码演示：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class Demo02 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//创建线程执行目标类对象</span><br><span class="line"></span><br><span class="line">		Runnable runn = new MyRunnable();</span><br><span class="line"></span><br><span class="line">		//将Runnable接口的子类对象作为参数传递给Thread类的构造函数</span><br><span class="line"></span><br><span class="line">		Thread thread = new Thread(runn);</span><br><span class="line"></span><br><span class="line">		Thread thread2 = new Thread(runn);</span><br><span class="line"></span><br><span class="line">		//开启线程</span><br><span class="line"></span><br><span class="line">		thread.start();</span><br><span class="line"></span><br><span class="line">		thread2.start();</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(&quot;main线程：正在执行！&quot;+i);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>自定义线程执行任务类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public class MyRunnable implements Runnable&#123;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">	//定义线程要执行的run方法逻辑</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(&quot;我的线程：正在执行！&quot;+i);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="blue">为什么需要定一个类去实现Runnable接口呢？继承Thread类和实现Runnable接口有啥区别呢？</font>
+
+<ul>
+<li><p>线程类只是实现了Runable接口，还可以继承其他的类，避免了继承Thread类的单继承局限性。</p>
+</li>
+<li><p>创建Thread类的对象，只有创建Thread类的对象才可以创建线程。实现Runnable接口方式下，可以多个线程共享同一个目标对象，所以非常适合多个相同线程来处理同一份资源的情况。</p>
+<p>实现Runnable接口的方式，更加的符合面向对象，线程分为两部分，一部分线程对象，一部分线程任务。继承Thread类，线程对象和线程任务耦合在一起。一旦创建Thread类的子类对象，既是线程对象，有又有线程任务。实现Runnable接口，将线程任务单独分离出来封装成对象，类型就是Runnable接口类型。Runnable接口对线程对象和线程任务进行解耦。</p>
+</li>
+</ul>
+<h2 id="3-获取线程名称"><a href="#3-获取线程名称" class="headerlink" title="3. 获取线程名称"></a>3. 获取线程名称</h2><p>查阅Thread类的API文档发现有个方法是获取当前正在运行的线程对象。还有个方法是获取当前线程对象的名称。</p>
+<p><img src="5.jpg" alt="img"> </p>
+<ul>
+<li>Thread.currentThread()获取当前线程对象</li>
+<li>Thread.currentThread().getName();获取当前线程对象的名称</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">class MyThread extends Thread &#123;  //继承Thread</span><br><span class="line"></span><br><span class="line">	MyThread(String name)&#123;</span><br><span class="line"></span><br><span class="line">		super(name);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//复写其中的run方法</span><br><span class="line"></span><br><span class="line">	public void run()&#123;</span><br><span class="line"></span><br><span class="line">		for (int i=1;i&lt;=20 ;i++ )&#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(Thread.currentThread().getName()+&quot;,i=&quot;+i);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class ThreadDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) 	&#123;</span><br><span class="line"></span><br><span class="line">		//创建两个线程任务</span><br><span class="line"></span><br><span class="line">		MyThread d = new MyThread();</span><br><span class="line"></span><br><span class="line">		MyThread d2 = new MyThread();</span><br><span class="line"></span><br><span class="line">		d.run();//没有开启新线程, 在主线程调用run方法</span><br><span class="line"></span><br><span class="line">		d2.start();//开启一个新线程，新线程调用run方法</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过结果观察，原来主线程的名称：main；自定义的线程：Thread-0，线程多个时，数字顺延。如Thread-1……</p>
+<font color="red">进行多线程编程时，不要忘记了Java程序运行是从主线程开始，main方法就是主线程的线程执行内容。</font>
+
+<h2 id="4-线程的匿名内部类使用"><a href="#4-线程的匿名内部类使用" class="headerlink" title="4. 线程的匿名内部类使用"></a>4. <strong>线程的匿名内部类使用</strong></h2><p>使用线程的内匿名内部类方式，可以方便的实现每个线程执行不同的线程任务操作。</p>
+<ul>
+<li>方式1：创建线程对象时，直接重写Thread类中的run方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">new Thread() &#123;</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line"></span><br><span class="line">		for (int x = 0; x &lt; 40; x++) &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(Thread.currentThread().getName()</span><br><span class="line"></span><br><span class="line">					+ &quot;...X....&quot; + x);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;.start();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方式2：使用匿名内部类的方式实现Runnable接口，重新Runnable接口中的run方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Runnable r = new Runnable() &#123;</span><br><span class="line"></span><br><span class="line">			public void run() &#123;</span><br><span class="line"></span><br><span class="line">				for (int x = 0; x &lt; 40; x++) &#123;</span><br><span class="line"></span><br><span class="line">					System.out.println(Thread.currentThread().getName()</span><br><span class="line"></span><br><span class="line">							+ &quot;...Y....&quot; + x);</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;;</span><br><span class="line"></span><br><span class="line">		new Thread(r).start();</span><br></pre></td></tr></table></figure>
+<h2 id="5-线程池"><a href="#5-线程池" class="headerlink" title="5. 线程池"></a>5. <strong>线程池</strong></h2><p>线程池，其实就是一个容纳多个线程的容器，其中的线程可以反复使用，省去了频繁创建线程对象的操作，无需反复创建线程而消耗过多资源。</p>
+<h3 id="5-1-使用线程池方式1——实现Runnable接口"><a href="#5-1-使用线程池方式1——实现Runnable接口" class="headerlink" title="5.1 使用线程池方式1——实现Runnable接口"></a>5.1 使用线程池方式1——实现Runnable接口</h3><p>通常，线程池都是通过线程池工厂创建，再调用线程池中的方法获取线程，再通过线程去执行任务方法。    </p>
+<ul>
+<li>Executors：线程池创建工厂类<ul>
+<li>public static ExecutorService newFixedThreadPool(int nThreads)：返回线程池对象</li>
+</ul>
+</li>
+<li>ExecutorService：线程池类<ul>
+<li>Future&lt;?&gt; <strong>submit</strong>(Runnable task)：获取线程池中的某一个线程对象，并执行</li>
+</ul>
+</li>
+<li>Future接口：用来记录线程任务执行完毕后产生的结果。线程池创建与使用</li>
+</ul>
+<ul>
+<li>使用线程池中线程对象的步骤：<ul>
+<li>创建线程池对象</li>
+<li>创建Runnable接口子类对象</li>
+<li>提交Runnable接口子类对象</li>
+<li>关闭线程池</li>
+</ul>
+</li>
+</ul>
+<p>代码演示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadPoolDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//创建线程池对象</span><br><span class="line"></span><br><span class="line">		ExecutorService service = Executors.newFixedThreadPool(2);//包含2个线程对象</span><br><span class="line"></span><br><span class="line">		//创建Runnable实例对象</span><br><span class="line"></span><br><span class="line">		MyRunnable r = new MyRunnable();</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		//自己创建线程对象的方式</span><br><span class="line"></span><br><span class="line">		//Thread t = new Thread(r);</span><br><span class="line"></span><br><span class="line">		//t.start(); ---&gt; 调用MyRunnable中的run()</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		//从线程池中获取线程对象,然后调用MyRunnable中的run()</span><br><span class="line"></span><br><span class="line">		service.submit(r);</span><br><span class="line"></span><br><span class="line">		//再获取个线程对象，调用MyRunnable中的run()</span><br><span class="line"></span><br><span class="line">		service.submit(r);</span><br><span class="line"></span><br><span class="line">		service.submit(r);</span><br><span class="line"></span><br><span class="line">//注意：submit方法调用结束后，程序并不终止，是因为线程池控制了线程的关闭。将使用完的线程又归还到了线程池中</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">//关闭线程池</span><br><span class="line"></span><br><span class="line">		//service.shutdown();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Runnable接口实现类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class MyRunnable implements Runnable &#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line"></span><br><span class="line">	public void run() &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;我要一个教练&quot;);</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		try &#123;</span><br><span class="line"></span><br><span class="line">			Thread.sleep(2000);</span><br><span class="line"></span><br><span class="line">		&#125; catch (InterruptedException e) &#123;</span><br><span class="line"></span><br><span class="line">			e.printStackTrace();</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;教练来了： &quot; +Thread.currentThread().getName());</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;教我游泳,交完后，教练回到了游泳池&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-使用线程池方式2——实现Callable接口"><a href="#5-2-使用线程池方式2——实现Callable接口" class="headerlink" title="5.2 使用线程池方式2——实现Callable接口"></a>5.2 <strong>使用线程池方式2——实现Callable接口</strong></h3><ul>
+<li>Callable接口：与Runnable接口功能相似，用来指定线程的任务。其中的call()方法，用来返回线程任务执行完毕后的结果，call方法可抛出异常。</li>
+<li>ExecutorService：线程池类<ul>
+<li><t> Future<t> <strong>submit</strong>(Callable<t> task)：获取线程池中的某一个线程对象，并执行线程中的call()方法</t></t></t></li>
+</ul>
+</li>
+<li>Future接口：用来记录线程任务执行完毕后产生的结果。线程池创建与使用</li>
+</ul>
+<ul>
+<li>使用线程池中线程对象的步骤：<ul>
+<li>创建线程池对象</li>
+<li>创建Callable接口子类对象</li>
+<li>提交Callable接口子类对象</li>
+<li>关闭线程池</li>
+</ul>
+</li>
+</ul>
+<p>代码演示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadPoolDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//创建线程池对象</span><br><span class="line"></span><br><span class="line">		ExecutorService service = Executors.newFixedThreadPool(2);//包含2个线程对象</span><br><span class="line"></span><br><span class="line">		//创建Callable对象</span><br><span class="line"></span><br><span class="line">		MyCallable c = new MyCallable();</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		//从线程池中获取线程对象,然后调用MyRunnable中的run()</span><br><span class="line"></span><br><span class="line">		service.submit(c);</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		//再获取个教练</span><br><span class="line"></span><br><span class="line">		service.submit(c);</span><br><span class="line"></span><br><span class="line">		service.submit(c);</span><br><span class="line"></span><br><span class="line">//注意：submit方法调用结束后，程序并不终止，是因为线程池控制了线程的关闭。将使用完的线程又归还到了线程池中</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">//关闭线程池</span><br><span class="line"></span><br><span class="line">		//service.shutdown();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Callable接口实现类,call方法可抛出异常、返回线程任务执行完毕后的结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class MyCallable implements Callable &#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line"></span><br><span class="line">	public Object call() throws Exception &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;我要一个教练:call&quot;);</span><br><span class="line"></span><br><span class="line">		Thread.sleep(2000);</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;教练来了： &quot; +Thread.currentThread().getName());</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;教我游泳,交完后,教练回到了游泳池&quot;);</span><br><span class="line"></span><br><span class="line">		return null;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-3-Future接口"><a href="#5-3-Future接口" class="headerlink" title="5.3 Future接口"></a>5.3 <strong>Future接口</strong></h3><p>Callable任务返回Future对象。Future 表示异步计算的结果。</p>
+<p>Future接口中有如下方法：</p>
+<ul>
+<li><p>boolean cancel(boolean mayInterruptIfRunning)：</p>
+<p>​                取消任务的执行。参数指定是否立即中断任务执行，或者等等任务结束</p>
+</li>
+</ul>
+<ul>
+<li><p>boolean isCancelled() ：</p>
+<p>​                任务是否已经取消，任务正常完成前将其取消，则返回 true</p>
+</li>
+<li><p>boolean isDone() ：</p>
+<p>​                任务是否已经完成。需要注意的是如果任务正常终止、异常或取消，都将返回true</p>
+</li>
+<li><p>V get() ：</p>
+<p>​                等待任务执行结束，然后获得V类型的结果。InterruptedException 线程被中断异常，     ExecutionException任务执行异常，如果任务被取消，还会抛出CancellationException</p>
+</li>
+<li><p>V get(long timeout, TimeUnit unit) ：</p>
+<p>​                同上面的get功能一样，多了设置超时时间。参数timeout指定超时时间，uint指定时    间的单位，在枚举类TimeUnit中有相关的定义。如果计算超时，将抛出TimeoutException</p>
+</li>
+</ul>
+<p>Future接口提供方法来检测任务是否被执行完，等待任务执行完获得结果。也可以设置任务执行的超时时间，这个设置超时的方法就是实现Java程序执行超时的关键。</p>
+<h3 id="5-4-实现线程池两种方式的区别"><a href="#5-4-实现线程池两种方式的区别" class="headerlink" title="5.4 实现线程池两种方式的区别"></a>5.4 <strong>实现线程池两种方式的区别</strong></h3><p>（1）Callable规定的方法是call()，而Runnable规定的方法是run()。</p>
+<p>（2）Callable的任务执行后可返回值，而Runnable的任务是不能返回值的。</p>
+<p>（3）call()方法可抛出异常，而run()方法是不能抛出异常的。</p>
+<p>（4）运行Callable任务可拿到一个Future对象。</p>
+
           
         
       
@@ -849,8 +1320,7 @@
 
       
         
-          
-            <h2 id="1-List接口"><a href="#1-List接口" class="headerlink" title="1. List接口"></a>1. <strong>List接口</strong></h2><p>List接口：</p>
+          <h2 id="1-List接口"><a href="#1-List接口" class="headerlink" title="1. List接口"></a>1. <strong>List接口</strong></h2><p>List接口：</p>
 <ul>
 <li>它是一个元素存取有序的集合。例如，存元素的顺序是11、22、33。那么集合中，元素的存储就是按照11、22、33的顺序完成的）。</li>
 <li>它是一个带有索引的集合，通过索引就可以精确的操作集合中的元素（与数组的索引是一个道理）。</li>
@@ -859,176 +1329,14 @@
 <p>List接口的常用子类有：</p>
 <ul>
 <li>ArrayList集合</li>
-<li>LinkedList集合</li>
-</ul>
-<h3 id="1-1-List接口的常用方法"><a href="#1-1-List接口的常用方法" class="headerlink" title="1.1 List接口的常用方法"></a>1.1 <strong>List接口的常用方法</strong></h3><p><img src="1.jpg" alt="img"> </p>
-<h3 id="1-2-List集合的迭代："><a href="#1-2-List集合的迭代：" class="headerlink" title="1.2 List集合的迭代："></a><strong>1.2 List集合的迭代：</strong></h3><p>方式一：使用迭代器Iterator</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;String&gt; it = list.iterator();</span><br><span class="line"></span><br><span class="line">while (it.hasNext()) &#123;</span><br><span class="line"></span><br><span class="line">	String str = it.next();</span><br><span class="line"></span><br><span class="line">	System.out.println(str);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>方式二：使用索引迭代</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; list.size(); i++) &#123;</span><br><span class="line"></span><br><span class="line">	String str = list.get(i);</span><br><span class="line"></span><br><span class="line">	System.out.println(str);			</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>迭代器</strong>Iterator<em>**</em></p>
-<p>迭代器是一种设计模式，它是一个对象，它可以遍历并选择序列中的对象，而开发人员不需要了解该序列的底层结构。迭代器通常被称为“轻量级”对象，因为创建它的代价小。</p>
-<ul>
-<li>Java中的Iterator功能比较简单：</li>
-</ul>
-<p>　　(1) 使用方法iterator()要求容器返回一个Iterator。第一次调用Iterator的next()方法时，它返回序列的第一个元素。注意：iterator()方法是java.lang.Iterable接口,被Collection继承。</p>
-<p>　　(2) 使用next()获得序列中的下一个元素，返回值是Object类型，必要时需要强制转换成自己需要的类型。</p>
-<p>　　(3) 使用hasNext()检查序列中是否还有元素。</p>
-<p>　　(4) 使用remove()将迭代器新返回的元素删除。</p>
-<p>　　Iterator是Java迭代器最简单的实现，为List设计的ListIterator具有更多的功能，它可以从两个方向遍历List，也可以从List中插入和删除元素。</p>
-<p>l Iterator的并发修改异常</p>
-<p>在迭代过程中，使用了集合的方法对元素进行操作。导致迭代器并不知道集合中的变化，容易引发数据的不确定性。</p>
-<font color="red">并发修改异常解决办法：在迭代时，不要使用集合的方法操作元素。<br><br>那么想要在迭代时对元素操作咋办？通过ListIterator迭代器操作元素是可以的，ListIterator的出现，解决了使用Iterator迭代过程中可能会发生的错误情况。</font>
-
-<h3 id="1-3-List集合存储数据的结构"><a href="#1-3-List集合存储数据的结构" class="headerlink" title="1.3 List集合存储数据的结构"></a><strong>1.3 List集合存储数据的结构</strong></h3><p>List接口下有很多个集合，它们存储元素所采用的结构方式是不同的，数据存储的常用结构有：堆栈、队列、数组、链表。</p>
-<ul>
-<li>堆栈，采用该结构的集合，对元素的存取有如下的特点：<ul>
-<li>先进后出（即，存进去的元素，要在后它后面的元素依次取出后，才能取出该元素）。</li>
-<li>栈的入口、出口的都是栈的顶端位置</li>
-<li>压栈：就是存元素。即，把元素存储到栈的顶端位置，栈中已有元素依次向栈底方向移动一个位置。</li>
-<li>弹栈：就是取元素。即，把栈的顶端位置元素取出，栈中已有元素依次向栈顶方向移动一个位置。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>队列，采用该结构的集合，对元素的存取有如下的特点：<ul>
-<li>先进先出（即，存进去的元素，要在后它前面的元素依次取出后，才能取出该元素）。</li>
-<li>队列的入口、出口各占一侧。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>数组，采用该结构的集合，对元素的存取有如下的特点：<ul>
-<li>查找元素快：通过索引，可以快速访问指定位置的元素</li>
-<li>增删元素慢：<ul>
-<li><strong>指定索引位置增加元素</strong>：需要创建一个新数组，将指定新元素存储在指定索引位置，再把原数组元素根据索引，复制到新数组对应索引的位置。</li>
-<li><strong>指定索引位置删除元素：</strong>需要创建一个新数组，把原数组元素根据索引，复制到新数组对应索引的位置，原数组中指定索引位置元素不复制到新数组中。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>链表，采用该结构的集合，对元素的存取有如下的特点：</p>
-<ul>
-<li>多个节点之间，通过地址进行连接。</li>
-<li>查找元素慢：想查找某个元素，需要通过连接的节点，依次向后查找指定元素</li>
-<li><p>增删元素快：</p>
-<ul>
-<li>增加元素：操作如左图，只需要修改连接下个元素的地址即可。</li>
-</ul>
-</li>
-</ul>
-<p>​    *  删除元素：操作如右图，只需要修改连接下个元素的地址即可。</p>
-</li>
-</ul>
-<h3 id="1-4-ArrayList集合"><a href="#1-4-ArrayList集合" class="headerlink" title="1.4 ArrayList集合"></a><strong>1.4 ArrayList集合</strong></h3><p>ArrayList集合数据存储的结构是数组结构。元素增删慢，查找快，由于日常开发中使用最多的功能为查询数据、遍历数据，所以ArrayList是最常用的集合。</p>
-<p>l <strong>用contains方法判断重复元素</strong></p>
-<p><img src="2.jpg" alt="img"> </p>
-<p>调用ArrayList的contains方法时，传入的元素的equals方法依次与集合中的旧元素比较，从而根据返回的布尔值判断是否有重复元素。</p>
-<p>此时，当ArrayList存放自定义类型时，由于自定义类型在未重写equals方法前，判断是否重复的依据是地址值，所以如果想根据内容判断是否为重复元素，需要重写元素的equals方法。</p>
-<h3 id="1-5-LinkedList集合"><a href="#1-5-LinkedList集合" class="headerlink" title="1.5 LinkedList集合"></a><strong>1.5 LinkedList集合</strong></h3><p>LinkedList集合数据存储的结构是链表结构。方便元素添加、删除的集合。实际开发中对一个集合元素的添加与删除经常涉及到首尾操作，而LinkedList提供了大量首尾操作的方法。如下图</p>
-<p><img src="3.jpg" alt="img"> </p>
-<h2 id="2-Set集合"><a href="#2-Set集合" class="headerlink" title="2. Set集合"></a>2. <strong>Set集合</strong></h2><p>Set集合的元素是无序存放的，所以不允许存在重复元素。</p>
-<h3 id="2-1-HashSet集合介绍"><a href="#2-1-HashSet集合介绍" class="headerlink" title="2.1 HashSet集合介绍"></a><strong>2.1 HashSet集合介绍</strong></h3><p>HashSet集合不能保证的迭代顺序与元素存储顺序相同。</p>
-<p>HashSet集合，采用哈希表结构存储数据，保证元素唯一性的方式依赖于：hashCode()与equals()方法。</p>
-<h3 id="2-2HashSet集合存储数据的结构（哈希表）"><a href="#2-2HashSet集合存储数据的结构（哈希表）" class="headerlink" title="2.2HashSet集合存储数据的结构（哈希表）**"></a><strong>2.2</strong>HashSet集合存储数据的结构（哈希表）<em>**</em></h3><p>什么是哈希表呢？</p>
-<p>哈希表底层使用的也是数组机制，会根据这些对象的特有数据结合相应的算法，计算出这个对象在数组中的位置，然后把这个对象存放在数组中。而这样的数组就称为哈希数组，即就是哈希表。</p>
-<p>即就是在给哈希表中存放对象时，会调用对象的hashCode方法，算出对象在表中的存放位置，这里需要注意，如果两个对象hashCode方法算出结果一样，这样现象称为哈希冲突，这时会调用对象的equals方法，比较这两个对象是不是同一个对象，如果equals方法返回的是true，那么就不会把第二个对象存放在哈希表中，如果返回的是false，就会把这个值存放在哈希表中。</p>
-<p>总结：保证HashSet集合元素的唯一，其实就是根据对象的hashCode和equals方法来决定的。如果我们往集合中存放自定义的对象，那么保证其唯一，就必须复写hashCode和equals方法建立属于当前对象的比较方式。</p>
-<p><img src="4.jpg" alt="img"> </p>
-<h3 id="2-3向HashSet集合中存储元素"><a href="#2-3向HashSet集合中存储元素" class="headerlink" title="2.3向HashSet集合中存储元素"></a><strong>2.3向HashSet集合中存储元素</strong></h3><ul>
-<li><strong>存储JavaAPI类型</strong></li>
-</ul>
-<p>给HashSet中存储JavaAPI中提供的类型元素时，不需要重写元素的hashCode和equals方法，因为这两个方法，在JavaAPI的每个类中已经重写完毕，如String类、Integer类等。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class HashSetDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//创建HashSet对象</span><br><span class="line"></span><br><span class="line">		HashSet&lt;String&gt; hs = new HashSet&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">		//给集合中添加自定义对象</span><br><span class="line"></span><br><span class="line">		hs.add(&quot;zhangsan&quot;);</span><br><span class="line"></span><br><span class="line">		hs.add(&quot;lisi&quot;);</span><br><span class="line"></span><br><span class="line">		hs.add(&quot;wangwu&quot;);</span><br><span class="line"></span><br><span class="line">		hs.add(&quot;zhangsan&quot;);</span><br><span class="line"></span><br><span class="line">		//取出集合中的每个元素</span><br><span class="line"></span><br><span class="line">		Iterator&lt;String&gt; it = hs.iterator();</span><br><span class="line"></span><br><span class="line">		while(it.hasNext())&#123;</span><br><span class="line"></span><br><span class="line">			String s = it.next();</span><br><span class="line"></span><br><span class="line">			System.out.println(s);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果如下，说明集合中不能存储重复元素：</p>
-<p>wangwu</p>
-<p>lisi</p>
-<p>zhangsan</p>
-<ul>
-<li><strong>存储自定义类型元素</strong></li>
-</ul>
-<p>给HashSet中存放自定义类型元素时，需要重写对象中的hashCode和equals方法，建立自己的比较方式，才能保证HashSet集合中的对象唯一。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">//创建自定义类型Student****</span><br><span class="line"></span><br><span class="line">public class Student &#123;</span><br><span class="line"></span><br><span class="line">	private String name;</span><br><span class="line"></span><br><span class="line">	private int age;</span><br><span class="line"></span><br><span class="line">	public Student(String name, int age) &#123;</span><br><span class="line"></span><br><span class="line">		super();</span><br><span class="line"></span><br><span class="line">		this.name = name;</span><br><span class="line"></span><br><span class="line">		this.age = age;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line"></span><br><span class="line">		return name;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line"></span><br><span class="line">		this.name = name;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public int getAge() &#123;</span><br><span class="line"></span><br><span class="line">		return age;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line"></span><br><span class="line">		this.age = age;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line"></span><br><span class="line">	public String toString() &#123;</span><br><span class="line"></span><br><span class="line">		return &quot;Student [name=&quot; + name + &quot;, age=&quot; + age + &quot;]&quot;;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line"></span><br><span class="line">	public int hashCode() &#123;</span><br><span class="line"></span><br><span class="line">		final int prime = 31;</span><br><span class="line"></span><br><span class="line">		int result = 1;</span><br><span class="line"></span><br><span class="line">		result = prime * result + age;</span><br><span class="line"></span><br><span class="line">		result = prime * result + ((name == null) ? 0 : name.hashCode());</span><br><span class="line"></span><br><span class="line">		return result;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line"></span><br><span class="line">	public boolean equals(Object obj) &#123;</span><br><span class="line"></span><br><span class="line">		if (this == obj)</span><br><span class="line"></span><br><span class="line">			return true;</span><br><span class="line"></span><br><span class="line">		if(!(obj instanceof Student))&#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(&quot;类型错误&quot;);</span><br><span class="line"></span><br><span class="line">			return false;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		Student other = (Student) obj;</span><br><span class="line"></span><br><span class="line">		return this.age ==  other.age &amp;&amp; this.name.equals(other.name);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>创建HashSet集合，存储Student对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class HashSetDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//创建HashSet对象</span><br><span class="line"></span><br><span class="line">		HashSet hs = new HashSet();</span><br><span class="line"></span><br><span class="line">		//给集合中添加自定义对象</span><br><span class="line"></span><br><span class="line">		hs.add(new Student(&quot;zhangsan&quot;,21));</span><br><span class="line"></span><br><span class="line">		hs.add(new Student(&quot;lisi&quot;,22));</span><br><span class="line"></span><br><span class="line">		//取出集合中的每个元素</span><br><span class="line"></span><br><span class="line">		Iterator it = hs.iterator();</span><br><span class="line"></span><br><span class="line">		while(it.hasNext())&#123;</span><br><span class="line"></span><br><span class="line">			Student s = (Student)it.next();</span><br><span class="line"></span><br><span class="line">			System.out.println(s);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-4HashSet判断是否有重复元素"><a href="#2-4HashSet判断是否有重复元素" class="headerlink" title="2.4HashSet判断是否有重复元素"></a><strong>2.4HashSet判断是否有重复元素</strong></h3><p><img src="5.jpg" alt="img"> </p>
-<p>Set集合不能存放重复元素，其添加方法在添加时会判断是否有重复元素，有重复不添加，没重复则添加。</p>
-<p>HashSet集合由于是无序的，其判断唯一的依据是元素类型的hashCode与equals方法的返回结果。规则如下：</p>
-<font color="blue">先判断新元素与集合内已经有的旧元素的HashCode值<br><br><em> 如果不同，说明是不同元素，添加到集合。
-</em> 如果相同，再判断equals比较结果。返回true则相同元素；返回false则不同元素，添加到集合。<br><br>所以，使用HashSet存储自定义类型，如果没有重写该类的hashCode与equals方法，则判断重复时，使用的是地址值，如果想通过内容比较元素是否相同，需要重写该元素类的hashcode与equals方法。</font>
-
-
-
-<h3 id="2-5-LinkedHashSet介绍"><a href="#2-5-LinkedHashSet介绍" class="headerlink" title="2.5 LinkedHashSet介绍**"></a><strong>2.5 </strong>LinkedHashSet介绍<em>**</em></h3><p>我们知道HashSet保证元素唯一，可是元素存放进去是没有顺序的，那么我们要保证有序，怎么办呢？</p>
-<p>在HashSet下面有一个子类LinkedHashSet，它是链表和哈希表组合的一个数据存储结构。</p>
-<p>​    演示代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedHashSetDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Set&lt;String&gt; set = new LinkedHashSet&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">		set.add(&quot;bbb&quot;);</span><br><span class="line"></span><br><span class="line">		set.add(&quot;aaa&quot;);</span><br><span class="line"></span><br><span class="line">		set.add(&quot;abc&quot;);</span><br><span class="line"></span><br><span class="line">		set.add(&quot;bbc&quot;);</span><br><span class="line"></span><br><span class="line">Iterator it = set.iterator();</span><br><span class="line"></span><br><span class="line">		while (it.hasNext()) &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(it.next());</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果如下，LinkedHashSet集合保证元素的存入和取出的顺序：</p>
-<p>bbb</p>
-<p>aaa</p>
-<p>abc</p>
-<p>Bbc</p>
-<h2 id="3-Map接口"><a href="#3-Map接口" class="headerlink" title="3. Map接口"></a>3. <strong>Map接口</strong></h2><p>Map中的集合有以下特点：</p>
-<ul>
-<li>Map中的集合，元素是成对存在的。每个元素由键与值两部分组成，通过键可以找对所对应的值。</li>
-<li>Collection中的集合称为单列集合，Map中的集合称为双列集合。</li>
-<li>需要注意的是，Map中的集合不能包含重复的键，值可以重复；每个键只能对应一个值。</li>
-</ul>
-<p>Map中常用的集合为HashMap集合、LinkedHashMap集合。</p>
-<ul>
-<li><strong>HashMap<k,v></k,v></strong>：存储数据采用的哈希表结构，元素的存取顺序不能保证一致。由于要保证键的唯一、不重复，需要重写键的hashCode()方法、equals()方法。</li>
-<li><strong>LinkedHashMap<k,v></k,v></strong>：HashMap下有个子类LinkedHashMap，存储数据采用的哈希表结构+链表结构。通过链表结构可以保证元素的存取顺序一致；通过哈希表结构可以保证的键的唯一、不重复，需要重写键的hashCode()方法、equals()方法。</li>
-<li><strong>注意</strong>：Map接口中的集合都有两个泛型变量<k,v>,在使用时，要为两个泛型变量赋予数据类型。两个泛型变量<k,v>的数据类型可以相同，也可以不同。</k,v></k,v></li>
-</ul>
-<h3 id="3-1-Map接口常用方法"><a href="#3-1-Map接口常用方法" class="headerlink" title="3.1 Map接口常用方法"></a>3.1 <strong>Map接口常用方法</strong></h3><p><img src="6.jpg" alt="img"> </p>
-<ul>
-<li><p>put方法：将指定的键与值对应起来，并添加到集合中</p>
-<ul>
-<li>方法返回值为键所对应的值</li>
-</ul>
-<p>使用put方法时，若指定的键(key)在集合中没有，则没有这个键对应的值，返回null，并把指定的键值添加到集合中；</p>
-<p>使用put方法时，若指定的键(key)在集合中存在，则返回值为集合中键对应的值（该值为替换前的值），并把指定键所对应的值，替换成指定的新值。</p>
-</li>
-<li><p>get方法：获取指定键(key)所对应的值(value)</p>
-</li>
-<li><p>remove方法：根据指定的键(key)删除元素，返回被删除元素的值(value)。<em>**</em></p>
-</li>
-</ul>
-<h3 id="3-2-Map集合遍历键找值方式"><a href="#3-2-Map集合遍历键找值方式" class="headerlink" title="3.2 Map集合遍历键找值方式"></a><strong>3.2 Map集合遍历键找值方式</strong></h3><p>键找值方式：即通过元素中的键，获取键所对应的值</p>
-<p>操作步骤与图解：</p>
-<p>​    1.获取Map集合中所有的键，由于键是唯一的，所以返回一个Set集合存储所有的键</p>
-<p><img src="7.jpg" alt="img"> </p>
-<p>2.遍历键的Set集合，得到每一个键</p>
-<p>3.根据键，获取键所对应的值</p>
-<h3 id="3-3-Entry键值对对象"><a href="#3-3-Entry键值对对象" class="headerlink" title="3.3 Entry键值对对象"></a><strong>3.3 Entry键值对对象</strong></h3><p>在Map类设计时，提供了一个嵌套接口：Entry。Entry将键值对的对应关系封装成了对象。即键值对对象，这样我们在遍历Map集合时，就可以从每一个键值对（Entry）对象中获取对应的键与对应的值。</p>
-<p><img src="8.jpg" alt="img"> </p>
-<p>l Entry是Map接口中提供的一个静态内部嵌套接口。</p>
-<p><img src="9.jpg" alt="img"> </p>
-<p>l getKey()方法：获取Entry对象中的键</p>
-<p>l getValue()方法：获取Entry对象中的值</p>
-<p><img src="10.jpg" alt="img"> </p>
-<p>l entrySet()方法：用于返回Map集合中所有的键值对(Entry)对象，以Set集合形式返回。</p>
-<h3 id="3-4-Map集合遍历键值对方式"><a href="#3-4-Map集合遍历键值对方式" class="headerlink" title="3.4 Map集合遍历键值对方式**"></a><strong>3.4 </strong>Map集合遍历键值对方式<em>**</em></h3><p>键值对方式：即通过集合中每个键值对(Entry)对象，获取键值对(Entry)对象中的键与值。</p>
-<p>操作步骤与图解：</p>
-<p>​    1.获取Map集合中，所有的键值对(Entry)对象，以Set集合形式返回。</p>
-<p>​    <img src="11.jpg" alt="img"></p>
-<p>​    2.遍历包含键值对(Entry)对象的Set集合，得到每一个键值对(Entry)对象</p>
-<p>​    3.通过键值对(Entry)对象，获取Entry对象中的键与值。</p>
-<p>​    <img src="12.jpg" alt="img"></p>
-<font color="red">注意：Map集合不能直接使用迭代器或者foreach进行遍历。但是转成Set之后就可以使用了。<strong>因为</strong>增强for循环只能用在数组或实现Interable接口的集合类上<strong><strong>，而</strong></strong>Map集合并没有实现Interable接口。</font>
-
-<h3 id="3-5-HashMap存储自定义类型键值"><a href="#3-5-HashMap存储自定义类型键值" class="headerlink" title="3.5 HashMap存储自定义类型键值"></a><strong>3.5 </strong>HashMap<strong><strong>存储自定义类型键值</strong></strong></h3><ul>
-<li><font color="bule">当给HashMap中存放自定义对象时，如果自定义对象作为key存在，这时要保证对象唯一，必须复写对象的hashCode和equals方法</font>(如果忘记，请回顾HashSet存放自定义对象)。</li>
-<li>如果要保证map中存放的key和取出的顺序一致，可以使用LinkedHashMap集合来存放。</li>
-</ul>
-<h2 id="4-可变参数"><a href="#4-可变参数" class="headerlink" title="4. 可变参数"></a>4. <strong>可变参数</strong></h2><p>JDK1.5 以后，如果我们定义一个方法需要接收多个同类型的参数，那么可用可变参数来传参。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 方法名(参数类型... 形参名)&#123;  &#125;</span><br></pre></td></tr></table></figure>
-<font color="red">注意：如果在方法书写时，这个方法拥有多参数，参数中包含可变参数，可变参数一定要写在参数列表的末尾位置。</font>
-
-
-          
+<li>LinkedList集合
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/03/集合List-Set-Map/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1904,175 +2212,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/高级LabView数据结构和函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amber">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amber">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/22/高级LabView数据结构和函数/" itemprop="url">高级LabView数据结构和函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T10:15:46+08:00">
-                2018-05-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LabView/" itemprop="url" rel="index">
-                    <span itemprop="name">LabView</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/22/高级LabView数据结构和函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/05/22/高级LabView数据结构和函数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <hr>
-<p>局部变量、全局变量和共享变量</p>
-<blockquote>
-<p>局部变量</p>
-</blockquote>
-<p>允许在一个VI实例框图中的多个地方访问前面板对象。</p>
-<p>局部变量是LabView中的内置对象，在founction&gt;&gt;programming&gt;&gt;structures中访问，选择一个局部变量对象时，首先显示为“？”，表示局部变量未定义。在局部变量上面右键，可以选择当前要设置为局部变量的控件。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/22/高级LabView数据结构和函数/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-	
-	<div>
-		
-	</div>
-	
-    
-	
-
-    
-
-    
-	
-	
-	
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2127,7 +2266,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2149,7 +2288,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
