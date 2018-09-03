@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="集合List/Set/Map," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. List接口List接口：  它是一个元素存取有序的集合。例如，存元素的顺序是11、22、33。那么集合中，元素的存储就是按照11、22、33的顺序完成的）。 它是一个带有索引的集合，通过索引就可以精确的操作集合中的元素（与数组的索引是一个道理）。 集合中可以有重复的元素，通过元素的equals方法，来比较是否为重复的元素。  List接口的常用子类有：  ArrayList集合 Linke">
+<meta name="keywords" content="集合List&#x2F;Set&#x2F;Map">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集合List&#x2F;Set&#x2F;Map">
+<meta property="og:url" content="http://yoursite.com/2018/07/03/集合List-Set-Map/index.html">
+<meta property="og:site_name" content="Amber">
+<meta property="og:description" content="1. List接口List接口：  它是一个元素存取有序的集合。例如，存元素的顺序是11、22、33。那么集合中，元素的存储就是按照11、22、33的顺序完成的）。 它是一个带有索引的集合，通过索引就可以精确的操作集合中的元素（与数组的索引是一个道理）。 集合中可以有重复的元素，通过元素的equals方法，来比较是否为重复的元素。  List接口的常用子类有：  ArrayList集合 Linke">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/5.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/6.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/7.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/8.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/9.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/10.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/11.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/12.jpg">
+<meta property="og:updated_time" content="2018-09-03T03:14:34.613Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="集合List&#x2F;Set&#x2F;Map">
+<meta name="twitter:description" content="1. List接口List接口：  它是一个元素存取有序的集合。例如，存元素的顺序是11、22、33。那么集合中，元素的存储就是按照11、22、33的顺序完成的）。 它是一个带有索引的集合，通过索引就可以精确的操作集合中的元素（与数组的索引是一个道理）。 集合中可以有重复的元素，通过元素的equals方法，来比较是否为重复的元素。  List接口的常用子类有：  ArrayList集合 Linke">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/03/集合List-Set-Map/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/03/集合List-Set-Map/"/>
+
+
+
+
+
+  <title>集合List/Set/Map | Amber</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://amber80930.github.io/" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Amber</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">-不倾国，不倾城，只倾其所有。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br />
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'TChYnQxfabLwWxErgM-L','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/集合List-Set-Map/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amber">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amber">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">集合List/Set/Map</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-03T10:51:54+08:00">
+                2018-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/03/集合List-Set-Map/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/07/03/集合List-Set-Map/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-List接口"><a href="#1-List接口" class="headerlink" title="1. List接口"></a>1. <strong>List接口</strong></h2><p>List接口：</p>
+<ul>
+<li>它是一个元素存取有序的集合。例如，存元素的顺序是11、22、33。那么集合中，元素的存储就是按照11、22、33的顺序完成的）。</li>
+<li>它是一个带有索引的集合，通过索引就可以精确的操作集合中的元素（与数组的索引是一个道理）。</li>
+<li>集合中可以有重复的元素，通过元素的equals方法，来比较是否为重复的元素。</li>
+</ul>
+<p>List接口的常用子类有：</p>
+<ul>
+<li>ArrayList集合</li>
+<li>LinkedList集合</li>
+</ul>
+<h3 id="1-1-List接口的常用方法"><a href="#1-1-List接口的常用方法" class="headerlink" title="1.1 List接口的常用方法"></a>1.1 <strong>List接口的常用方法</strong></h3><p><img src="1.jpg" alt="img"> </p>
+<h3 id="1-2-List集合的迭代："><a href="#1-2-List集合的迭代：" class="headerlink" title="1.2 List集合的迭代："></a><strong>1.2 List集合的迭代：</strong></h3><p>方式一：使用迭代器Iterator</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;String&gt; it = list.iterator();</span><br><span class="line"></span><br><span class="line">while (it.hasNext()) &#123;</span><br><span class="line"></span><br><span class="line">	String str = it.next();</span><br><span class="line"></span><br><span class="line">	System.out.println(str);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方式二：使用索引迭代</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; list.size(); i++) &#123;</span><br><span class="line"></span><br><span class="line">	String str = list.get(i);</span><br><span class="line"></span><br><span class="line">	System.out.println(str);			</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>迭代器</strong>Iterator<em>**</em></p>
+<p>迭代器是一种设计模式，它是一个对象，它可以遍历并选择序列中的对象，而开发人员不需要了解该序列的底层结构。迭代器通常被称为“轻量级”对象，因为创建它的代价小。</p>
+<ul>
+<li>Java中的Iterator功能比较简单：</li>
+</ul>
+<p>　　(1) 使用方法iterator()要求容器返回一个Iterator。第一次调用Iterator的next()方法时，它返回序列的第一个元素。注意：iterator()方法是java.lang.Iterable接口,被Collection继承。</p>
+<p>　　(2) 使用next()获得序列中的下一个元素，返回值是Object类型，必要时需要强制转换成自己需要的类型。</p>
+<p>　　(3) 使用hasNext()检查序列中是否还有元素。</p>
+<p>　　(4) 使用remove()将迭代器新返回的元素删除。</p>
+<p>　　Iterator是Java迭代器最简单的实现，为List设计的ListIterator具有更多的功能，它可以从两个方向遍历List，也可以从List中插入和删除元素。</p>
+<p>l Iterator的并发修改异常</p>
+<p>在迭代过程中，使用了集合的方法对元素进行操作。导致迭代器并不知道集合中的变化，容易引发数据的不确定性。</p>
+<font color="red">并发修改异常解决办法：在迭代时，不要使用集合的方法操作元素。<br><br>那么想要在迭代时对元素操作咋办？通过ListIterator迭代器操作元素是可以的，ListIterator的出现，解决了使用Iterator迭代过程中可能会发生的错误情况。</font>
+
+<h3 id="1-3-List集合存储数据的结构"><a href="#1-3-List集合存储数据的结构" class="headerlink" title="1.3 List集合存储数据的结构"></a><strong>1.3 List集合存储数据的结构</strong></h3><p>List接口下有很多个集合，它们存储元素所采用的结构方式是不同的，数据存储的常用结构有：堆栈、队列、数组、链表。</p>
+<ul>
+<li>堆栈，采用该结构的集合，对元素的存取有如下的特点：<ul>
+<li>先进后出（即，存进去的元素，要在后它后面的元素依次取出后，才能取出该元素）。</li>
+<li>栈的入口、出口的都是栈的顶端位置</li>
+<li>压栈：就是存元素。即，把元素存储到栈的顶端位置，栈中已有元素依次向栈底方向移动一个位置。</li>
+<li>弹栈：就是取元素。即，把栈的顶端位置元素取出，栈中已有元素依次向栈顶方向移动一个位置。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>队列，采用该结构的集合，对元素的存取有如下的特点：<ul>
+<li>先进先出（即，存进去的元素，要在后它前面的元素依次取出后，才能取出该元素）。</li>
+<li>队列的入口、出口各占一侧。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>数组，采用该结构的集合，对元素的存取有如下的特点：<ul>
+<li>查找元素快：通过索引，可以快速访问指定位置的元素</li>
+<li>增删元素慢：<ul>
+<li><strong>指定索引位置增加元素</strong>：需要创建一个新数组，将指定新元素存储在指定索引位置，再把原数组元素根据索引，复制到新数组对应索引的位置。</li>
+<li><strong>指定索引位置删除元素：</strong>需要创建一个新数组，把原数组元素根据索引，复制到新数组对应索引的位置，原数组中指定索引位置元素不复制到新数组中。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>链表，采用该结构的集合，对元素的存取有如下的特点：</p>
+<ul>
+<li>多个节点之间，通过地址进行连接。</li>
+<li>查找元素慢：想查找某个元素，需要通过连接的节点，依次向后查找指定元素</li>
+<li><p>增删元素快：</p>
+<ul>
+<li>增加元素：操作如左图，只需要修改连接下个元素的地址即可。</li>
+</ul>
+</li>
+</ul>
+<p>​    *  删除元素：操作如右图，只需要修改连接下个元素的地址即可。</p>
+</li>
+</ul>
+<h3 id="1-4-ArrayList集合"><a href="#1-4-ArrayList集合" class="headerlink" title="1.4 ArrayList集合"></a><strong>1.4 ArrayList集合</strong></h3><p>ArrayList集合数据存储的结构是数组结构。元素增删慢，查找快，由于日常开发中使用最多的功能为查询数据、遍历数据，所以ArrayList是最常用的集合。</p>
+<p>l <strong>用contains方法判断重复元素</strong></p>
+<p><img src="2.jpg" alt="img"> </p>
+<p>调用ArrayList的contains方法时，传入的元素的equals方法依次与集合中的旧元素比较，从而根据返回的布尔值判断是否有重复元素。</p>
+<p>此时，当ArrayList存放自定义类型时，由于自定义类型在未重写equals方法前，判断是否重复的依据是地址值，所以如果想根据内容判断是否为重复元素，需要重写元素的equals方法。</p>
+<h3 id="1-5-LinkedList集合"><a href="#1-5-LinkedList集合" class="headerlink" title="1.5 LinkedList集合"></a><strong>1.5 LinkedList集合</strong></h3><p>LinkedList集合数据存储的结构是链表结构。方便元素添加、删除的集合。实际开发中对一个集合元素的添加与删除经常涉及到首尾操作，而LinkedList提供了大量首尾操作的方法。如下图</p>
+<p><img src="3.jpg" alt="img"> </p>
+<h2 id="2-Set集合"><a href="#2-Set集合" class="headerlink" title="2. Set集合"></a>2. <strong>Set集合</strong></h2><p>Set集合的元素是无序存放的，所以不允许存在重复元素。</p>
+<h3 id="2-1-HashSet集合介绍"><a href="#2-1-HashSet集合介绍" class="headerlink" title="2.1 HashSet集合介绍"></a><strong>2.1 HashSet集合介绍</strong></h3><p>HashSet集合不能保证的迭代顺序与元素存储顺序相同。</p>
+<p>HashSet集合，采用哈希表结构存储数据，保证元素唯一性的方式依赖于：hashCode()与equals()方法。</p>
+<h3 id="2-2HashSet集合存储数据的结构（哈希表）"><a href="#2-2HashSet集合存储数据的结构（哈希表）" class="headerlink" title="2.2HashSet集合存储数据的结构（哈希表）**"></a><strong>2.2</strong>HashSet集合存储数据的结构（哈希表）<em>**</em></h3><p>什么是哈希表呢？</p>
+<p>哈希表底层使用的也是数组机制，会根据这些对象的特有数据结合相应的算法，计算出这个对象在数组中的位置，然后把这个对象存放在数组中。而这样的数组就称为哈希数组，即就是哈希表。</p>
+<p>即就是在给哈希表中存放对象时，会调用对象的hashCode方法，算出对象在表中的存放位置，这里需要注意，如果两个对象hashCode方法算出结果一样，这样现象称为哈希冲突，这时会调用对象的equals方法，比较这两个对象是不是同一个对象，如果equals方法返回的是true，那么就不会把第二个对象存放在哈希表中，如果返回的是false，就会把这个值存放在哈希表中。</p>
+<p>总结：保证HashSet集合元素的唯一，其实就是根据对象的hashCode和equals方法来决定的。如果我们往集合中存放自定义的对象，那么保证其唯一，就必须复写hashCode和equals方法建立属于当前对象的比较方式。</p>
+<p><img src="4.jpg" alt="img"> </p>
+<h3 id="2-3向HashSet集合中存储元素"><a href="#2-3向HashSet集合中存储元素" class="headerlink" title="2.3向HashSet集合中存储元素"></a><strong>2.3向HashSet集合中存储元素</strong></h3><ul>
+<li><strong>存储JavaAPI类型</strong></li>
+</ul>
+<p>给HashSet中存储JavaAPI中提供的类型元素时，不需要重写元素的hashCode和equals方法，因为这两个方法，在JavaAPI的每个类中已经重写完毕，如String类、Integer类等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class HashSetDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//创建HashSet对象</span><br><span class="line"></span><br><span class="line">		HashSet&lt;String&gt; hs = new HashSet&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">		//给集合中添加自定义对象</span><br><span class="line"></span><br><span class="line">		hs.add(&quot;zhangsan&quot;);</span><br><span class="line"></span><br><span class="line">		hs.add(&quot;lisi&quot;);</span><br><span class="line"></span><br><span class="line">		hs.add(&quot;wangwu&quot;);</span><br><span class="line"></span><br><span class="line">		hs.add(&quot;zhangsan&quot;);</span><br><span class="line"></span><br><span class="line">		//取出集合中的每个元素</span><br><span class="line"></span><br><span class="line">		Iterator&lt;String&gt; it = hs.iterator();</span><br><span class="line"></span><br><span class="line">		while(it.hasNext())&#123;</span><br><span class="line"></span><br><span class="line">			String s = it.next();</span><br><span class="line"></span><br><span class="line">			System.out.println(s);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果如下，说明集合中不能存储重复元素：</p>
+<p>wangwu</p>
+<p>lisi</p>
+<p>zhangsan</p>
+<ul>
+<li><strong>存储自定义类型元素</strong></li>
+</ul>
+<p>给HashSet中存放自定义类型元素时，需要重写对象中的hashCode和equals方法，建立自己的比较方式，才能保证HashSet集合中的对象唯一。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">//创建自定义类型Student****</span><br><span class="line"></span><br><span class="line">public class Student &#123;</span><br><span class="line"></span><br><span class="line">	private String name;</span><br><span class="line"></span><br><span class="line">	private int age;</span><br><span class="line"></span><br><span class="line">	public Student(String name, int age) &#123;</span><br><span class="line"></span><br><span class="line">		super();</span><br><span class="line"></span><br><span class="line">		this.name = name;</span><br><span class="line"></span><br><span class="line">		this.age = age;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public String getName() &#123;</span><br><span class="line"></span><br><span class="line">		return name;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setName(String name) &#123;</span><br><span class="line"></span><br><span class="line">		this.name = name;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public int getAge() &#123;</span><br><span class="line"></span><br><span class="line">		return age;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void setAge(int age) &#123;</span><br><span class="line"></span><br><span class="line">		this.age = age;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line"></span><br><span class="line">	public String toString() &#123;</span><br><span class="line"></span><br><span class="line">		return &quot;Student [name=&quot; + name + &quot;, age=&quot; + age + &quot;]&quot;;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line"></span><br><span class="line">	public int hashCode() &#123;</span><br><span class="line"></span><br><span class="line">		final int prime = 31;</span><br><span class="line"></span><br><span class="line">		int result = 1;</span><br><span class="line"></span><br><span class="line">		result = prime * result + age;</span><br><span class="line"></span><br><span class="line">		result = prime * result + ((name == null) ? 0 : name.hashCode());</span><br><span class="line"></span><br><span class="line">		return result;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line"></span><br><span class="line">	public boolean equals(Object obj) &#123;</span><br><span class="line"></span><br><span class="line">		if (this == obj)</span><br><span class="line"></span><br><span class="line">			return true;</span><br><span class="line"></span><br><span class="line">		if(!(obj instanceof Student))&#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(&quot;类型错误&quot;);</span><br><span class="line"></span><br><span class="line">			return false;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		Student other = (Student) obj;</span><br><span class="line"></span><br><span class="line">		return this.age ==  other.age &amp;&amp; this.name.equals(other.name);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建HashSet集合，存储Student对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class HashSetDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		//创建HashSet对象</span><br><span class="line"></span><br><span class="line">		HashSet hs = new HashSet();</span><br><span class="line"></span><br><span class="line">		//给集合中添加自定义对象</span><br><span class="line"></span><br><span class="line">		hs.add(new Student(&quot;zhangsan&quot;,21));</span><br><span class="line"></span><br><span class="line">		hs.add(new Student(&quot;lisi&quot;,22));</span><br><span class="line"></span><br><span class="line">		//取出集合中的每个元素</span><br><span class="line"></span><br><span class="line">		Iterator it = hs.iterator();</span><br><span class="line"></span><br><span class="line">		while(it.hasNext())&#123;</span><br><span class="line"></span><br><span class="line">			Student s = (Student)it.next();</span><br><span class="line"></span><br><span class="line">			System.out.println(s);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-4HashSet判断是否有重复元素"><a href="#2-4HashSet判断是否有重复元素" class="headerlink" title="2.4HashSet判断是否有重复元素"></a><strong>2.4HashSet判断是否有重复元素</strong></h3><p><img src="5.jpg" alt="img"> </p>
+<p>Set集合不能存放重复元素，其添加方法在添加时会判断是否有重复元素，有重复不添加，没重复则添加。</p>
+<p>HashSet集合由于是无序的，其判断唯一的依据是元素类型的hashCode与equals方法的返回结果。规则如下：</p>
+<font color="blue">先判断新元素与集合内已经有的旧元素的HashCode值<br><br><em> 如果不同，说明是不同元素，添加到集合。
+</em> 如果相同，再判断equals比较结果。返回true则相同元素；返回false则不同元素，添加到集合。<br><br>所以，使用HashSet存储自定义类型，如果没有重写该类的hashCode与equals方法，则判断重复时，使用的是地址值，如果想通过内容比较元素是否相同，需要重写该元素类的hashcode与equals方法。</font>
+
+
+
+<h3 id="2-5-LinkedHashSet介绍"><a href="#2-5-LinkedHashSet介绍" class="headerlink" title="2.5 LinkedHashSet介绍**"></a><strong>2.5 </strong>LinkedHashSet介绍<em>**</em></h3><p>我们知道HashSet保证元素唯一，可是元素存放进去是没有顺序的，那么我们要保证有序，怎么办呢？</p>
+<p>在HashSet下面有一个子类LinkedHashSet，它是链表和哈希表组合的一个数据存储结构。</p>
+<p>​    演示代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedHashSetDemo &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		Set&lt;String&gt; set = new LinkedHashSet&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">		set.add(&quot;bbb&quot;);</span><br><span class="line"></span><br><span class="line">		set.add(&quot;aaa&quot;);</span><br><span class="line"></span><br><span class="line">		set.add(&quot;abc&quot;);</span><br><span class="line"></span><br><span class="line">		set.add(&quot;bbc&quot;);</span><br><span class="line"></span><br><span class="line">Iterator it = set.iterator();</span><br><span class="line"></span><br><span class="line">		while (it.hasNext()) &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(it.next());</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果如下，LinkedHashSet集合保证元素的存入和取出的顺序：</p>
+<p>bbb</p>
+<p>aaa</p>
+<p>abc</p>
+<p>Bbc</p>
+<h2 id="3-Map接口"><a href="#3-Map接口" class="headerlink" title="3. Map接口"></a>3. <strong>Map接口</strong></h2><p>Map中的集合有以下特点：</p>
+<ul>
+<li>Map中的集合，元素是成对存在的。每个元素由键与值两部分组成，通过键可以找对所对应的值。</li>
+<li>Collection中的集合称为单列集合，Map中的集合称为双列集合。</li>
+<li>需要注意的是，Map中的集合不能包含重复的键，值可以重复；每个键只能对应一个值。</li>
+</ul>
+<p>Map中常用的集合为HashMap集合、LinkedHashMap集合。</p>
+<ul>
+<li><strong>HashMap<k,v></k,v></strong>：存储数据采用的哈希表结构，元素的存取顺序不能保证一致。由于要保证键的唯一、不重复，需要重写键的hashCode()方法、equals()方法。</li>
+<li><strong>LinkedHashMap<k,v></k,v></strong>：HashMap下有个子类LinkedHashMap，存储数据采用的哈希表结构+链表结构。通过链表结构可以保证元素的存取顺序一致；通过哈希表结构可以保证的键的唯一、不重复，需要重写键的hashCode()方法、equals()方法。</li>
+<li><strong>注意</strong>：Map接口中的集合都有两个泛型变量<k,v>,在使用时，要为两个泛型变量赋予数据类型。两个泛型变量<k,v>的数据类型可以相同，也可以不同。</k,v></k,v></li>
+</ul>
+<h3 id="3-1-Map接口常用方法"><a href="#3-1-Map接口常用方法" class="headerlink" title="3.1 Map接口常用方法"></a>3.1 <strong>Map接口常用方法</strong></h3><p><img src="6.jpg" alt="img"> </p>
+<ul>
+<li><p>put方法：将指定的键与值对应起来，并添加到集合中</p>
+<ul>
+<li>方法返回值为键所对应的值</li>
+</ul>
+<p>使用put方法时，若指定的键(key)在集合中没有，则没有这个键对应的值，返回null，并把指定的键值添加到集合中；</p>
+<p>使用put方法时，若指定的键(key)在集合中存在，则返回值为集合中键对应的值（该值为替换前的值），并把指定键所对应的值，替换成指定的新值。</p>
+</li>
+<li><p>get方法：获取指定键(key)所对应的值(value)</p>
+</li>
+<li><p>remove方法：根据指定的键(key)删除元素，返回被删除元素的值(value)。<em>**</em></p>
+</li>
+</ul>
+<h3 id="3-2-Map集合遍历键找值方式"><a href="#3-2-Map集合遍历键找值方式" class="headerlink" title="3.2 Map集合遍历键找值方式"></a><strong>3.2 Map集合遍历键找值方式</strong></h3><p>键找值方式：即通过元素中的键，获取键所对应的值</p>
+<p>操作步骤与图解：</p>
+<p>​    1.获取Map集合中所有的键，由于键是唯一的，所以返回一个Set集合存储所有的键</p>
+<p><img src="7.jpg" alt="img"> </p>
+<p>2.遍历键的Set集合，得到每一个键</p>
+<p>3.根据键，获取键所对应的值</p>
+<h3 id="3-3-Entry键值对对象"><a href="#3-3-Entry键值对对象" class="headerlink" title="3.3 Entry键值对对象"></a><strong>3.3 Entry键值对对象</strong></h3><p>在Map类设计时，提供了一个嵌套接口：Entry。Entry将键值对的对应关系封装成了对象。即键值对对象，这样我们在遍历Map集合时，就可以从每一个键值对（Entry）对象中获取对应的键与对应的值。</p>
+<p><img src="8.jpg" alt="img"> </p>
+<p>l Entry是Map接口中提供的一个静态内部嵌套接口。</p>
+<p><img src="9.jpg" alt="img"> </p>
+<p>l getKey()方法：获取Entry对象中的键</p>
+<p>l getValue()方法：获取Entry对象中的值</p>
+<p><img src="10.jpg" alt="img"> </p>
+<p>l entrySet()方法：用于返回Map集合中所有的键值对(Entry)对象，以Set集合形式返回。</p>
+<h3 id="3-4-Map集合遍历键值对方式"><a href="#3-4-Map集合遍历键值对方式" class="headerlink" title="3.4 Map集合遍历键值对方式**"></a><strong>3.4 </strong>Map集合遍历键值对方式<em>**</em></h3><p>键值对方式：即通过集合中每个键值对(Entry)对象，获取键值对(Entry)对象中的键与值。</p>
+<p>操作步骤与图解：</p>
+<p>​    1.获取Map集合中，所有的键值对(Entry)对象，以Set集合形式返回。</p>
+<p>​    <img src="11.jpg" alt="img"></p>
+<p>​    2.遍历包含键值对(Entry)对象的Set集合，得到每一个键值对(Entry)对象</p>
+<p>​    3.通过键值对(Entry)对象，获取Entry对象中的键与值。</p>
+<p>​    <img src="12.jpg" alt="img"></p>
+<font color="red">注意：Map集合不能直接使用迭代器或者foreach进行遍历。但是转成Set之后就可以使用了。<strong>因为</strong>增强for循环只能用在数组或实现Interable接口的集合类上<strong><strong>，而</strong></strong>Map集合并没有实现Interable接口。</font>
+
+<h3 id="3-5-HashMap存储自定义类型键值"><a href="#3-5-HashMap存储自定义类型键值" class="headerlink" title="3.5 HashMap存储自定义类型键值"></a><strong>3.5 </strong>HashMap<strong><strong>存储自定义类型键值</strong></strong></h3><ul>
+<li><font color="bule">当给HashMap中存放自定义对象时，如果自定义对象作为key存在，这时要保证对象唯一，必须复写对象的hashCode和equals方法</font>(如果忘记，请回顾HashSet存放自定义对象)。</li>
+<li>如果要保证map中存放的key和取出的顺序一致，可以使用LinkedHashMap集合来存放。</li>
+</ul>
+<h2 id="4-可变参数"><a href="#4-可变参数" class="headerlink" title="4. 可变参数"></a>4. <strong>可变参数</strong></h2><p>JDK1.5 以后，如果我们定义一个方法需要接收多个同类型的参数，那么可用可变参数来传参。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 方法名(参数类型... 形参名)&#123;  &#125;</span><br></pre></td></tr></table></figure>
+<font color="red">注意：如果在方法书写时，这个方法拥有多参数，参数中包含可变参数，可变参数一定要写在参数列表的末尾位置。</font>
+
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+			
+<div style="text-align:center;color: #ccc;font-size:30px;">
+------ 本文结束 ------</div>
+
+
+		
+	</div>
+	
+    
+	
+
+    
+
+    
+	
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/集合List-Set-Map/" rel="tag"># 集合List/Set/Map</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/22/正则表达式/" rel="next" title="正则表达式">
+                <i class="fa fa-chevron-left"></i> 正则表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/21/IO流/" rel="prev" title="IO流">
+                IO流 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2018/07/03/集合List-Set-Map/"
+     data-title="集合List/Set/Map"
+     data-content=""
+     data-url="http://yoursite.com/2018/07/03/集合List-Set-Map/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/07/03/集合List-Set-Map/"
+           data-title="集合List/Set/Map" data-url="http://yoursite.com/2018/07/03/集合List-Set-Map/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/timg.jpg"
+                alt="Amber" />
+            
+              <p class="site-author-name" itemprop="name">Amber</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-List接口"><span class="nav-number">1.</span> <span class="nav-text">1. List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-List接口的常用方法"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 List接口的常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-List集合的迭代："><span class="nav-number">1.2.</span> <span class="nav-text">1.2 List集合的迭代：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-List集合存储数据的结构"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 List集合存储数据的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-ArrayList集合"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 ArrayList集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-LinkedList集合"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 LinkedList集合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Set集合"><span class="nav-number">2.</span> <span class="nav-text">2. Set集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-HashSet集合介绍"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 HashSet集合介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2HashSet集合存储数据的结构（哈希表）"><span class="nav-number">2.2.</span> <span class="nav-text">2.2HashSet集合存储数据的结构（哈希表）**</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3向HashSet集合中存储元素"><span class="nav-number">2.3.</span> <span class="nav-text">2.3向HashSet集合中存储元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4HashSet判断是否有重复元素"><span class="nav-number">2.4.</span> <span class="nav-text">2.4HashSet判断是否有重复元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-LinkedHashSet介绍"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 LinkedHashSet介绍**</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Map接口"><span class="nav-number">3.</span> <span class="nav-text">3. Map接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Map接口常用方法"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 Map接口常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Map集合遍历键找值方式"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 Map集合遍历键找值方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-Entry键值对对象"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 Entry键值对对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-Map集合遍历键值对方式"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 Map集合遍历键值对方式**</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-HashMap存储自定义类型键值"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 HashMap存储自定义类型键值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-可变参数"><span class="nav-number">4.</span> <span class="nav-text">4. 可变参数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amber80930</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"Amber80930"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
