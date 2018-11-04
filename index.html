@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/二叉树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/20/二叉树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Amber">
@@ -328,7 +328,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/04/二叉树/" itemprop="url">二叉树</a></h1>
+                <a class="post-title-link" href="/2018/09/20/二叉树/" itemprop="url">二叉树</a></h1>
         
 
         <div class="post-meta">
@@ -340,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T16:34:40+08:00">
-                2018-11-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T16:34:40+08:00">
+                2018-09-20
               </time>
             
 
@@ -351,6 +351,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -359,8 +381,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/04/二叉树/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/11/04/二叉树/" itemprop="commentCount"></span>
+                <a href="/2018/09/20/二叉树/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/20/二叉树/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -390,7 +412,80 @@
       
         
           
-            
+            <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a><strong>二叉树</strong></h1><p>为什么要用到树呢？因为树结合了两种数据结构的优点：一种是有序数组，一种是链表。在树中查找数据项的速度和有序数组中查找一样快；插入、删除数据项的速度和链表一样快。</p>
+<h3 id="1-用Java代码实现树"><a href="#1-用Java代码实现树" class="headerlink" title="1. 用Java代码实现树"></a>1. <strong>用Java代码实现树</strong></h3><ul>
+<li>Node类</li>
+</ul>
+<p>首先要有一个节点对象的类，这些对象包含数据，数据代表要存储的内容，还有指向节点的两个子节点的引用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Node&#123;</span><br><span class="line">   int iData;    //data used as key value</span><br><span class="line">   double fData;   //other data </span><br><span class="line">   node leftChild;  //left child</span><br><span class="line">   node rightChild;  </span><br><span class="line">   public void displayNode()&#123;</span><br><span class="line">      //method body</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Tree类</li>
+</ul>
+<p>还需要一个表示书本身的类，由这个类实例化的对象包含所有的节点。它只有一个数据字段：表示根的Node变量。它不需要包含其他节点的数据字段，因为其他节点可以通过根节点访问到。</p>
+<p>Tree类有很多方法，它们用来查询、插入和删除节点；进行不同的遍历；显示树。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Tree&#123;</span><br><span class="line">   private Node root;</span><br><span class="line">   </span><br><span class="line">   public void find ( int key )&#123; &#125;</span><br><span class="line">   public void insert ( int id , double dd )&#123; &#125;</span><br><span class="line">   public void delete ( int id )&#123; &#125;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>TreeApp类</li>
+</ul>
+<p>最后还需要一个操作树的类。创建树、插入节点和查询节点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class TreeApp&#123;</span><br><span class="line">   public static void main ( String[ ] args)&#123;</span><br><span class="line">    </span><br><span class="line">      Tree theTree = new Tree;    //make a tree</span><br><span class="line"></span><br><span class="line">      theTree.insert (50 , 1.5);     //insert 3 nodes</span><br><span class="line">      theTree.insert (30 , 1.7);</span><br><span class="line">      theTree.insert (45 , 1.9);</span><br><span class="line"></span><br><span class="line">      node found = theTree.find (30);   //find node with key 30</span><br><span class="line">      if( found != null)</span><br><span class="line">         System.out.println( “Found the node with key 30” );</span><br><span class="line">      else</span><br><span class="line">         System.out.println( “Could notfound the node with key 30” );</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-实现查找节点的代码"><a href="#2-实现查找节点的代码" class="headerlink" title="2.实现查找节点的代码"></a><strong>2.实现查找节点的代码</strong></h3><p><strong>二叉查找树</strong>，如果左子树不为空，则左子树上的结点值均小于它根节点的值，若它的右子树不为空，则右子树上的所有节点值均大于它的根节点。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public Node find (int key)&#123;</span><br><span class="line"></span><br><span class="line">   Node current = root;</span><br><span class="line"></span><br><span class="line">   while (current.iData != key)&#123;</span><br><span class="line">      if (key &lt; current.iData)</span><br><span class="line">         current = current.leftChild;</span><br><span class="line">      else</span><br><span class="line">          current = current.rightChild;</span><br><span class="line">       if ( current == null )</span><br><span class="line">           return null;</span><br><span class="line">     &#125;</span><br><span class="line">     return current;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-实现插入的代码"><a href="#3-实现插入的代码" class="headerlink" title="3. 实现插入的代码"></a>3. 实现插入的代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public void insert ( int id, double dd)&#123;</span><br><span class="line">   Node newNode = new Node ();</span><br><span class="line">   newNode.iData = id;</span><br><span class="line">   newNode.dData = dd;</span><br><span class="line">   if (root==null)</span><br><span class="line">      root = newNode;</span><br><span class="line">   else&#123;</span><br><span class="line">      Node current = root;</span><br><span class="line">      Node parent;</span><br><span class="line">      while( true )&#123;</span><br><span class="line">         parent = current;</span><br><span class="line">         if ( id&lt; current.iData)&#123;</span><br><span class="line">            current = current.leftChild;</span><br><span class="line">            if( current == null)&#123;</span><br><span class="line">                parent.leftChild = newNode;</span><br><span class="line">                return;</span><br><span class="line">             &#125;</span><br><span class="line">          &#125;else&#123;</span><br><span class="line">             current = current.rightChild;</span><br><span class="line">             if ( current == null )&#123;</span><br><span class="line">                 parent.rightChild = newNode;</span><br><span class="line">                 return;</span><br><span class="line">              &#125;</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-遍历树"><a href="#4-遍历树" class="headerlink" title="4. 遍历树"></a><strong>4. </strong>遍历树</h3><ul>
+<li><p><strong>中序遍历</strong></p>
+<ul>
+<li>调用自身来遍历节点的左子树</li>
+<li>访问这个节点</li>
+<li>调用自身来遍历节点的右子树</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">private void inOrder ( node  localRoot )&#123;</span><br><span class="line">if( localRoot != null )&#123;</span><br><span class="line">   inOrder ( localRoot.leftChild );</span><br><span class="line">  </span><br><span class="line">    System.out.print ( localRoot.iData + “ “);</span><br><span class="line">   </span><br><span class="line">    inOrder ( localRoot.rightChild );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p><strong>前序遍历</strong></p>
+<ul>
+<li>访问节点</li>
+<li>调用自身遍历该节点的左子树</li>
+<li>调用自身遍历该节点的右子树</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public void preOrder(Node root) &#123;  //先序遍历          </span><br><span class="line"></span><br><span class="line">printNode(root);  </span><br><span class="line">        if (root.leftChild != null) &#123;  //使用递归进行遍历左孩子              preOrder(root.leftChild);  </span><br><span class="line">        &#125;  </span><br><span class="line">        if (root.rightChild != null) &#123;  //递归遍历右孩子              preOrder(root.rightChild);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>后序遍历</strong></p>
+<ul>
+<li>调用自身遍历该节点的左子树</li>
+<li>调用自身遍历该节点的右子树</li>
+<li>访问该节点</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public void afterOrder(Node root) &#123;  //后序遍历  </span><br><span class="line">        if (root.leftChild != null) &#123;  </span><br><span class="line">            afterOrder(root.leftChild );  </span><br><span class="line">        &#125;  </span><br><span class="line">        if(root.rightChild != null) &#123;  </span><br><span class="line">            afterOrder(root.rightChild );  </span><br><span class="line">        &#125;  </span><br><span class="line">        printNode(root);  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h3 id="5-查找最大值和最小值"><a href="#5-查找最大值和最小值" class="headerlink" title="5.查找最大值和最小值"></a><strong>5.查找最大值和最小值</strong></h3><p>查找最小值时，先走带根的左子节点处，然后接着走到子节点的左子节点，以此类推，直到找到一个没有左子节点的节点，这个节点就是最小值节点。</p>
+<p>按照相同的步骤来查找树中的最大值，不过要找到右子节点，一直向右找到没有右子节点的节点，这个节点就是最大值的节点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/* 查找最小值 */</span><br><span class="line"></span><br><span class="line">public Node minimum ()&#123;</span><br><span class="line">   Node current,last;</span><br><span class="line">   current = root;</span><br><span class="line">while ( current != null)&#123;</span><br><span class="line">   last = curent;</span><br><span class="line">   current = current.leftChild ;</span><br><span class="line">&#125;</span><br><span class="line">return last;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 查找最大值 */</span><br><span class="line"></span><br><span class="line">将循环中的最后一句改为：current = current.rightChild;</span><br></pre></td></tr></table></figure>
+<h3 id="6-删除节点"><a href="#6-删除节点" class="headerlink" title="6.删除节点"></a><strong>6.删除节点</strong></h3><p>删除节点时，要删除的节点可能会有三种情况需要考虑：</p>
+<ul>
+<li>该节点是叶节点（没有子节点）</li>
+<li>该节点有一个子节点</li>
+<li>该节点有两个子节点</li>
+</ul>
+<p><strong>情况1： 删除没有子节点的节点</strong></p>
+<p>删除叶节点，只需要改变该节点的父节点的对应子字段的值，由指向该节点改为null就可以了。要删除的节点仍然存在，但它已经不是树的一部分了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public boolean delete ( int key )&#123;</span><br><span class="line">   Node current = root;</span><br><span class="line">   Node parent = root;</span><br><span class="line">   boolean isLeftChild = true;</span><br><span class="line">   </span><br><span class="line">   while ( current.iData != key)&#123;</span><br><span class="line">      parent = current;</span><br><span class="line">      if ( key &lt; current.iData)&#123;</span><br><span class="line">         isLeftChild = true;</span><br><span class="line">         current = current.leftChild;</span><br><span class="line">       &#125;else&#123;</span><br><span class="line">          isLeftChild = false;</span><br><span class="line">          current = current.rightChild;</span><br><span class="line">       &#125;</span><br><span class="line">       if ( current == null )&#123;</span><br><span class="line">          return false;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       if ( current.leftChild == null &amp;&amp; current.rightChild == null )&#123;</span><br><span class="line">          if (current == root )&#123;</span><br><span class="line">             root =null;</span><br><span class="line">          &#125;else if ( isLeftChild )&#123;</span><br><span class="line">             parent.leftChild = null;</span><br><span class="line">          &#125;else&#123;</span><br><span class="line">             parent.rightChild = null;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>情况二： 删除有一个子节点的节点</strong></p>
+<p>   这个节点只有两个连接：连向父节点的和连向它唯一的子节点的。需要从这个序列中剪断这个节点，把它的子节点直接连接到它的父节点上。</p>
+<p>   有四种不同的情况：要删除的节点的子节点可能有左子节点或右子节点，要删除的节点也可能是自己父节点的左子节点或右子节点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public boolean delete ( int key )&#123;</span><br><span class="line">   Node current = root;</span><br><span class="line">   Node parent = root;</span><br><span class="line">   boolean isLeftChild = true;</span><br><span class="line">   </span><br><span class="line">   while ( current.iData != key)&#123;</span><br><span class="line">      parent = current;</span><br><span class="line">      if ( key &lt; current.iData)&#123;</span><br><span class="line">         isLeftChild = true;</span><br><span class="line">         current = current.leftChild;</span><br><span class="line">       &#125;else&#123;</span><br><span class="line">          isLeftChild = false;</span><br><span class="line">          current = current.rightChild;</span><br><span class="line">       &#125;</span><br><span class="line">       if ( current == null )&#123;</span><br><span class="line">          return false;</span><br><span class="line">       &#125;</span><br><span class="line">       //要删除的节点仅有左子树</span><br><span class="line">else if (current.rightChild == null )&#123;</span><br><span class="line">if ( current == root )</span><br><span class="line">   root = current.leftChild;</span><br><span class="line">else if ( isLeftChild )</span><br><span class="line">   parent.leftChild = current.leftChild;</span><br><span class="line">else</span><br><span class="line">   parent.rightChild = current.leftChild;</span><br><span class="line">&#125;</span><br><span class="line">//要删除的节点仅有右子树</span><br><span class="line">else if ( current.leftChild == null )&#123;</span><br><span class="line">       if ( current == root )</span><br><span class="line">           root = current.rightChild;</span><br><span class="line">       else if (isLeftChild )</span><br><span class="line">           parent.leftChild = current.rightChild;</span><br><span class="line">       else</span><br><span class="line">            parent.rightChild = current.rightChild;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>情况三：删除有两个子节点的节点</strong></p>
+<p>多种情况，十分复杂！！！</p>
+<h3 id="7-用数组表示树"><a href="#7-用数组表示树" class="headerlink" title="7. 用数组表示树"></a>7. <strong>用数组表示树</strong></h3><p>用数组的方法时，节点存在数组中，而不是由引用相连，节点在数组中的位置相对应于它在树中的位置。按照从左到右的顺序存储树的每一层。</p>
+<p>树中的每个位置，无论是否存在节点都对应数组中的一个位置，树中没有节点的位置在数组中的对应位置用0或null来表示。</p>
+<p><img src="1.jpg" alt="img"> </p>
+<p>基于这种思想，在数组中查找节点有以下规律：</p>
+<p>如果节点索引值是index，那么节点的左子节点是—&gt;2*index+1;</p>
+<p>​                           节点的右子节点是—&gt;2*index+2;</p>
+<p>​                            它的父节点是—&gt;(index-1)/2。</p>
+
           
         
       
@@ -445,7 +540,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/jQuery、js和ajax/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/14/jQuery、js和ajax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Amber">
@@ -464,7 +559,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/04/jQuery、js和ajax/" itemprop="url">jQuery、js和ajax</a></h1>
+                <a class="post-title-link" href="/2018/09/14/jQuery、js和ajax/" itemprop="url">jQuery、js和ajax</a></h1>
         
 
         <div class="post-meta">
@@ -476,8 +571,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T16:33:32+08:00">
-                2018-11-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-14T16:33:32+08:00">
+                2018-09-14
               </time>
             
 
@@ -517,8 +612,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/04/jQuery、js和ajax/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/11/04/jQuery、js和ajax/" itemprop="commentCount"></span>
+                <a href="/2018/09/14/jQuery、js和ajax/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/14/jQuery、js和ajax/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -548,77 +643,141 @@
       
         
           
-            <h1 id="1-jQuery、js和ajax的区别："><a href="#1-jQuery、js和ajax的区别：" class="headerlink" title="1.jQuery、js和ajax的区别："></a><strong>1.jQuery、js和ajax的区别：</strong></h1><p>简单总结：</p>
+            <h1 id="1-jQuery、js和ajax的区别："><a href="#1-jQuery、js和ajax的区别：" class="headerlink" title="1.jQuery、js和ajax的区别："></a><strong>1.jQuery、js和ajax的区别：</strong></h1><p><strong>简单总结：</strong></p>
 <p>1、JS是一门前端语言。</p>
 <p>2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。</p>
 <p>3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便</p>
-<p>关系比喻：</p>
+<p><strong>关系比喻：</strong></p>
 <p>若把js比作木头，那么jquery就是木板（半成品）</p>
 <p>jQuery与ajax都是js的一个框架，各有各的功能，若js是父亲的话，jquery与ajax就是两个儿子 </p>
-<h1 id="2-jQuery和js常用操作的区别"><a href="#2-jQuery和js常用操作的区别" class="headerlink" title="2. jQuery和js常用操作的区别"></a>2. <strong>jQuery和js常用操作的区别</strong></h1><h3 id="2-1-定位元素"><a href="#2-1-定位元素" class="headerlink" title="2.1 定位元素"></a>2.1 <strong>定位元素</strong></h3><p>JS<br>document.getElementById(“abc”)<br>jQuery<br>$(“#abc”) 通过id定位<br>$(“.abc”) 通过所用css类（class）定位<br>$(“div”) 通过标签定位<br>需要注意的是JS返回的结果是这个元素，jQuery返回的结果是一个JS的对象。以下例子中假设已经定位了元素abc。 </p>
-<p>###2.2 <strong>改变元素的内容 </strong></p>
-<p>JS<br>abc.innerHTML = “test”;                //现在的项目中有用到<br>jQuery<br>abc.html(“test”); </p>
-<p>###2.3 显示隐藏元素 </p>
-<p>JS<br>abc.style.display = “none”;              //现在的项目中有用到<br>abc.style.display = “block”;<br>jQuery<br>abc.hide();<br>abc.show();</p>
+<h1 id="2-jQuery和js常用操作的区别"><a href="#2-jQuery和js常用操作的区别" class="headerlink" title="2. jQuery和js常用操作的区别"></a>2. <strong>jQuery和js常用操作的区别</strong></h1><h3 id="2-1-定位元素"><a href="#2-1-定位元素" class="headerlink" title="2.1 定位元素"></a>2.1 <strong>定位元素</strong></h3><ul>
+<li>JS </li>
+</ul>
+<p>document.getElementById(“abc”) </p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>$(“#abc”) 通过id定位<br>$(“.abc”) 通过所用css类（class）定位<br>$(“div”) 通过标签定位<br>需要注意的是JS返回的结果是这个元素，jQuery返回的结果是一个JS的对象。以下例子中假设已经定位了元素abc。 </p>
+<p>###2.2 改变元素内容</p>
+<ul>
+<li>JS </li>
+</ul>
+<p>abc.innerHTML = “test”;                //现在的项目中有用到</p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>abc.html(“test”); </p>
+<p>###2.3 显示隐藏元素</p>
+<ul>
+<li>JS </li>
+</ul>
+<p>abc.style.display = “none”;              //现在的项目中有用到<br>abc.style.display = “block”; </p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>abc.hide();<br>abc.show();</p>
 <p>abc.toggle();         //在显示和隐藏之间切换、</p>
-<p>###<strong>2.</strong>4 获得焦点 </p>
+<p>###2.4 获得焦点</p>
 <p>JS和jQuery是一样的，都是abc.focus(); </p>
-<p>###2.5 为表单赋值 </p>
-<p>JS<br>abc.value = “test”;<br>jQuery<br>abc.val(“test”); </p>
-<p>###2.6 获得表单的值 </p>
-<p>JS</p>
-<p>alert(abc.value);<br>jQuery<br>alert(abc.val()); </p>
-<p>###2.7 设置元素不可用 </p>
-<p>JS<br>abc.disabled = true;<br>jQuery<br>abc.attr(“disabled”, true);</p>
-<p>###2.8 修改元素样式</p>
-<p>JS</p>
-<p>abc.style.fontSize=size;<br>jQuery<br>abc.css(‘font-size’, 20);</p>
-<p>JS<br>abc.className=”test”;<br>JQuery<br>abc.removeClass();<br>abc.addClass(“test”);</p>
-<p>###2.9 判断复选框是否选中<em>**</em></p>
-<p>jQuery<br>if(abc.attr(“checked”) == “checked”)<br>注意：网上说的.attr(“checked”) == true实际上不能用，上面这个测试过能用</p>
+<p>###2.5 为表单赋值</p>
+<ul>
+<li>JS </li>
+</ul>
+<p>abc.value = “test”; </p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>abc.val(“test”); </p>
+<p>###2.6 获得表单的值</p>
+<ul>
+<li>JS</li>
+</ul>
+<p>alert(abc.value); </p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>alert(abc.val()); </p>
+<p>###2.7 设置元素不可用</p>
+<ul>
+<li>JS </li>
+</ul>
+<p>abc.disabled = true; </p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>abc.attr(“disabled”, true);</p>
+<p>###2.8 修改元素的样式</p>
+<ul>
+<li>JS</li>
+</ul>
+<p>abc.style.fontSize=size;</p>
+<ul>
+<li>jQuery</li>
+</ul>
+<p>abc.css(‘font-size’, 20);</p>
+<ul>
+<li>JS</li>
+</ul>
+<p>abc.className=”test”;</p>
+<ul>
+<li>JQuery</li>
+</ul>
+<p>abc.removeClass();<br>abc.addClass(“test”);</p>
+<p>###2.9 判断复选框是否选中</p>
+<p>jQuery<br>if(abc.attr(“checked”) == “checked”)<br><strong>注意：</strong>网上说的.attr(“checked”) == true实际上不能用，上面这个测试过能用</p>
 <h1 id="3-jQuery选择器"><a href="#3-jQuery选择器" class="headerlink" title="3. jQuery选择器"></a>3. jQuery选择器</h1><p><img src="1.jpg" alt="img"> </p>
 <p><img src="2.jpg" alt="img"></p>
 <p><img src="3.jpg" alt="img"> </p>
 <h1 id="4-用jQuery来操作DOM"><a href="#4-用jQuery来操作DOM" class="headerlink" title="4. 用jQuery来操作DOM"></a>4. 用jQuery来操作DOM</h1><h3 id="4-1-修改元素属性"><a href="#4-1-修改元素属性" class="headerlink" title="4.1 修改元素属性"></a>4.1 修改元素属性</h3><p>获取和修改元素属性使用jQuery的attr方法</p>
-<p>l <strong>$（selector）.attr（attribute）</strong></p>
+<ul>
+<li><strong>$（selector）.attr（attribute）</strong></li>
+</ul>
 <p>其中selector是选择器，指定要操作的标签对象；attribute是要获取元素的属性名称。</p>
-<p>l <strong>$（selector）.attr（attribute，value）</strong></p>
+<ul>
+<li><strong>$（selector）.attr（attribute，value）</strong></li>
+</ul>
 <p>Value用来指定属性的值。</p>
 <h3 id="4-2-修改元素内容"><a href="#4-2-修改元素内容" class="headerlink" title="4.2 修改元素内容"></a>4.2 <strong>修改元素内容</strong></h3><p>有3个方法用于获取HTML元素的内容：</p>
-<p>l <strong>text():</strong>设置或返回所选元素的文本内容<em>**</em></p>
-<p>l <strong>html():</strong>设置或返回所选元素的内容（<strong>包括HTML标记</strong>）<em>**</em></p>
-<p>l <strong>val():</strong>设置或返回表单字段的值<em>**</em></p>
-<p><strong>如: $(**</strong>“<strong><strong>test</strong></strong>”<strong><strong>).html(htmlStr);  // 将htmlStr设置到id为test的div中</strong></strong></p>
-<h3 id="4-3-动态创建内容"><a href="#4-3-动态创建内容" class="headerlink" title="4.3 动态创建内容"></a>4.3 动态创建内容</h3><p>l <strong>append（）: </strong>在被选元素的<strong>结尾</strong>插入内容<em>**</em></p>
-<p>l <strong>prepend（）:</strong>在被选元素的<strong>开头</strong>插入内容<em>**</em></p>
-<p>l <strong>after（）:</strong>在被选元素<strong>之后</strong>插入内容<em>**</em></p>
-<p>l <strong>befor（）:</strong>在被选元素<strong>之前</strong>插入内容<em>**</em></p>
+<ul>
+<li><strong>text():</strong>设置或返回所选元素的文本内容</li>
+<li><strong>html():</strong>设置或返回所选元素的内容（<strong>包括HTML标记</strong>）</li>
+<li><strong>val():</strong>设置或返回表单字段的值</li>
+</ul>
+<p><strong>如: $(“test”).html(htmlStr);  // 将htmlStr设置到id为test的div中</strong></p>
+<h3 id="4-3-动态创建内容"><a href="#4-3-动态创建内容" class="headerlink" title="4.3 动态创建内容"></a>4.3 动态创建内容</h3><ul>
+<li><strong>append（）: </strong>在被选元素的<strong>结尾</strong>插入内容</li>
+<li><strong>prepend（）:</strong>在被选元素的<strong>开头</strong>插入内容</li>
+<li><strong>after（）:</strong>在被选元素<strong>之后</strong>插入内容</li>
+<li><strong>befor（）:</strong>在被选元素<strong>之前</strong>插入内容</li>
+</ul>
 <h3 id="4-4-动态插入节点"><a href="#4-4-动态插入节点" class="headerlink" title="4.4 动态插入节点"></a>4.4 动态插入节点</h3><p>除了动态创建内容的四个方法外，还有以下方法：</p>
-<p>l <strong>appendTo（）: </strong>在被选元素的<strong>结尾</strong>插入内容<em>**</em></p>
-<p>l <strong>PrependTo（）:</strong>在被选元素的<strong>开头</strong>插入内容<em>**</em></p>
-<p>l <strong>insertAfter（指定元素）:</strong>把匹配的元素插入到另一个指定的元素集合后面<em>**</em></p>
-<p>l <strong>insertBefore（指定元素）:</strong>把匹配的元素插入到另一个指定的元素集合前面<em>**</em></p>
-<h3 id="4-5-动态删除节点"><a href="#4-5-动态删除节点" class="headerlink" title="4.5 动态删除节点"></a>4.5 动态删除节点</h3><p>l <strong>remove（）：</strong>用来删除指定的DOM元素，会将节点从DOM树种移除<em>**</em></p>
-<p>l <strong>empty（）：</strong>不会删除节点，只是清空节点中的内容</p>
-<h3 id="4-6-超链接提示"><a href="#4-6-超链接提示" class="headerlink" title="4.6 **超链接提示"></a>4.6 **超链接提示</h3><p>如果要让超链接自带提示信息，可以在超链接标签里设置title属性。</p>
-<p><strong>如：  &lt;a href=**</strong>”<strong><strong>#</strong></strong>”<strong><strong> title=</strong></strong>”<strong><strong>超链接提示信息</strong></strong>”<strong><strong>&gt;提示</strong></strong></p>
+<ul>
+<li><strong>appendTo（）: </strong>在被选元素的<strong>结尾</strong>插入内容</li>
+<li><strong>PrependTo（）:</strong>在被选元素的<strong>开头</strong>插入内容</li>
+<li><strong>insertAfter（指定元素）:</strong>把匹配的元素插入到另一个指定的元素集合后面</li>
+<li><strong>insertBefore（指定元素）:</strong>把匹配的元素插入到另一个指定的元素集合前面</li>
+</ul>
+<h3 id="4-5-动态删除节点"><a href="#4-5-动态删除节点" class="headerlink" title="4.5 动态删除节点"></a>4.5 动态删除节点</h3><ul>
+<li><strong>remove（）：</strong>用来删除指定的DOM元素，会将节点从DOM树种移除<em>**</em></li>
+<li><strong>empty（）：</strong>不会删除节点，只是清空节点中的内容</li>
+</ul>
+<h3 id="4-6-超链接提示"><a href="#4-6-超链接提示" class="headerlink" title="4.6 超链接提示"></a>4.6 超链接提示</h3><p>如果要让超链接自带提示信息，可以在超链接标签里设置title属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如：  &lt;a href=”#” title=”超链接提示信息”&gt;提示&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 <h1 id="5-jQuery的事件和事件对象"><a href="#5-jQuery的事件和事件对象" class="headerlink" title="5. jQuery的事件和事件对象"></a>5. <strong>jQuery的事件和事件对象</strong></h1><h3 id="5-1-常用简单事件绑定"><a href="#5-1-常用简单事件绑定" class="headerlink" title="5.1 常用简单事件绑定"></a>5.1 <strong>常用简单事件绑定</strong></h3><p><img src="4.jpg" alt="img"> </p>
 <h3 id="5-2-页面初始化事件"><a href="#5-2-页面初始化事件" class="headerlink" title="5.2 页面初始化事件"></a>5.2 <strong>页面初始化事件</strong></h3><p><strong>为什么需要页面初始化事件？？</strong></p>
 <p>HTML是有执行顺序的，默认是自上而下执行。所以当我们的js代码在html代码下边的时候，可以正常执行，而当我们的js代码在html代码上边的时候，可以就无法正常执行了，这时，我们需要在文档加载完毕的时候才去执行js代码，所以通常我们需要定义onload事件。</p>
 <p>在jQuery中，使用页面初始化事件来完成这项功能。</p>
 <p><strong>语法如下：</strong></p>
-<p><strong>$(document).ready(function(){</strong></p>
-<p><strong>//在这里写页面加载事件的代码</strong></p>
-<p><strong>});</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function()&#123;</span><br><span class="line"></span><br><span class="line">//在这里写页面加载事件的代码</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>还有简便写法：“$().ready(function)” 或者 “$(function)”</p>
 <h3 id="5-3-绑定事件"><a href="#5-3-绑定事件" class="headerlink" title="5.3 绑定事件"></a>5.3 <strong>绑定事件</strong></h3><pre><code>jQuery提供了一些绑定标准事件的简单方式，如常用的“$(“#button1”).click()”这样的绑定方式，jQuery还提供了一个专门用于绑定事件的方法：
-</code></pre><p><strong>$(selector).bind(event,data,function)</strong></p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).bind(event,data,function)</span><br></pre></td></tr></table></figure>
 <p>其中，参数event：可以是所有的js事件对象，比如blur，focus，load，click等可传入；</p>
 <p>data：作为event.data属性值传递给event事件对象；</p>
 <p>function：绑定处理函数，一般将事件处理代码之间写在函数体内。</p>
 <p>其实jQuery除了可以使用bind绑定事件外，还可以使用live绑定。两者的区别在于live可以给匹配元素附加一个事件处理函数，即使这个元素是以后添加进来的也有效。</p>
 <h3 id="5-4-移除事件绑定"><a href="#5-4-移除事件绑定" class="headerlink" title="5.4 移除事件绑定"></a>5.4 <strong>移除事件绑定</strong></h3><p>用于从指定的元素上删除一个或多个事件和处理程序，语法如下：</p>
-<p><strong>$(selector).unbind(event,function)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).unbind(event,function)</span><br></pre></td></tr></table></figure>
 <p>如果不指定unbind的任何参数，将移除指定元素上的所有的绑定事件和处理程序，参数event指定要删除的事件，多个事件之间用空格分隔，function用来指定取消绑定的函数名。</p>
 <h3 id="5-5-hover方法"><a href="#5-5-hover方法" class="headerlink" title="5.5 hover方法"></a>5.5 <strong>hover方法</strong></h3><p>当两个以上的事件绑定到同一个元素上时，可以根据元素的不同动作行为在不同的动作之间进行切换。</p>
 <p>hover方法（元素在鼠标悬停与鼠标移除的事件中进行切换），具体语法如下：</p>
@@ -627,42 +786,35 @@
 <h1 id="6-jQuery中的ajax"><a href="#6-jQuery中的ajax" class="headerlink" title="6. jQuery中的ajax"></a>6. <strong>jQuery中的ajax</strong></h1><p>Ajax用来实现<strong>局部更新</strong>。<strong>XMLHttpRequest是ajax技术的核心</strong>，因为它是浏览器与服务器的通信载体。它负责向服务器端发送请求、监听请求的状态、回调函数等。</p>
 <p>原始的ajax使用起来有很多重复繁琐的代码，jQuery中对这些繁琐的代码进行了封装，使程序员只需要关注URL、HTTP方法、参数和最终的字符结果。</p>
 <h3 id="6-1-jQuery中的ajax函数"><a href="#6-1-jQuery中的ajax函数" class="headerlink" title="6.1 jQuery中的ajax函数"></a>6.1 <strong>jQuery中的ajax函数</strong></h3><p><strong>常见快捷函数：</strong></p>
-<p>l <strong>get（）：</strong>用于get请求，常用于<strong>无参数</strong>传递、返回文本结果的应用<em>**</em></p>
-<p>l <strong>post（）：</strong>用于post请求，常用于<strong>多参数</strong>传递、返回文本结果的应用<em>**</em></p>
-<p>l <strong>getJSON（）：</strong>自带返回结果转换为JSON的功能，常用于JSON通信的ajax应用<em>**</em></p>
-<p>l <strong>getScript（）：</strong>动态加载一个JavaScript文件<em>**</em></p>
-<p>l <strong>load（）：</strong>可以把返回结果直接挂载到DOM里<em>**</em></p>
+<ul>
+<li><strong>get（）：</strong>用于get请求，常用于<strong>无参数</strong>传递、返回文本结果的应用</li>
+<li><strong>post（）：</strong>用于post请求，常用于<strong>多参数</strong>传递、返回文本结果的应用</li>
+<li><strong>getJSON（）：</strong>自带返回结果转换为JSON的功能，常用于JSON通信的ajax应用</li>
+<li><strong>getScript（）：</strong>动态加载一个JavaScript文件</li>
+<li><strong>load（）：</strong>可以把返回结果直接挂载到DOM里</li>
+</ul>
 <p><strong>常见全局配置和事件：</strong></p>
-<p> <strong>ajaxError（）：</strong>ajax请求发生错误时执行</p>
-<p>n <strong>ajaxComplete（）：</strong>ajax请求完成时执行</p>
-<p>n <strong>ajaxSend（）：</strong>ajax请求发出时执行</p>
-<p>n <strong>ajaxStart（）：</strong>ajax请求开始执行时执行</p>
-<p>n <strong>ajaxSuccess（）：</strong>ajax请求成功返回时执行</p>
-<p>n <strong>ajaxStop（）：</strong>ajax请求结束时执行</p>
+<ul>
+<li><strong>ajaxError（）：</strong>ajax请求发生错误时执行</li>
+<li><strong>ajaxComplete（）：</strong>ajax请求完成时执行</li>
+<li><strong>ajaxSend（）：</strong>ajax请求发出时执行</li>
+<li><strong>ajaxStart（）：</strong>ajax请求开始执行时执行</li>
+<li><strong>ajaxSuccess（）：</strong>ajax请求成功返回时执行</li>
+<li><strong>ajaxStop（）：</strong>ajax请求结束时执行</li>
+</ul>
 <h3 id="6-2-跨域的AJAX-JSONP"><a href="#6-2-跨域的AJAX-JSONP" class="headerlink" title="6.2 跨域的AJAX-JSONP"></a>6.2 <strong>跨域的AJAX-JSONP</strong></h3><p><strong>浏览器同源策略：</strong></p>
 <p>阻止代码获得或更改从<strong>另一个域名</strong>下获得的文件和信息。</p>
 <p><strong>JSONP</strong>提供了一个巧妙的方法来解决这个问题，就是<strong>在页面中使用动态代码元素</strong>，这些动态代码的源指向目标服务地址并在自己的代码中加载数据。当这些代码加载执行的时候，同源策略就不会起到限制。</p>
 <p><strong>语法：</strong></p>
-<p>//定义回调函数</p>
-<p>Var showAge = function（data）{</p>
-<p> //展示信息</p>
-<p>Alert（“age=”+data.age）;  </p>
-<p>};</p>
-<p>//页面加载回调函数</p>
-<p>$（document）.ready（function）{</p>
-<p>//一个外部域名或IP的资源地址</p>
-<p>Var url = ‘jquery/info.js’ ;  </p>
-<p>//通过getJSON（）来实现jQuery对JSONP的支持</p>
-<p>//参数2“<strong>?callback?</strong>”jQuery会自动替换成回调函数名称；</p>
-<p>//参数3 “<strong>showAge</strong>”表示回调函数名称</p>
-<p>$.getJSON（url+”?callback?”,showAge）;</p>
-<p>});</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//定义回调函数</span><br><span class="line"></span><br><span class="line">Var showAge = function（data）&#123;</span><br><span class="line"></span><br><span class="line"> //展示信息</span><br><span class="line"></span><br><span class="line">Alert（“age=”+data.age）;  </span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//页面加载回调函数</span><br><span class="line"></span><br><span class="line">$（document）.ready（function）&#123;</span><br><span class="line"></span><br><span class="line">//一个外部域名或IP的资源地址</span><br><span class="line"></span><br><span class="line">Var url = ‘jquery/info.js’ ;  </span><br><span class="line"></span><br><span class="line">//通过getJSON（）来实现jQuery对JSONP的支持</span><br><span class="line"></span><br><span class="line">//参数2“?callback?”jQuery会自动替换成回调函数名称；</span><br><span class="line"></span><br><span class="line">//参数3 “showAge”表示回调函数名称</span><br><span class="line"></span><br><span class="line">$.getJSON（url+”?callback?”,showAge）;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="6-3-HTTP状态码"><a href="#6-3-HTTP状态码" class="headerlink" title="6.3 HTTP状态码"></a>6.3 <strong>HTTP状态码</strong></h3><hr>
-<p>l <strong>1XX ：服务器收到请求，需要继续处理。如101，表示服务器将通知客户端使用更</strong>    <strong><strong>高版本的HTTP协议。</strong></strong></p>
-<p>l <strong>2XX ：请求成功。如200。</strong></p>
-<p>l <strong>3XX ：重定向。如302，表示临时重定向，请求将包含一个新的URL地址，客户</strong>    <strong><strong>端对新的URL地址进行请求。</strong></strong></p>
-<p>l <strong>4XX ：客户端错误。如404，表示客户端请求的资源不存在。</strong></p>
-<p>l <strong>5XX ：服务器错误。如500，表示服务器遇到了一个未曾预料的情况，导致无法完</strong>    <strong><strong>成响应。</strong></strong></p>
+<ul>
+<li><strong>1XX ：服务器收到请求，需要继续处理。如101，表示服务器将通知客户端使用更</strong>    高版本的HTTP协议。</li>
+<li><strong>2XX ：请求成功。如200。</strong></li>
+<li><strong>3XX ：重定向。如302，表示临时重定向，请求将包含一个新的URL地址，客户</strong>    端对新的URL地址进行请求。</li>
+<li><strong>4XX ：客户端错误。如404，表示客户端请求的资源不存在。</strong></li>
+<li><strong>5XX ：服务器错误。如500，表示服务器遇到了一个未曾预料的情况，导致无法完成响应。</strong></li>
+</ul>
 <h1 id="7-jQuery中的动画效果"><a href="#7-jQuery中的动画效果" class="headerlink" title="7. jQuery中的动画效果"></a>7. <strong>jQuery中的动画效果</strong></h1><h3 id="7-1基本动画方法"><a href="#7-1基本动画方法" class="headerlink" title="7.1基本动画方法"></a><strong>7.1基本动画方法</strong></h3><table>
 <thead>
 <tr>
@@ -725,27 +877,30 @@
 </tr>
 </tbody>
 </table>
-<h3 id="7-4-自定义动画"><a href="#7-4-自定义动画" class="headerlink" title="7.4 自定义动画"></a><strong>7.4 自定义动画</strong></h3><p><strong>$(selector).animate({params},speed,callback);</strong></p>
+<h3 id="7-4-自定义动画"><a href="#7-4-自定义动画" class="headerlink" title="7.4 自定义动画"></a><strong>7.4 自定义动画</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).animate(&#123;params&#125;,speed,callback);</span><br></pre></td></tr></table></figure>
 <p>参数：</p>
 <p>params：必选的，表示形成动画的CSS属性</p>
 <p>speed：可选的，规定效果的时长，取值是slow、fast或者毫秒</p>
 <p>callback：可选的，回调函数</p>
 <p><strong>注意：</strong>默认所有的HTML元素都有一个静态位置，且无法移动。如需对位置进行操作，记得首先将元素的CSS position属性设置为relative、fixed或absolute。</p>
 <h1 id="8-jQuery的UI插件"><a href="#8-jQuery的UI插件" class="headerlink" title="8. jQuery的UI插件"></a>8. <strong>jQuery的UI插件</strong></h1><p>jQuery UI官方提供了3种分类：</p>
-<p>l 交互（interactions）：各种鼠标操作，如拖拽（draggable、droppable）、选择                        （selectable）、排序（sortable）、缩放（resizable）。</p>
-<p>l 微件（widgets）：各种页面控件的美观设计，如折叠菜单（accordions）、日历                （datepicker）、对话框（dialog）、滑动条（slider）、标签（tab）、                    放大镜效果（magnifier）、下拉菜单（selectmenu）。</p>
-<p>l 效果（effects）：各种动画效果，如color animation、显示、隐藏等。</p>
+<ul>
+<li>交互（interactions）：各种鼠标操作，如拖拽（draggable、droppable）、选择                        （selectable）、排序（sortable）、缩放（resizable）。</li>
+<li>微件（widgets）：各种页面控件的美观设计，如折叠菜单（accordions）、日历            （datepicker）、对话框（dialog）、滑动条（slider）、标签（tab）、放大镜效果（magnifier）、下拉菜单（selectmenu）。</li>
+<li>效果（effects）：各种动画效果，如color animation、显示、隐藏等。</li>
+</ul>
 <h3 id="8-1-利用jQuery-UI实现页面交互"><a href="#8-1-利用jQuery-UI实现页面交互" class="headerlink" title="8.1 利用jQuery UI实现页面交互"></a>8.1 <strong>利用jQuery UI实现页面交互</strong></h3><p> 以实现拖动组件Draggable为例，具体<strong>实现步骤</strong>如下：</p>
-<p>l 在head标签中，添加包含拖动组件的UI类库和jQuery库；</p>
-<script type="”text/javascript”" src="”jquery-1.11.2.js”"></script>
-
-<script type="”text/javascript”" src="”jquery-ui.js”"></script>
-
-
-
-<p>l 通过方法draggable（）封装DOM对象为jQuery对象；</p>
-<p>$(selector).Draggable();</p>
-<p>l 根据具体需求，通过方法draggable（options）设置拖动组件对象的效果配置选项。</p>
+<ul>
+<li>在head标签中，添加包含拖动组件的UI类库和jQuery库；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=”text/javascript” src=”jquery-1.11.2.js”&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=”text/javascript” src=”jquery-ui.js”&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过方法draggable（）封装DOM对象为jQuery对象；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).Draggable();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据具体需求，通过方法draggable（options）设置拖动组件对象的效果配置选项。</li>
+</ul>
 <p>其他的交互实现步骤类似，设计具体效果时查阅相关方法即可。</p>
 
           
@@ -2185,7 +2340,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2196,7 +2351,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

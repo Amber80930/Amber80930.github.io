@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jQuery、js和ajax," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.jQuery、js和ajax的区别：简单总结： 1、JS是一门前端语言。 2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。 3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便 关系比喻： 若把js比作木头，那么jquery就是木板（半成品） jQuery与ajax都是js的">
+<meta name="keywords" content="jQuery、js和ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery、js和ajax">
+<meta property="og:url" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/index.html">
+<meta property="og:site_name" content="Amber">
+<meta property="og:description" content="1.jQuery、js和ajax的区别：简单总结： 1、JS是一门前端语言。 2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。 3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便 关系比喻： 若把js比作木头，那么jquery就是木板（半成品） jQuery与ajax都是js的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/4.jpg">
+<meta property="og:updated_time" content="2018-11-04T09:13:21.187Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery、js和ajax">
+<meta name="twitter:description" content="1.jQuery、js和ajax的区别：简单总结： 1、JS是一门前端语言。 2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。 3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便 关系比喻： 若把js比作木头，那么jquery就是木板（半成品） jQuery与ajax都是js的">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/14/jQuery、js和ajax/"/>
+
+
+
+
+
+  <title>jQuery、js和ajax | Amber</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://amber80930.github.io/" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Amber</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">-不倾国，不倾城，只倾其所有。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br />
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'TChYnQxfabLwWxErgM-L','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/14/jQuery、js和ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amber">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amber">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">jQuery、js和ajax</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-14T16:33:32+08:00">
+                2018-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery、js和ajax/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery、js和ajax</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/14/jQuery、js和ajax/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/14/jQuery、js和ajax/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-jQuery、js和ajax的区别："><a href="#1-jQuery、js和ajax的区别：" class="headerlink" title="1.jQuery、js和ajax的区别："></a><strong>1.jQuery、js和ajax的区别：</strong></h1><p><strong>简单总结：</strong></p>
+<p>1、JS是一门前端语言。</p>
+<p>2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。</p>
+<p>3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便</p>
+<p><strong>关系比喻：</strong></p>
+<p>若把js比作木头，那么jquery就是木板（半成品）</p>
+<p>jQuery与ajax都是js的一个框架，各有各的功能，若js是父亲的话，jquery与ajax就是两个儿子 </p>
+<h1 id="2-jQuery和js常用操作的区别"><a href="#2-jQuery和js常用操作的区别" class="headerlink" title="2. jQuery和js常用操作的区别"></a>2. <strong>jQuery和js常用操作的区别</strong></h1><h3 id="2-1-定位元素"><a href="#2-1-定位元素" class="headerlink" title="2.1 定位元素"></a>2.1 <strong>定位元素</strong></h3><ul>
+<li>JS </li>
+</ul>
+<p>document.getElementById(“abc”) </p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>$(“#abc”) 通过id定位<br>$(“.abc”) 通过所用css类（class）定位<br>$(“div”) 通过标签定位<br>需要注意的是JS返回的结果是这个元素，jQuery返回的结果是一个JS的对象。以下例子中假设已经定位了元素abc。 </p>
+<p>###2.2 改变元素内容</p>
+<ul>
+<li>JS </li>
+</ul>
+<p>abc.innerHTML = “test”;                //现在的项目中有用到</p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>abc.html(“test”); </p>
+<p>###2.3 显示隐藏元素</p>
+<ul>
+<li>JS </li>
+</ul>
+<p>abc.style.display = “none”;              //现在的项目中有用到<br>abc.style.display = “block”; </p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>abc.hide();<br>abc.show();</p>
+<p>abc.toggle();         //在显示和隐藏之间切换、</p>
+<p>###2.4 获得焦点</p>
+<p>JS和jQuery是一样的，都是abc.focus(); </p>
+<p>###2.5 为表单赋值</p>
+<ul>
+<li>JS </li>
+</ul>
+<p>abc.value = “test”; </p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>abc.val(“test”); </p>
+<p>###2.6 获得表单的值</p>
+<ul>
+<li>JS</li>
+</ul>
+<p>alert(abc.value); </p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>alert(abc.val()); </p>
+<p>###2.7 设置元素不可用</p>
+<ul>
+<li>JS </li>
+</ul>
+<p>abc.disabled = true; </p>
+<ul>
+<li>jQuery </li>
+</ul>
+<p>abc.attr(“disabled”, true);</p>
+<p>###2.8 修改元素的样式</p>
+<ul>
+<li>JS</li>
+</ul>
+<p>abc.style.fontSize=size;</p>
+<ul>
+<li>jQuery</li>
+</ul>
+<p>abc.css(‘font-size’, 20);</p>
+<ul>
+<li>JS</li>
+</ul>
+<p>abc.className=”test”;</p>
+<ul>
+<li>JQuery</li>
+</ul>
+<p>abc.removeClass();<br>abc.addClass(“test”);</p>
+<p>###2.9 判断复选框是否选中</p>
+<p>jQuery<br>if(abc.attr(“checked”) == “checked”)<br><strong>注意：</strong>网上说的.attr(“checked”) == true实际上不能用，上面这个测试过能用</p>
+<h1 id="3-jQuery选择器"><a href="#3-jQuery选择器" class="headerlink" title="3. jQuery选择器"></a>3. jQuery选择器</h1><p><img src="1.jpg" alt="img"> </p>
+<p><img src="2.jpg" alt="img"></p>
+<p><img src="3.jpg" alt="img"> </p>
+<h1 id="4-用jQuery来操作DOM"><a href="#4-用jQuery来操作DOM" class="headerlink" title="4. 用jQuery来操作DOM"></a>4. 用jQuery来操作DOM</h1><h3 id="4-1-修改元素属性"><a href="#4-1-修改元素属性" class="headerlink" title="4.1 修改元素属性"></a>4.1 修改元素属性</h3><p>获取和修改元素属性使用jQuery的attr方法</p>
+<ul>
+<li><strong>$（selector）.attr（attribute）</strong></li>
+</ul>
+<p>其中selector是选择器，指定要操作的标签对象；attribute是要获取元素的属性名称。</p>
+<ul>
+<li><strong>$（selector）.attr（attribute，value）</strong></li>
+</ul>
+<p>Value用来指定属性的值。</p>
+<h3 id="4-2-修改元素内容"><a href="#4-2-修改元素内容" class="headerlink" title="4.2 修改元素内容"></a>4.2 <strong>修改元素内容</strong></h3><p>有3个方法用于获取HTML元素的内容：</p>
+<ul>
+<li><strong>text():</strong>设置或返回所选元素的文本内容</li>
+<li><strong>html():</strong>设置或返回所选元素的内容（<strong>包括HTML标记</strong>）</li>
+<li><strong>val():</strong>设置或返回表单字段的值</li>
+</ul>
+<p><strong>如: $(“test”).html(htmlStr);  // 将htmlStr设置到id为test的div中</strong></p>
+<h3 id="4-3-动态创建内容"><a href="#4-3-动态创建内容" class="headerlink" title="4.3 动态创建内容"></a>4.3 动态创建内容</h3><ul>
+<li><strong>append（）: </strong>在被选元素的<strong>结尾</strong>插入内容</li>
+<li><strong>prepend（）:</strong>在被选元素的<strong>开头</strong>插入内容</li>
+<li><strong>after（）:</strong>在被选元素<strong>之后</strong>插入内容</li>
+<li><strong>befor（）:</strong>在被选元素<strong>之前</strong>插入内容</li>
+</ul>
+<h3 id="4-4-动态插入节点"><a href="#4-4-动态插入节点" class="headerlink" title="4.4 动态插入节点"></a>4.4 动态插入节点</h3><p>除了动态创建内容的四个方法外，还有以下方法：</p>
+<ul>
+<li><strong>appendTo（）: </strong>在被选元素的<strong>结尾</strong>插入内容</li>
+<li><strong>PrependTo（）:</strong>在被选元素的<strong>开头</strong>插入内容</li>
+<li><strong>insertAfter（指定元素）:</strong>把匹配的元素插入到另一个指定的元素集合后面</li>
+<li><strong>insertBefore（指定元素）:</strong>把匹配的元素插入到另一个指定的元素集合前面</li>
+</ul>
+<h3 id="4-5-动态删除节点"><a href="#4-5-动态删除节点" class="headerlink" title="4.5 动态删除节点"></a>4.5 动态删除节点</h3><ul>
+<li><strong>remove（）：</strong>用来删除指定的DOM元素，会将节点从DOM树种移除<em>**</em></li>
+<li><strong>empty（）：</strong>不会删除节点，只是清空节点中的内容</li>
+</ul>
+<h3 id="4-6-超链接提示"><a href="#4-6-超链接提示" class="headerlink" title="4.6 超链接提示"></a>4.6 超链接提示</h3><p>如果要让超链接自带提示信息，可以在超链接标签里设置title属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如：  &lt;a href=”#” title=”超链接提示信息”&gt;提示&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="5-jQuery的事件和事件对象"><a href="#5-jQuery的事件和事件对象" class="headerlink" title="5. jQuery的事件和事件对象"></a>5. <strong>jQuery的事件和事件对象</strong></h1><h3 id="5-1-常用简单事件绑定"><a href="#5-1-常用简单事件绑定" class="headerlink" title="5.1 常用简单事件绑定"></a>5.1 <strong>常用简单事件绑定</strong></h3><p><img src="4.jpg" alt="img"> </p>
+<h3 id="5-2-页面初始化事件"><a href="#5-2-页面初始化事件" class="headerlink" title="5.2 页面初始化事件"></a>5.2 <strong>页面初始化事件</strong></h3><p><strong>为什么需要页面初始化事件？？</strong></p>
+<p>HTML是有执行顺序的，默认是自上而下执行。所以当我们的js代码在html代码下边的时候，可以正常执行，而当我们的js代码在html代码上边的时候，可以就无法正常执行了，这时，我们需要在文档加载完毕的时候才去执行js代码，所以通常我们需要定义onload事件。</p>
+<p>在jQuery中，使用页面初始化事件来完成这项功能。</p>
+<p><strong>语法如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function()&#123;</span><br><span class="line"></span><br><span class="line">//在这里写页面加载事件的代码</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>还有简便写法：“$().ready(function)” 或者 “$(function)”</p>
+<h3 id="5-3-绑定事件"><a href="#5-3-绑定事件" class="headerlink" title="5.3 绑定事件"></a>5.3 <strong>绑定事件</strong></h3><pre><code>jQuery提供了一些绑定标准事件的简单方式，如常用的“$(“#button1”).click()”这样的绑定方式，jQuery还提供了一个专门用于绑定事件的方法：
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).bind(event,data,function)</span><br></pre></td></tr></table></figure>
+<p>其中，参数event：可以是所有的js事件对象，比如blur，focus，load，click等可传入；</p>
+<p>data：作为event.data属性值传递给event事件对象；</p>
+<p>function：绑定处理函数，一般将事件处理代码之间写在函数体内。</p>
+<p>其实jQuery除了可以使用bind绑定事件外，还可以使用live绑定。两者的区别在于live可以给匹配元素附加一个事件处理函数，即使这个元素是以后添加进来的也有效。</p>
+<h3 id="5-4-移除事件绑定"><a href="#5-4-移除事件绑定" class="headerlink" title="5.4 移除事件绑定"></a>5.4 <strong>移除事件绑定</strong></h3><p>用于从指定的元素上删除一个或多个事件和处理程序，语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).unbind(event,function)</span><br></pre></td></tr></table></figure>
+<p>如果不指定unbind的任何参数，将移除指定元素上的所有的绑定事件和处理程序，参数event指定要删除的事件，多个事件之间用空格分隔，function用来指定取消绑定的函数名。</p>
+<h3 id="5-5-hover方法"><a href="#5-5-hover方法" class="headerlink" title="5.5 hover方法"></a>5.5 <strong>hover方法</strong></h3><p>当两个以上的事件绑定到同一个元素上时，可以根据元素的不同动作行为在不同的动作之间进行切换。</p>
+<p>hover方法（元素在鼠标悬停与鼠标移除的事件中进行切换），具体语法如下：</p>
+<p><strong>hover（[over,]out）</strong></p>
+<p>其中，over是可选的，表示鼠标经过时要执行的事件处理代码，out表示鼠标移出时要执行的事件处理的代码。</p>
+<h1 id="6-jQuery中的ajax"><a href="#6-jQuery中的ajax" class="headerlink" title="6. jQuery中的ajax"></a>6. <strong>jQuery中的ajax</strong></h1><p>Ajax用来实现<strong>局部更新</strong>。<strong>XMLHttpRequest是ajax技术的核心</strong>，因为它是浏览器与服务器的通信载体。它负责向服务器端发送请求、监听请求的状态、回调函数等。</p>
+<p>原始的ajax使用起来有很多重复繁琐的代码，jQuery中对这些繁琐的代码进行了封装，使程序员只需要关注URL、HTTP方法、参数和最终的字符结果。</p>
+<h3 id="6-1-jQuery中的ajax函数"><a href="#6-1-jQuery中的ajax函数" class="headerlink" title="6.1 jQuery中的ajax函数"></a>6.1 <strong>jQuery中的ajax函数</strong></h3><p><strong>常见快捷函数：</strong></p>
+<ul>
+<li><strong>get（）：</strong>用于get请求，常用于<strong>无参数</strong>传递、返回文本结果的应用</li>
+<li><strong>post（）：</strong>用于post请求，常用于<strong>多参数</strong>传递、返回文本结果的应用</li>
+<li><strong>getJSON（）：</strong>自带返回结果转换为JSON的功能，常用于JSON通信的ajax应用</li>
+<li><strong>getScript（）：</strong>动态加载一个JavaScript文件</li>
+<li><strong>load（）：</strong>可以把返回结果直接挂载到DOM里</li>
+</ul>
+<p><strong>常见全局配置和事件：</strong></p>
+<ul>
+<li><strong>ajaxError（）：</strong>ajax请求发生错误时执行</li>
+<li><strong>ajaxComplete（）：</strong>ajax请求完成时执行</li>
+<li><strong>ajaxSend（）：</strong>ajax请求发出时执行</li>
+<li><strong>ajaxStart（）：</strong>ajax请求开始执行时执行</li>
+<li><strong>ajaxSuccess（）：</strong>ajax请求成功返回时执行</li>
+<li><strong>ajaxStop（）：</strong>ajax请求结束时执行</li>
+</ul>
+<h3 id="6-2-跨域的AJAX-JSONP"><a href="#6-2-跨域的AJAX-JSONP" class="headerlink" title="6.2 跨域的AJAX-JSONP"></a>6.2 <strong>跨域的AJAX-JSONP</strong></h3><p><strong>浏览器同源策略：</strong></p>
+<p>阻止代码获得或更改从<strong>另一个域名</strong>下获得的文件和信息。</p>
+<p><strong>JSONP</strong>提供了一个巧妙的方法来解决这个问题，就是<strong>在页面中使用动态代码元素</strong>，这些动态代码的源指向目标服务地址并在自己的代码中加载数据。当这些代码加载执行的时候，同源策略就不会起到限制。</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//定义回调函数</span><br><span class="line"></span><br><span class="line">Var showAge = function（data）&#123;</span><br><span class="line"></span><br><span class="line"> //展示信息</span><br><span class="line"></span><br><span class="line">Alert（“age=”+data.age）;  </span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//页面加载回调函数</span><br><span class="line"></span><br><span class="line">$（document）.ready（function）&#123;</span><br><span class="line"></span><br><span class="line">//一个外部域名或IP的资源地址</span><br><span class="line"></span><br><span class="line">Var url = ‘jquery/info.js’ ;  </span><br><span class="line"></span><br><span class="line">//通过getJSON（）来实现jQuery对JSONP的支持</span><br><span class="line"></span><br><span class="line">//参数2“?callback?”jQuery会自动替换成回调函数名称；</span><br><span class="line"></span><br><span class="line">//参数3 “showAge”表示回调函数名称</span><br><span class="line"></span><br><span class="line">$.getJSON（url+”?callback?”,showAge）;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="6-3-HTTP状态码"><a href="#6-3-HTTP状态码" class="headerlink" title="6.3 HTTP状态码"></a>6.3 <strong>HTTP状态码</strong></h3><hr>
+<ul>
+<li><strong>1XX ：服务器收到请求，需要继续处理。如101，表示服务器将通知客户端使用更</strong>    高版本的HTTP协议。</li>
+<li><strong>2XX ：请求成功。如200。</strong></li>
+<li><strong>3XX ：重定向。如302，表示临时重定向，请求将包含一个新的URL地址，客户</strong>    端对新的URL地址进行请求。</li>
+<li><strong>4XX ：客户端错误。如404，表示客户端请求的资源不存在。</strong></li>
+<li><strong>5XX ：服务器错误。如500，表示服务器遇到了一个未曾预料的情况，导致无法完成响应。</strong></li>
+</ul>
+<h1 id="7-jQuery中的动画效果"><a href="#7-jQuery中的动画效果" class="headerlink" title="7. jQuery中的动画效果"></a>7. <strong>jQuery中的动画效果</strong></h1><h3 id="7-1基本动画方法"><a href="#7-1基本动画方法" class="headerlink" title="7.1基本动画方法"></a><strong>7.1基本动画方法</strong></h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>show()和show(speed,[callback])</td>
+<td>显示隐藏的匹配元素。可选参数callback是回调函数。</td>
+</tr>
+<tr>
+<td>hide()和hide(speed,[callback])</td>
+<td>隐藏显示的元素。</td>
+</tr>
+<tr>
+<td>toggle()和toggle(speed,[callback])</td>
+<td>如果元素是可见的，切换为隐藏；元素是隐藏的，切换为可见。</td>
+</tr>
+<tr>
+<td>toggle(switch)</td>
+<td>根据switch的值切换可见状态。为true显示，为false隐藏。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-2-滑动动画方法"><a href="#7-2-滑动动画方法" class="headerlink" title="7.2 滑动动画方法"></a><strong>7.2 滑动动画方法</strong></h3><table>
+<thead>
+<tr>
+<th>slideDown(speed,[callback])</th>
+<th>通过高度变化（<strong>向下增大</strong>）来动态<strong>显示</strong>所匹配的元素。显示完成后可选的触发一个回调函数。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>slideUp(speed,[callback])</td>
+<td>通过高度变化（<strong>向上减小</strong>）来动态<strong>隐藏</strong>所匹配的元素。显示完成后可选的触发一个回调函数。</td>
+</tr>
+<tr>
+<td>slideToggle(speed,[callback])</td>
+<td>通过高度变化来切换所匹配元素的可见性。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-3-淡入淡出动画方法"><a href="#7-3-淡入淡出动画方法" class="headerlink" title="7.3 淡入淡出动画方法"></a><strong>7.3 淡入淡出动画方法</strong></h3><table>
+<thead>
+<tr>
+<th>fadeIn(speed,[callback])</th>
+<th>通过不透明度的变化来实现所匹配元素的<strong>淡入</strong>。在动画完成后可选的触发一个回调函数。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fadeOut(speed,[callback])</td>
+<td>通过不透明度的变化来实现所匹配元素的<strong>淡出</strong>。在动画完成后可选的触发一个回调函数。</td>
+</tr>
+<tr>
+<td>fadeTo(speed,opacity,[callback])</td>
+<td>把所匹配元素的不透明度按照渐进的方式调整到<strong>指定的不透明度</strong>，并在动画完成后可选的触发一个回调函数。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-4-自定义动画"><a href="#7-4-自定义动画" class="headerlink" title="7.4 自定义动画"></a><strong>7.4 自定义动画</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).animate(&#123;params&#125;,speed,callback);</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<p>params：必选的，表示形成动画的CSS属性</p>
+<p>speed：可选的，规定效果的时长，取值是slow、fast或者毫秒</p>
+<p>callback：可选的，回调函数</p>
+<p><strong>注意：</strong>默认所有的HTML元素都有一个静态位置，且无法移动。如需对位置进行操作，记得首先将元素的CSS position属性设置为relative、fixed或absolute。</p>
+<h1 id="8-jQuery的UI插件"><a href="#8-jQuery的UI插件" class="headerlink" title="8. jQuery的UI插件"></a>8. <strong>jQuery的UI插件</strong></h1><p>jQuery UI官方提供了3种分类：</p>
+<ul>
+<li>交互（interactions）：各种鼠标操作，如拖拽（draggable、droppable）、选择                        （selectable）、排序（sortable）、缩放（resizable）。</li>
+<li>微件（widgets）：各种页面控件的美观设计，如折叠菜单（accordions）、日历            （datepicker）、对话框（dialog）、滑动条（slider）、标签（tab）、放大镜效果（magnifier）、下拉菜单（selectmenu）。</li>
+<li>效果（effects）：各种动画效果，如color animation、显示、隐藏等。</li>
+</ul>
+<h3 id="8-1-利用jQuery-UI实现页面交互"><a href="#8-1-利用jQuery-UI实现页面交互" class="headerlink" title="8.1 利用jQuery UI实现页面交互"></a>8.1 <strong>利用jQuery UI实现页面交互</strong></h3><p> 以实现拖动组件Draggable为例，具体<strong>实现步骤</strong>如下：</p>
+<ul>
+<li>在head标签中，添加包含拖动组件的UI类库和jQuery库；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=”text/javascript” src=”jquery-1.11.2.js”&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=”text/javascript” src=”jquery-ui.js”&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过方法draggable（）封装DOM对象为jQuery对象；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).Draggable();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据具体需求，通过方法draggable（options）设置拖动组件对象的效果配置选项。</li>
+</ul>
+<p>其他的交互实现步骤类似，设计具体效果时查阅相关方法即可。</p>
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+			
+<div style="text-align:center;color: #ccc;font-size:30px;">
+------ 本文结束 ------</div>
+
+
+		
+	</div>
+	
+    
+	
+
+    
+
+    
+	
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jQuery、js和ajax/" rel="tag"># jQuery、js和ajax</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/03/网络编程UDP、TCP协议/" rel="next" title="网络编程UDP、TCP协议">
+                <i class="fa fa-chevron-left"></i> 网络编程UDP、TCP协议
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/20/二叉树/" rel="prev" title="二叉树">
+                二叉树 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2018/09/14/jQuery、js和ajax/"
+     data-title="jQuery、js和ajax"
+     data-content=""
+     data-url="http://yoursite.com/2018/09/14/jQuery、js和ajax/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/09/14/jQuery、js和ajax/"
+           data-title="jQuery、js和ajax" data-url="http://yoursite.com/2018/09/14/jQuery、js和ajax/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/timg.jpg"
+                alt="Amber" />
+            
+              <p class="site-author-name" itemprop="name">Amber</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-jQuery、js和ajax的区别："><span class="nav-number">1.</span> <span class="nav-text">1.jQuery、js和ajax的区别：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-jQuery和js常用操作的区别"><span class="nav-number">2.</span> <span class="nav-text">2. jQuery和js常用操作的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-定位元素"><span class="nav-number">2.0.1.</span> <span class="nav-text">2.1 定位元素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-jQuery选择器"><span class="nav-number">3.</span> <span class="nav-text">3. jQuery选择器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-用jQuery来操作DOM"><span class="nav-number">4.</span> <span class="nav-text">4. 用jQuery来操作DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-修改元素属性"><span class="nav-number">4.0.1.</span> <span class="nav-text">4.1 修改元素属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-修改元素内容"><span class="nav-number">4.0.2.</span> <span class="nav-text">4.2 修改元素内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-动态创建内容"><span class="nav-number">4.0.3.</span> <span class="nav-text">4.3 动态创建内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-动态插入节点"><span class="nav-number">4.0.4.</span> <span class="nav-text">4.4 动态插入节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-动态删除节点"><span class="nav-number">4.0.5.</span> <span class="nav-text">4.5 动态删除节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-超链接提示"><span class="nav-number">4.0.6.</span> <span class="nav-text">4.6 超链接提示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-jQuery的事件和事件对象"><span class="nav-number">5.</span> <span class="nav-text">5. jQuery的事件和事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-常用简单事件绑定"><span class="nav-number">5.0.1.</span> <span class="nav-text">5.1 常用简单事件绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-页面初始化事件"><span class="nav-number">5.0.2.</span> <span class="nav-text">5.2 页面初始化事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-绑定事件"><span class="nav-number">5.0.3.</span> <span class="nav-text">5.3 绑定事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-移除事件绑定"><span class="nav-number">5.0.4.</span> <span class="nav-text">5.4 移除事件绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-hover方法"><span class="nav-number">5.0.5.</span> <span class="nav-text">5.5 hover方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-jQuery中的ajax"><span class="nav-number">6.</span> <span class="nav-text">6. jQuery中的ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-jQuery中的ajax函数"><span class="nav-number">6.0.1.</span> <span class="nav-text">6.1 jQuery中的ajax函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-跨域的AJAX-JSONP"><span class="nav-number">6.0.2.</span> <span class="nav-text">6.2 跨域的AJAX-JSONP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-HTTP状态码"><span class="nav-number">6.0.3.</span> <span class="nav-text">6.3 HTTP状态码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-jQuery中的动画效果"><span class="nav-number">7.</span> <span class="nav-text">7. jQuery中的动画效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1基本动画方法"><span class="nav-number">7.0.1.</span> <span class="nav-text">7.1基本动画方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-滑动动画方法"><span class="nav-number">7.0.2.</span> <span class="nav-text">7.2 滑动动画方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-淡入淡出动画方法"><span class="nav-number">7.0.3.</span> <span class="nav-text">7.3 淡入淡出动画方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-自定义动画"><span class="nav-number">7.0.4.</span> <span class="nav-text">7.4 自定义动画</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-jQuery的UI插件"><span class="nav-number">8.</span> <span class="nav-text">8. jQuery的UI插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-利用jQuery-UI实现页面交互"><span class="nav-number">8.0.1.</span> <span class="nav-text">8.1 利用jQuery UI实现页面交互</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amber80930</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"Amber80930"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
