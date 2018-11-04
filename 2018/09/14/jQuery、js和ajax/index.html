@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="1.jQuery、js和ajax的区别：简单总结： 1、JS是一门前端语言。 2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。 3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便 关系比喻： 若把js比作木头，那么jquery就是木板（半成品） jQuery与ajax都是js的">
+<meta name="description" content="1.jQuery、js和ajax的区别：简单总结： 1、JS是一门前端语言。 2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。 3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便">
 <meta name="keywords" content="jQuery、js和ajax">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery、js和ajax">
 <meta property="og:url" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/index.html">
 <meta property="og:site_name" content="Amber">
-<meta property="og:description" content="1.jQuery、js和ajax的区别：简单总结： 1、JS是一门前端语言。 2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。 3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便 关系比喻： 若把js比作木头，那么jquery就是木板（半成品） jQuery与ajax都是js的">
+<meta property="og:description" content="1.jQuery、js和ajax的区别：简单总结： 1、JS是一门前端语言。 2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。 3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/2.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/3.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/4.jpg">
-<meta property="og:updated_time" content="2018-11-04T09:13:21.187Z">
+<meta property="og:updated_time" content="2018-11-04T09:25:42.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery、js和ajax">
-<meta name="twitter:description" content="1.jQuery、js和ajax的区别：简单总结： 1、JS是一门前端语言。 2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。 3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便 关系比喻： 若把js比作木头，那么jquery就是木板（半成品） jQuery与ajax都是js的">
+<meta name="twitter:description" content="1.jQuery、js和ajax的区别：简单总结： 1、JS是一门前端语言。 2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。 3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便">
 <meta name="twitter:image" content="http://yoursite.com/2018/09/14/jQuery、js和ajax/1.jpg">
 
 
@@ -421,6 +421,7 @@
 <p>1、JS是一门前端语言。</p>
 <p>2、Ajax是一门技术，它提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。</p>
 <p>3、jQuery是一个框架，它对JS进行了封装，使其更方便使用。jQuery使得JS与Ajax的使用更方便</p>
+ <a id="more"></a>
 <p><strong>关系比喻：</strong></p>
 <p>若把js比作木头，那么jquery就是木板（半成品）</p>
 <p>jQuery与ajax都是js的一个框架，各有各的功能，若js是父亲的话，jquery与ajax就是两个儿子 </p>
@@ -584,8 +585,10 @@
 <h3 id="6-3-HTTP状态码"><a href="#6-3-HTTP状态码" class="headerlink" title="6.3 HTTP状态码"></a>6.3 <strong>HTTP状态码</strong></h3><hr>
 <ul>
 <li><strong>1XX ：服务器收到请求，需要继续处理。如101，表示服务器将通知客户端使用更</strong>    高版本的HTTP协议。</li>
-<li><strong>2XX ：请求成功。如200。</strong></li>
-<li><strong>3XX ：重定向。如302，表示临时重定向，请求将包含一个新的URL地址，客户</strong>    端对新的URL地址进行请求。</li>
+<li><strong>2XX ：请求成功。如200。</strong><ul>
+<li><strong>3XX ：重定向。如302，表示临时重定向，请求将包含一个新的URL地址，客户</strong>端对新的URL地址进行请求。</li>
+</ul>
+</li>
 <li><strong>4XX ：客户端错误。如404，表示客户端请求的资源不存在。</strong></li>
 <li><strong>5XX ：服务器错误。如500，表示服务器遇到了一个未曾预料的情况，导致无法完成响应。</strong></li>
 </ul>
@@ -659,8 +662,10 @@
 <p><strong>注意：</strong>默认所有的HTML元素都有一个静态位置，且无法移动。如需对位置进行操作，记得首先将元素的CSS position属性设置为relative、fixed或absolute。</p>
 <h1 id="8-jQuery的UI插件"><a href="#8-jQuery的UI插件" class="headerlink" title="8. jQuery的UI插件"></a>8. <strong>jQuery的UI插件</strong></h1><p>jQuery UI官方提供了3种分类：</p>
 <ul>
-<li>交互（interactions）：各种鼠标操作，如拖拽（draggable、droppable）、选择                        （selectable）、排序（sortable）、缩放（resizable）。</li>
-<li>微件（widgets）：各种页面控件的美观设计，如折叠菜单（accordions）、日历            （datepicker）、对话框（dialog）、滑动条（slider）、标签（tab）、放大镜效果（magnifier）、下拉菜单（selectmenu）。</li>
+<li>交互（interactions）：各种鼠标操作，如拖拽（draggable、droppable）、选择                        （selectable）、排序（sortable）、缩放（resizable）。<ul>
+<li>微件（widgets）：各种页面控件的美观设计，如折叠菜单（accordions）、日历        （datepicker）、对话框（dialog）、滑动条（slider）、标签（tab）、放大镜效果（magnifier）、下拉菜单（selectmenu）。</li>
+</ul>
+</li>
 <li>效果（effects）：各种动画效果，如color animation、显示、隐藏等。</li>
 </ul>
 <h3 id="8-1-利用jQuery-UI实现页面交互"><a href="#8-1-利用jQuery-UI实现页面交互" class="headerlink" title="8.1 利用jQuery UI实现页面交互"></a>8.1 <strong>利用jQuery UI实现页面交互</strong></h3><p> 以实现拖动组件Draggable为例，具体<strong>实现步骤</strong>如下：</p>
