@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Vue.js," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="##  1. v-if条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后表达式为true的元素。 2. v-show条件渲染指令，和v-if的区别就是它只渲染其身后表达式为false的元素。">
+<meta name="keywords" content="Vue.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue常用命令">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/Vue常用命令/index.html">
+<meta property="og:site_name" content="Amber">
+<meta property="og:description" content="##  1. v-if条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后表达式为true的元素。 2. v-show条件渲染指令，和v-if的区别就是它只渲染其身后表达式为false的元素。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-27T08:06:16.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue常用命令">
+<meta name="twitter:description" content="##  1. v-if条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后表达式为true的元素。 2. v-show条件渲染指令，和v-if的区别就是它只渲染其身后表达式为false的元素。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/27/Vue常用命令/"/>
+
+
+
+
+
+  <title>Vue常用命令 | Amber</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://amber80930.github.io/" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Amber</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">-不倾国，不倾城，只倾其所有。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br />
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'TChYnQxfabLwWxErgM-L','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/Vue常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amber">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amber">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue常用命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T15:24:36+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/27/Vue常用命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/11/27/Vue常用命令/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>## </p>
+<h3 id="1-v-if"><a href="#1-v-if" class="headerlink" title="1. v-if"></a>1. <strong>v-if</strong></h3><p>条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后<strong>表达式为true</strong>的元素。</p>
+<h3 id="2-v-show"><a href="#2-v-show" class="headerlink" title="2. v-show"></a>2. <strong>v-show</strong></h3><p>条件渲染指令，和v-if的区别就是它只渲染其身后<strong>表达式为false</strong>的元素。<a id="more"></a></p>
+<h3 id="3-v-else"><a href="#3-v-else" class="headerlink" title="3. v-else"></a>3. <strong>v-else</strong></h3><p><strong>v-else必须跟在v-if/v-show指令之后</strong>，否则不起作用。</p>
+<p>如果v-if/v-show指令表达式为true，则else元素不显示；如果v-if/v-show指令表达式为false，则else元素显示在页面上。</p>
+<h3 id="4-v-for"><a href="#4-v-for" class="headerlink" title="4. v-for"></a>4. <strong>v-for</strong></h3><p><strong>v-for</strong>类似于JS中的遍历，用法是：<font color="blue">v-for = “item in items”</font>。其中items是数组，item是数组中的元素。</p>
+<p>为了给Vue一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一key属性。即：<font color="blue">v-for=“（item,key） in items”</font>。</p>
+<h3 id="5-v-bind"><a href="#5-v-bind" class="headerlink" title="5. v-bind"></a>5. <strong>v-bind</strong></h3><p>绑定属性，比如绑定某个class元素或元素的style样式。使用方法是<font color="blue">v-bind：class =“”</font>。</p>
+<font color="red">可以缩写为“：”。</font>
+
+
+
+<p><strong>v-bind 的三种修饰符：</strong></p>
+<p>l <strong>.sync : </strong>用于组件props属性，将父组件和子组件的值进行双向绑定，两个组件共享这一数据，无论谁修改了数据，组件获取的数据都是一致的。</p>
+<p>l <strong>.once :</strong> 用于组件props属性，但是进行的是单次绑定，即将绑定数据传递给子组件之后，子组件单独维护这个数据，和父组件数据再无关系。</p>
+<p>l <strong>.camel :</strong> 将绑定特性的名称变回驼峰命名（第一个单词首字母小写，第二个单词以后首字母大写）</p>
+<h3 id="6-v-on"><a href="#6-v-on" class="headerlink" title="6. v-on"></a>6. <strong>v-on</strong></h3><p>绑定事件，用于绑定指定元素的监听事件，比如点击事件，<font color="blue">v-on：click = “事件方法名称”</font>。</p>
+<font color="red">可以缩写为“@”。</font>
+
+
+
+<p><strong>v-on的修饰符包括：</strong></p>
+<p>l <strong>.stop </strong>： 阻止事件冒泡（分别给父元素和子元素绑定了事件，点击子元素的同时会        触发父元素的绑定事件）</p>
+<p>l <strong>.prevent </strong>：阻止默认事件</p>
+<p>l <strong>.capture </strong>：添加事件监听器</p>
+<p>l <strong>.slef </strong>：当事件是从监听元素本身触发时才触发回调</p>
+<p>除了事件修饰符之外，v-on还提供了按键修饰符，如：\<input v-on="" :="" keyup.enter="“submit”">.</p>
+<h3 id="7-v-model"><a href="#7-v-model" class="headerlink" title="7. v-model"></a>7. <strong>v-model</strong></h3><p>将组件与变量进行双向绑定，当组件数据修改时，变量会随之改变。常用于input、select、textarea标签中。</p>
+<p>后面可加修饰符，如.lazy，只有标签中的值发生改变时    才同步到变量。.number会自动将用户输入转为Number类型。</p>
+<h3 id="8-v-text"><a href="#8-v-text" class="headerlink" title="8. v-text"></a>8. <strong>v-text</strong></h3><p>向标签内注入数据，并且覆盖标签内的原来内容。</p>
+<p>如果直接使用\<span> \</span> ，页面会出现闪现信息的情况，</p>
+<p>但是用\<span v-text="”msg”"> \</span> 就不会出现这种情况。</p>
+<h3 id="9-v-html"><a href="#9-v-html" class="headerlink" title="9. v-html"></a>9. <strong>v-html</strong></h3><p>向标签内注入HTML内容作为其子元素。</p>
+<h3 id="10-v-once"><a href="#10-v-once" class="headerlink" title="10. v-once"></a>10. <strong>v-once</strong></h3><p>被修饰的标签中的数据不允许修改。</p>
+<h3 id="11-v-el"><a href="#11-v-el" class="headerlink" title="11. v-el"></a>11. <strong>v-el</strong></h3><p>获取DOM对象。为DOM元素注册了一个索引，使我们可以利用其所属实例的 ”$els” 属性调用。</p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-el : demo&gt; There is a el demo &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">vm.$els.demo.innerText ------&gt; There is a el demo</span><br></pre></td></tr></table></figure>
+<p>或者在vm内部通过this调用。</p>
+<h3 id="12-v-ref"><a href="#12-v-ref" class="headerlink" title="12. v-ref"></a>12. <strong>v-ref</strong></h3><p>获取组件对象。实例可以通过“$refs”访问子组件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//自定义一个message组件</span><br><span class="line"></span><br><span class="line">var Message = Vue.extend(&#123;</span><br><span class="line"></span><br><span class="line">	props : [‘content’] ,</span><br><span class="line"></span><br><span class="line">	template : ‘&lt;h1&gt; &#123;&#123; content &#125;&#125; &lt;/h1&gt;’</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Vue.component ( ‘message’ , Message);</span><br><span class="line"></span><br><span class="line">&lt;message v-ref : title  content = “title”&gt; &lt;/message&gt;</span><br></pre></td></tr></table></figure>
+<p>利用<font color="blue">vm.$refs.title </font>可以得到组件的实例。</p>
+<h3 id="13-v-pre"><a href="#13-v-pre" class="headerlink" title="13. v-pre"></a>13. <strong>v-pre</strong></h3><p>跳过编译当前元素和子元素，只显示原始的标签，用来减少编译时间。</p>
+<p>如：<font color="blue">\<div v-pre="">  \</div></font>，这样不会编译，直接在网页原样显示。</p>
+<h3 id="14-v-cloak"><a href="#14-v-cloak" class="headerlink" title="14. v-cloak"></a>14. <strong>v-cloak</strong></h3><p>相当于在元素上添加了一个 [v-cloak] 属性，直到关联实例结束编译。<font color="blue">官方推荐和css规则 [v-cloak]{ display ：none} 一起使用</font>，可以隐藏未编译的标签直到实例准备完毕。</p>
+<h3 id="15-自定义指令"><a href="#15-自定义指令" class="headerlink" title="15. 自定义指令"></a>15. <strong>自定义指令</strong></h3><h4 id="15-1-指令的注册"><a href="#15-1-指令的注册" class="headerlink" title="15.1 指令的注册"></a><strong>15.1 指令的注册</strong></h4><p><strong>全局注册指令：Vue.directive ( id, definition )</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive ( ‘global-directive’ , definition )</span><br><span class="line"></span><br><span class="line">&lt;div  v-global-directive &gt; &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>局部自定义指令：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var comp = Vue.extend( &#123;</span><br><span class="line">	diresctives : &#123;</span><br><span class="line">		‘ localDirective’ : &#123; &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>该指令就只能在当前组件内通过<font color="blue">v-local-directive</font>的方式调用，无法被其他组件调用。</p>
+<h4 id="15-2-指令的定义对象（钩子函数）"><a href="#15-2-指令的定义对象（钩子函数）" class="headerlink" title="15.2 指令的定义对象（钩子函数）"></a><strong>15.2 指令的定义对象（钩子函数）</strong></h4><p>在注册指令时，可以传入定义对象。定义对象主要包括三个钩子函数：bind、update、unbind。</p>
+<ul>
+<li><strong>bind：</strong>在指令第一次绑定到元素上时调用，只被调用一次。</li>
+<li><strong>update：</strong>在bind之后以初始值为参数进行第一次调用，之后每次绑定值发生改变时调用。有两个参数分别是：newValue、oldValue。（Vue.js 2.0 修改： bind函数执行后不直接调用update函数； 只要组件发生重绘，无论指令接受值是否改变都会调用update函数）</li>
+<li><strong>unbind：</strong>指令从元素上解绑时调用，只调用一次。</li>
+<li><strong>componentUpdate （Vue.js 2.0新增）：</strong> 当整个组件都完成了update状态后（所有DOM都更新后）调用该钩子函数。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive ( ‘global-directive’ , &#123;</span><br><span class="line"></span><br><span class="line">	bind : function()&#123;  &#125;,</span><br><span class="line"></span><br><span class="line">	update : function( newValue, oldValue )&#123;  &#125;,</span><br><span class="line"></span><br><span class="line">	unbind: function()&#123;  &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>另外，如果只需要使用update函数时，可以直接传入一个函数代替定义对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive ( ‘my-directive’ , function(value)) &#123;</span><br><span class="line"></span><br><span class="line">	//	该函数就是update函数 </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="15-3-指令实例属性"><a href="#15-3-指令实例属性" class="headerlink" title="15.3 指令实例属性"></a><strong>15.3 指令实例属性</strong></h4><p>在指令的钩子函数内，可以通过this来调用指令实例属性。指令的实例属性包括：</p>
+<ul>
+<li>el：指令绑定的元素</li>
+<li>vm：该指令上下文的ViewModel，可以为new Vue() 的实例，也可以是组件实例</li>
+<li>expression: 指令的表达式，不包括参数和过滤器</li>
+<li>arg：指令的参数</li>
+<li>name：指令的名字，不包括v-前缀</li>
+<li>modifiers：一个对象，包含指令的修饰符</li>
+<li>descriptor：一个对象，包含指令的解析结果</li>
+</ul>
+<p>Vue.js 2.0 中取消了指令实例这一概念，即在钩子函数中不能用this调用指令的相关属性了，指令的相关属性均通过参数的形式传递给钩子函数。</p>
+<h4 id="15-4-元素指令"><a href="#15-4-元素指令" class="headerlink" title="15.4 元素指令"></a><strong>15.4 元素指令</strong></h4><p>普通指令需要绑定在某个具体的DOM元素上，但是元素指令可以单独存在。例如：</p>
+<font color="blue">\<div v-my-directive=""> \</div>   —–&gt; 普通指令的使用方式<br><br>\<my-directive> \</my-directive>  ——&gt; 元素指令的使用方式</font>
+
+<p>元素指令的注册与普通指令类似：</p>
+<p><strong>全局注册：Vue.elementDirective ( ‘ my-ele-directive’ )</strong></p>
+<p><strong>局部注册：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var comp = vue.extend(&#123;</span><br><span class="line"></span><br><span class="line">	elementDirectives:&#123;</span><br><span class="line">		‘eleDirective’ : &#123; &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Vue.component( ‘comp’, comp);</span><br></pre></td></tr></table></figure>
+<p>注意： 只有元素指令本身才可以操作该元素及其子元素。</p>
+<h3 id="16-指令的高级选项"><a href="#16-指令的高级选项" class="headerlink" title="16. 指令的高级选项"></a>16. <strong>指令的高级选项</strong></h3><h4 id="16-1-params"><a href="#16-1-params" class="headerlink" title="16.1 params"></a>16.1 <strong>params</strong></h4><p>定义对象中可以接受一个params数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div  v-my-advance-directive  a=”paramA”&gt; &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">Vue.directive( ‘my-advance-directive ’ , &#123;</span><br><span class="line"></span><br><span class="line">	params : [‘a’],</span><br><span class="line"></span><br><span class="line">	bind : function() &#123;  &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>除了直接传入数值外，params还支持动态绑定数据，可以设置一个watcher监听，当数据发生变化时，就会回调这个函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div  v-my-advance-directive  v-bind:a=”a”&gt; &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">Vue.directive( ‘my-advance-directive ’ , &#123;</span><br><span class="line"></span><br><span class="line">	params : [‘a’],</span><br><span class="line"></span><br><span class="line">	paramWatchers：&#123;</span><br><span class="line"></span><br><span class="line">	a: function(val, oldVal)&#123;  &#125;</span><br><span class="line"></span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	bind : function() &#123;  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="16-2-deep"><a href="#16-2-deep" class="headerlink" title="16.2 deep"></a>16.2 <strong>deep</strong></h4><p>用来监听对象内部发生的变化。</p>
+<h4 id="16-3-twoWay"><a href="#16-3-twoWay" class="headerlink" title="16.3 twoWay"></a>16.3 <strong>twoWay</strong></h4><p>如果需要向Vue实例写回数据，及需要在定义对象中使用twoWay：true，这样可以在指令中使用this.set ( value)来写回数据。</p>
+<h4 id="16-4-acceptStatement"><a href="#16-4-acceptStatement" class="headerlink" title="16.4 acceptStatement"></a>16.4 <strong>acceptStatement</strong></h4><p>设置为true时，允许自定义指令接受内联语句，同时update函数的值是一个函数，在调用该函数时，它将在所属实例作用域内运行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-my-directive = “i++” &gt; &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">Vue.directive ( ‘my-directive’ , &#123;</span><br><span class="line">	acceptStatement : true,</span><br><span class="line">	update: function ( fn )&#123;  </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var vm = new Vue ( &#123;</span><br><span class="line">	el : ‘#app’ ,</span><br><span class="line">	data : &#123;</span><br><span class="line">		i : 0</span><br><span class="line">	&#125;</span><br><span class="line">&#125; );</span><br></pre></td></tr></table></figure>
+<p>“i++”就是内联语句，fn是一个函数。如果在update函数中，运行fn( )，则会执行内联语句i++，此时vm.i = 1。但是vm.i并不会触发update函数。</p>
+<h4 id="16-5-terminal"><a href="#16-5-terminal" class="headerlink" title="16.5 terminal"></a>16.5 <strong>terminal</strong></h4><p>作用是阻止Vue.js遍历这个元素及其内部元素，并由该指令本身去编译绑定元素及其内部元素。内置的指令v-if、v-for都是terminal指令。</p>
+<h4 id="16-6-priority"><a href="#16-6-priority" class="headerlink" title="16.6 priority"></a>16.6 <strong>priority</strong></h4><p>指定指令的优先级，普通指令默认是1000，terminal指令默认是2000。同一元素上优先级高的指令会先执行，相同优先级的指令按照顺序执行。</p>
+
+      
+    </div>
+    
+    
+    
+	
+	<div>
+		
+			
+<div style="text-align:center;color: #ccc;font-size:30px;">
+------ 本文结束 ------</div>
+
+
+		
+	</div>
+	
+    
+	
+
+    
+
+    
+	
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue-js/" rel="tag"># Vue.js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/20/二叉树/" rel="next" title="二叉树">
+                <i class="fa fa-chevron-left"></i> 二叉树
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2018/11/27/Vue常用命令/"
+     data-title="Vue常用命令"
+     data-content=""
+     data-url="http://yoursite.com/2018/11/27/Vue常用命令/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/11/27/Vue常用命令/"
+           data-title="Vue常用命令" data-url="http://yoursite.com/2018/11/27/Vue常用命令/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/timg.jpg"
+                alt="Amber" />
+            
+              <p class="site-author-name" itemprop="name">Amber</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-v-if"><span class="nav-number">1.</span> <span class="nav-text">1. v-if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-v-show"><span class="nav-number">2.</span> <span class="nav-text">2. v-show</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-v-else"><span class="nav-number">3.</span> <span class="nav-text">3. v-else</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-v-for"><span class="nav-number">4.</span> <span class="nav-text">4. v-for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-v-bind"><span class="nav-number">5.</span> <span class="nav-text">5. v-bind</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-v-on"><span class="nav-number">6.</span> <span class="nav-text">6. v-on</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-v-model"><span class="nav-number">7.</span> <span class="nav-text">7. v-model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-v-text"><span class="nav-number">8.</span> <span class="nav-text">8. v-text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-v-html"><span class="nav-number">9.</span> <span class="nav-text">9. v-html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-v-once"><span class="nav-number">10.</span> <span class="nav-text">10. v-once</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-v-el"><span class="nav-number">11.</span> <span class="nav-text">11. v-el</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-v-ref"><span class="nav-number">12.</span> <span class="nav-text">12. v-ref</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-v-pre"><span class="nav-number">13.</span> <span class="nav-text">13. v-pre</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-v-cloak"><span class="nav-number">14.</span> <span class="nav-text">14. v-cloak</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-自定义指令"><span class="nav-number">15.</span> <span class="nav-text">15. 自定义指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#15-1-指令的注册"><span class="nav-number">15.1.</span> <span class="nav-text">15.1 指令的注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-2-指令的定义对象（钩子函数）"><span class="nav-number">15.2.</span> <span class="nav-text">15.2 指令的定义对象（钩子函数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-3-指令实例属性"><span class="nav-number">15.3.</span> <span class="nav-text">15.3 指令实例属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-4-元素指令"><span class="nav-number">15.4.</span> <span class="nav-text">15.4 元素指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-指令的高级选项"><span class="nav-number">16.</span> <span class="nav-text">16. 指令的高级选项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#16-1-params"><span class="nav-number">16.1.</span> <span class="nav-text">16.1 params</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-2-deep"><span class="nav-number">16.2.</span> <span class="nav-text">16.2 deep</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-3-twoWay"><span class="nav-number">16.3.</span> <span class="nav-text">16.3 twoWay</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-4-acceptStatement"><span class="nav-number">16.4.</span> <span class="nav-text">16.4 acceptStatement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-5-terminal"><span class="nav-number">16.5.</span> <span class="nav-text">16.5 terminal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-6-priority"><span class="nav-number">16.6.</span> <span class="nav-text">16.6 priority</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amber80930</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"Amber80930"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
