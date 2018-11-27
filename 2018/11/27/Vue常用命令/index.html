@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Amber">
 <meta property="og:description" content="1. v-if条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后表达式为true的元素。 2. v-show条件渲染指令，和v-if的区别就是它只渲染其身后表达式为false的元素。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-27T08:14:39.626Z">
+<meta property="og:updated_time" content="2018-11-27T08:26:03.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue常用命令">
 <meta name="twitter:description" content="1. v-if条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后表达式为true的元素。 2. v-show条件渲染指令，和v-if的区别就是它只渲染其身后表达式为false的元素。">
@@ -437,12 +437,12 @@
 <p>l <strong>.prevent </strong>：阻止默认事件</p>
 <p>l <strong>.capture </strong>：添加事件监听器</p>
 <p>l <strong>.slef </strong>：当事件是从监听元素本身触发时才触发回调</p>
-<p>除了事件修饰符之外，v-on还提供了按键修饰符，如：\<input v-on="" :="" keyup.enter="“submit”" \="">.</p>
+<p>除了事件修饰符之外，v-on还提供了按键修饰符，如：&lt;input v-on : keyup.enter = “submit” /&gt;.</p>
 <h3 id="7-v-model"><a href="#7-v-model" class="headerlink" title="7. v-model"></a>7. <strong>v-model</strong></h3><p>将组件与变量进行双向绑定，当组件数据修改时，变量会随之改变。常用于input、select、textarea标签中。</p>
 <p>后面可加修饰符，如.lazy，只有标签中的值发生改变时    才同步到变量。.number会自动将用户输入转为Number类型。</p>
 <h3 id="8-v-text"><a href="#8-v-text" class="headerlink" title="8. v-text"></a>8. <strong>v-text</strong></h3><p>向标签内注入数据，并且覆盖标签内的原来内容。</p>
-<p>如果直接使用\<span> \</span> ，页面会出现闪现信息的情况，</p>
-<p>但是用\<span v-text="”msg”"> \</span> 就不会出现这种情况。</p>
+<p>如果直接使用&lt;span&gt; \&lt;/span&gt;，页面会出现闪现信息的情况，</p>
+<p>但是用&lt;span v-text =”msg” &gt; &lt;/span&gt; 就不会出现这种情况。</p>
 <h3 id="9-v-html"><a href="#9-v-html" class="headerlink" title="9. v-html"></a>9. <strong>v-html</strong></h3><p>向标签内注入HTML内容作为其子元素。</p>
 <h3 id="10-v-once"><a href="#10-v-once" class="headerlink" title="10. v-once"></a>10. <strong>v-once</strong></h3><p>被修饰的标签中的数据不允许修改。</p>
 <h3 id="11-v-el"><a href="#11-v-el" class="headerlink" title="11. v-el"></a>11. <strong>v-el</strong></h3><p>获取DOM对象。为DOM元素注册了一个索引，使我们可以利用其所属实例的 ”$els” 属性调用。</p>
@@ -453,7 +453,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//自定义一个message组件</span><br><span class="line"></span><br><span class="line">var Message = Vue.extend(&#123;</span><br><span class="line"></span><br><span class="line">	props : [‘content’] ,</span><br><span class="line"></span><br><span class="line">	template : ‘&lt;h1&gt; &#123;&#123; content &#125;&#125; &lt;/h1&gt;’</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Vue.component ( ‘message’ , Message);</span><br><span class="line"></span><br><span class="line">&lt;message v-ref : title  content = “title”&gt; &lt;/message&gt;</span><br></pre></td></tr></table></figure>
 <p>利用<font color="blue">vm.$refs.title </font>可以得到组件的实例。</p>
 <h3 id="13-v-pre"><a href="#13-v-pre" class="headerlink" title="13. v-pre"></a>13. <strong>v-pre</strong></h3><p>跳过编译当前元素和子元素，只显示原始的标签，用来减少编译时间。</p>
-<p>如：<font color="blue">\<div v-pre="">  \</div></font>，这样不会编译，直接在网页原样显示。</p>
+<p>如：<font color="blue">&lt;div v-pre&gt;  &lt;/div&gt;</font>，这样不会编译，直接在网页原样显示。</p>
 <h3 id="14-v-cloak"><a href="#14-v-cloak" class="headerlink" title="14. v-cloak"></a>14. <strong>v-cloak</strong></h3><p>相当于在元素上添加了一个 [v-cloak] 属性，直到关联实例结束编译。<font color="blue">官方推荐和css规则 [v-cloak]{ display ：none} 一起使用</font>，可以隐藏未编译的标签直到实例准备完毕。</p>
 <h3 id="15-自定义指令"><a href="#15-自定义指令" class="headerlink" title="15. 自定义指令"></a>15. <strong>自定义指令</strong></h3><h4 id="15-1-指令的注册"><a href="#15-1-指令的注册" class="headerlink" title="15.1 指令的注册"></a><strong>15.1 指令的注册</strong></h4><p><strong>全局注册指令：Vue.directive ( id, definition )</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive ( ‘global-directive’ , definition )</span><br><span class="line"></span><br><span class="line">&lt;div  v-global-directive &gt; &lt;/div&gt;</span><br></pre></td></tr></table></figure>
@@ -482,7 +482,7 @@
 </ul>
 <p>Vue.js 2.0 中取消了指令实例这一概念，即在钩子函数中不能用this调用指令的相关属性了，指令的相关属性均通过参数的形式传递给钩子函数。</p>
 <h4 id="15-4-元素指令"><a href="#15-4-元素指令" class="headerlink" title="15.4 元素指令"></a><strong>15.4 元素指令</strong></h4><p>普通指令需要绑定在某个具体的DOM元素上，但是元素指令可以单独存在。例如：</p>
-<font color="blue">\<div v-my-directive=""> \</div>   —–&gt; 普通指令的使用方式<br><br>\<my-directive> \</my-directive>  ——&gt; 元素指令的使用方式</font>
+<font color="blue">&lt;div v-my-directive &gt; &lt;/div&gt;   —–&gt; 普通指令的使用方式<br><br>&lt;my-directive &gt; &lt;/my-directive&gt;  ——&gt; 元素指令的使用方式</font>
 
 <p>元素指令的注册与普通指令类似：</p>
 <p><strong>全局注册：Vue.elementDirective ( ‘ my-ele-directive’ )</strong></p>
