@@ -79,15 +79,20 @@
 
 
 
+<meta name="description" content="安装npm install axios; // 安装axios 汇总接口在src下新建api文件夹，把所有的api接口统一起来管理。">
 <meta name="keywords" content="Vue.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用axios访问API">
 <meta property="og:url" content="http://yoursite.com/2019/02/23/使用axios访问API/index.html">
 <meta property="og:site_name" content="Amber">
+<meta property="og:description" content="安装npm install axios; // 安装axios 汇总接口在src下新建api文件夹，把所有的api接口统一起来管理。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-23T07:28:41.156Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/23/使用axios访问API/1.png">
+<meta property="og:updated_time" content="2019-02-23T07:48:24.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用axios访问API">
+<meta name="twitter:description" content="安装npm install axios; // 安装axios 汇总接口在src下新建api文件夹，把所有的api接口统一起来管理。">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/23/使用axios访问API/1.png">
 
 
 
@@ -409,7 +414,23 @@
       
 
       
-        
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong>安装</strong></h2><p><strong>npm install axios; </strong>// 安装axios</p>
+<h2 id="汇总接口"><a href="#汇总接口" class="headerlink" title="汇总接口"></a><strong>汇总接口</strong></h2><p>在src下新建api文件夹，把所有的api接口统一起来管理。<a id="more"></a></p>
+<p><img src="1.png" alt="img"> </p>
+<p>Index.js中内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import user from &apos;./user&apos;;</span><br><span class="line">import file from &apos;./file&apos;;</span><br><span class="line">import permissions from &apos;./permissions&apos;</span><br><span class="line">import httpo from &quot;./httpo&quot;;</span><br><span class="line"></span><br><span class="line">let allApi = Object.assign(</span><br><span class="line">  user,</span><br><span class="line">  file,</span><br><span class="line">  permissions,</span><br><span class="line">    httpo</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default allApi;</span><br></pre></td></tr></table></figure>
+<h2 id="引入接口"><a href="#引入接口" class="headerlink" title="引入接口"></a><strong>引入接口</strong></h2><p>在main.js中引入api/index.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Api from &apos;./api/&apos;</span><br><span class="line"></span><br><span class="line">Vue.prototype.$Api = Api</span><br></pre></td></tr></table></figure>
+<h2 id="调用接口"><a href="#调用接口" class="headerlink" title="调用接口"></a><strong>调用接口</strong></h2><p>在哪个组件中需要使用，就在哪个接口中调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">this.$Api.post() .then(res=&gt;&#123;</span><br><span class="line">            if(res == null)&#123;</span><br><span class="line">            return;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;).catch(err=&gt;&#123;alert(err)&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="创建实例函数"><a href="#创建实例函数" class="headerlink" title="创建实例函数"></a><strong>创建实例函数</strong></h2><p>在开发中，可以通过 axios.create 创建一个实例，对该实例进行一些配置，便得到了一个专门用来与后端服务器进行通信的 ajax 函数。</p>
+<p>在其中可以配置baseURL（设置路由转发规则），headers（设置头信息），timeout（设置请求超时时间）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const service = axios.create(&#123;</span><br><span class="line">    baseURL: Config.apiUrl + &apos;/&apos; + Config.apiPrefix, // api的base_url</span><br><span class="line">    headers: &#123;</span><br><span class="line">        &apos;Accept&apos;: &apos;*/*&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    timeout: Config.timeout // 请求超时时间</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在interceptors中可以配置拦截器，对请求request和响应response进行处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// request拦截器</span><br><span class="line">service.interceptors.request.use(</span><br><span class="line">        config =&gt; &#123;</span><br><span class="line">            let noParameters = config.url.indexOf(&apos;?&apos;) == -1;</span><br><span class="line">            if (store.getters.token) &#123;</span><br><span class="line">                config.url = noParameters ? config.url + &apos;?access_token=&apos; + getToken() : config.url + &apos;&amp;token=&apos; + getToken()</span><br><span class="line">            &#125;</span><br><span class="line">            return config</span><br><span class="line">        &#125;,</span><br><span class="line">        error =&gt; &#123;</span><br><span class="line">             Promise.reject(error)</span><br><span class="line">        &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// respone拦截器</span><br><span class="line">service.interceptors.response.use(</span><br><span class="line">        response =&gt; &#123;</span><br><span class="line">            /**</span><br><span class="line">             * code为非20000是抛错 可结合自己业务进行修改</span><br><span class="line">             */</span><br><span class="line">            const res = response</span><br><span class="line">            if (res.status !== 200) &#123;</span><br><span class="line">                           &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        error =&gt; &#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="封装get、post方法"><a href="#封装get、post方法" class="headerlink" title="封装get、post方法"></a><strong>封装get、post方法</strong></h2><p> 在api文件夹下，新建httpo.js如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">import Config from &apos;../config/&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">//封装post方法</span><br><span class="line">    post:function (url,args) &#123;</span><br><span class="line"></span><br><span class="line">        //对args中的参数进行操作</span><br><span class="line"></span><br><span class="line">        return axios(&#123;</span><br><span class="line">            method:&apos;post&apos;,</span><br><span class="line">            url: url,</span><br><span class="line">            data:args,</span><br><span class="line">            baseURL:Config.apiUrl + &apos;/&apos; + Config.apiPrefix</span><br><span class="line">        &#125;).then(res=&gt;&#123;</span><br><span class="line">            if(res.data.isError === true)&#123;</span><br><span class="line">                alert(  res.data.message);</span><br><span class="line">                return null;</span><br><span class="line">            &#125;</span><br><span class="line">            //alert(&quot;USER TOKEN: &quot; + JSON.stringify(res.data) );</span><br><span class="line">            sessionStorage.setItem(Config.tokenKey, res.data.token);</span><br><span class="line">            return res.data.Data;</span><br><span class="line">        &#125;)</span><br><span class="line">           // .catch(err=&gt;&#123;alert(&quot;网络异常:&quot; + err)&#125;);</span><br><span class="line">        //.then(res=&gt;&#123;alert(&quot;request ok:&quot; + res)&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -541,8 +562,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -606,6 +636,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汇总接口"><span class="nav-number">2.</span> <span class="nav-text">汇总接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入接口"><span class="nav-number">3.</span> <span class="nav-text">引入接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用接口"><span class="nav-number">4.</span> <span class="nav-text">调用接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建实例函数"><span class="nav-number">5.</span> <span class="nav-text">创建实例函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装get、post方法"><span class="nav-number">6.</span> <span class="nav-text">封装get、post方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

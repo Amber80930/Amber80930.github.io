@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Amber">
 <meta property="og:description" content="VUEX在实际业务中，经常有跨组件共享数据的需求，因此VUEX就是设计来统一管理组件状态的，它定义了一系列的规范来使用和操作数据，使组件应用更加高效。 安装npm install –save vuex 在src下新建一个store文件夹，在index.js中配置：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-23T07:38:48.257Z">
+<meta property="og:updated_time" content="2019-02-23T07:43:07.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vuex">
 <meta name="twitter:description" content="VUEX在实际业务中，经常有跨组件共享数据的需求，因此VUEX就是设计来统一管理组件状态的，它定义了一系列的规范来使用和操作数据，使组件应用更加高效。 安装npm install –save vuex 在src下新建一个store文件夹，在index.js中配置：">
@@ -421,16 +421,20 @@
 <p>其中，store相当于一个仓库，包含了应用的数据和操作过程，vuex里面的数据都是响应式的，任何组件使用同一store的数据时，只要store的数据发生变化，对应的组件也会立即更新。</p>
 <h2 id="state、mutations、actions"><a href="#state、mutations、actions" class="headerlink" title="state、mutations、actions"></a><strong>state、mutations、actions</strong></h2><p><strong>Vuex选项包含三个字段：state、mutations、actions</strong></p>
 <ul>
-<li>state字段：保存数据</li>
-<li>mutations字段：直接修改state中的数据</li>
-<li>actions字段：提交mutation，可以异步操作业务逻辑</li>
-</ul>
+<li><p>state字段：保存数据</p>
+</li>
+<li><p>mutations字段：直接修改state中的数据</p>
+</li>
+<li><p>actions字段：提交mutation，可以异步操作业务逻辑</p>
 <p>在组件中，来自store的数据只能读取，不能提交，不能手动改变，改变store中数据的唯一途径就是显式的提交mutations。</p>
-<p>在组件中，通过<strong>this.$store.commit</strong>来执行mutations。如：<strong>this.$store.commit（‘SET_CODE’）</strong>。需要传参数时：<strong>this.$store.commit（‘SET_CODE’，参数）</strong>，多个参数可封装成一个对象传入。</p>
-<p>mutations里尽量不要异步操作数据，因为如果异步操作数据了，组件在commit后，数据不能立即改变，而且不知道什么时候会改变。</p>
-<p>actions和mutations的功能类似，不同的是actions里面提交的是mutations，并且可以异步操作业务逻辑（与后台进行数据交互）。</p>
-<p>actions在组件中通过<strong>$store.dispatch（‘LoginByUsername’）</strong>触发。</p>
-<p>涉及改变数据的就用mutations，存在业务逻辑的就用actions。</p>
+<p>在组件中，通过<strong>this.$store.commit</strong>来执行mutations。如<strong>this.$store.commit（‘SET_CODE’）</strong>。</p>
+</li>
+</ul>
+<p>​    需要传参数时：<strong>this.$store.commit（‘SET_CODE’，参数）</strong>，多个参数可封装成一个对象传入。</p>
+<p>​    mutations里尽量不要异步操作数据，因为如果异步操作数据了，组件在commit后，数据不能立即改变，而且不知道什么时候会改变。</p>
+<p>​    actions和mutations的功能类似，不同的是actions里面提交的是mutations，并且可以异步操作业务逻辑（与后台进行数据交互）。</p>
+<p>​    actions在组件中通过<strong>$store.dispatch（‘LoginByUsername’）</strong>触发。</p>
+<p>​    涉及改变数据的就用mutations，存在业务逻辑的就用actions。</p>
 <h2 id="getter、modules"><a href="#getter、modules" class="headerlink" title="getter、modules"></a><strong>getter、modules</strong></h2><p>getter通常用于过滤数据，与组件中的计算属性相似。modules用来将store分割到不同的模块。</p>
 
       
