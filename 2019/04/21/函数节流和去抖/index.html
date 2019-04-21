@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="为什么需要throttle(节流)和debounce(去抖)​     以下场景往往由于事件频繁被触发，因而频繁执行DOM操作、资源加载等重行为，导致UI停顿甚至浏览器崩溃。  window对象的resize、scroll事件 拖拽时的mousemove事件 射击游戏中的mousedown、keydown事件 文字输入、自动完成的keyup事件  ​       实际上对于window的resiz">
+<meta name="description" content="为什么需要throttle(节流)和debounce(去抖)​     以下场景往往由于事件频繁被触发，因而频繁执行DOM操作、资源加载等重行为，导致UI停顿甚至浏览器崩溃。  window对象的resize、scroll事件 拖拽时的mousemove事件 射击游戏中的mousedown、keydown事件 文字输入、自动完成的keyup事件">
 <meta name="keywords" content="Vue.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数节流和去抖">
 <meta property="og:url" content="http://yoursite.com/2019/04/21/函数节流和去抖/index.html">
 <meta property="og:site_name" content="Amber">
-<meta property="og:description" content="为什么需要throttle(节流)和debounce(去抖)​     以下场景往往由于事件频繁被触发，因而频繁执行DOM操作、资源加载等重行为，导致UI停顿甚至浏览器崩溃。  window对象的resize、scroll事件 拖拽时的mousemove事件 射击游戏中的mousedown、keydown事件 文字输入、自动完成的keyup事件  ​       实际上对于window的resiz">
+<meta property="og:description" content="为什么需要throttle(节流)和debounce(去抖)​     以下场景往往由于事件频繁被触发，因而频繁执行DOM操作、资源加载等重行为，导致UI停顿甚至浏览器崩溃。  window对象的resize、scroll事件 拖拽时的mousemove事件 射击游戏中的mousedown、keydown事件 文字输入、自动完成的keyup事件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-21T04:55:00.229Z">
+<meta property="og:updated_time" content="2019-04-21T05:15:35.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数节流和去抖">
-<meta name="twitter:description" content="为什么需要throttle(节流)和debounce(去抖)​     以下场景往往由于事件频繁被触发，因而频繁执行DOM操作、资源加载等重行为，导致UI停顿甚至浏览器崩溃。  window对象的resize、scroll事件 拖拽时的mousemove事件 射击游戏中的mousedown、keydown事件 文字输入、自动完成的keyup事件  ​       实际上对于window的resiz">
+<meta name="twitter:description" content="为什么需要throttle(节流)和debounce(去抖)​     以下场景往往由于事件频繁被触发，因而频繁执行DOM操作、资源加载等重行为，导致UI停顿甚至浏览器崩溃。  window对象的resize、scroll事件 拖拽时的mousemove事件 射击游戏中的mousedown、keydown事件 文字输入、自动完成的keyup事件">
 
 
 
@@ -417,7 +417,7 @@
 <li>window对象的resize、scroll事件</li>
 <li>拖拽时的mousemove事件</li>
 <li>射击游戏中的mousedown、keydown事件</li>
-<li>文字输入、自动完成的keyup事件</li>
+<li>文字输入、自动完成的keyup事件<a id="more"></a></li>
 </ul>
 <p>​       实际上对于window的resize事件，实际需求大多为停止改变大小n毫秒后执行后续处理；而其他事件大多的需求是以一定的频率执行后续处理。针对这两种需求就出现了debounce和throttle两种解决办法。</p>
 <p>​    <strong>throttle(又称节流)和debounce(又称去抖)其实都是函数调用频率的控制器。</strong></p>

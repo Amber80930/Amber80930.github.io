@@ -411,33 +411,19 @@
 
       
         
-          
-            <h2 id="为什么需要throttle-节流-和debounce-去抖"><a href="#为什么需要throttle-节流-和debounce-去抖" class="headerlink" title="为什么需要throttle(节流)和debounce(去抖)"></a><strong>为什么需要throttle(节流)和debounce(去抖)</strong></h2><p>​     以下场景往往由于事件频繁被触发，因而频繁执行DOM操作、资源加载等重行为，导致UI停顿甚至浏览器崩溃。</p>
+          <h2 id="为什么需要throttle-节流-和debounce-去抖"><a href="#为什么需要throttle-节流-和debounce-去抖" class="headerlink" title="为什么需要throttle(节流)和debounce(去抖)"></a><strong>为什么需要throttle(节流)和debounce(去抖)</strong></h2><p>​     以下场景往往由于事件频繁被触发，因而频繁执行DOM操作、资源加载等重行为，导致UI停顿甚至浏览器崩溃。</p>
 <ul>
 <li>window对象的resize、scroll事件</li>
 <li>拖拽时的mousemove事件</li>
 <li>射击游戏中的mousedown、keydown事件</li>
-<li>文字输入、自动完成的keyup事件</li>
-</ul>
-<p>​       实际上对于window的resize事件，实际需求大多为停止改变大小n毫秒后执行后续处理；而其他事件大多的需求是以一定的频率执行后续处理。针对这两种需求就出现了debounce和throttle两种解决办法。</p>
-<p>​    <strong>throttle(又称节流)和debounce(又称去抖)其实都是函数调用频率的控制器。</strong></p>
-<h2 id="debounce-去抖"><a href="#debounce-去抖" class="headerlink" title="debounce(去抖)"></a><strong>debounce(去抖)</strong></h2><p>​      当调用函数n秒后，才会执行该动作，若在这n秒内又调用该函数则将取消前一次并重新计算执行时间，只关心最后一次的输入时间就可以了。</p>
-<p>在lodash中提供了debounce函数：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_.debounce(func, [wait=0], [options=&#123;&#125;])</span><br></pre></td></tr></table></figure>
-<p>lodash在opitons参数中定义了一些选项，主要是以下三个：</p>
-<p>Ø <strong>leading</strong>，函数在每个等待时延的<strong>开始</strong>被调用，默认值为false</p>
-<p>Ø <strong>trailing</strong>，函数在每个等待时延的<strong>结束</strong>被调用，默认值是true</p>
-<p>Ø <strong>maxwait</strong>，<strong>最大的等待时间</strong>，因为如果debounce的函数调用时间不满足条件，可能永远都无法触发，因此增加了这个配置，保证大于一段时间后一定能执行一次函数</p>
-<p><strong>常用的简单用例示例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 避免窗口在变动时出现昂贵的计算开销。</span><br><span class="line">jQuery(window).on(&apos;resize&apos;, _.debounce(calculateLayout, 150));</span><br><span class="line"></span><br><span class="line">// 当点击时 `sendMail` 随后就被调用。</span><br><span class="line">jQuery(element).on(&apos;click&apos;, _.debounce(sendMail, 300, &#123;</span><br><span class="line">  &apos;leading&apos;: true,</span><br><span class="line">  &apos;trailing&apos;: false</span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line">// 确保 `batchLog` 调用1次之后，1秒内会被触发。</span><br><span class="line">var debounced = _.debounce(batchLog, 250, &#123; &apos;maxWait&apos;: 1000 &#125;);</span><br><span class="line">var source = new EventSource(&apos;/stream&apos;);</span><br><span class="line">jQuery(source).on(&apos;message&apos;, debounced);</span><br><span class="line"></span><br><span class="line">// 取消一个 trailing 的防抖动调用</span><br><span class="line">jQuery(window).on(&apos;popstate&apos;, debounced.cancel);</span><br></pre></td></tr></table></figure>
-<h2 id="throttle-节流"><a href="#throttle-节流" class="headerlink" title="throttle(节流)"></a><strong>throttle(节流)</strong></h2><p>throttle将一个<strong>函数的调用频率限制</strong>在一定阈值内，例如1s内一个函数不能被调用两次。</p>
-<p>同样，lodash提供了这个方法：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_.throttle(func, [wait=0], [options=&#123;&#125;])</span><br></pre></td></tr></table></figure>
-<p>具体使用的例子：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 避免在滚动时过分的更新定位</span><br><span class="line">jQuery(window).on(&apos;scroll&apos;, _.throttle(updatePosition, 100));</span><br><span class="line"></span><br><span class="line">// 点击后就调用 `renewToken`，但5分钟内超过1次。</span><br><span class="line">var throttled = _.throttle(renewToken, 300000, &#123; &apos;trailing&apos;: false &#125;);</span><br><span class="line">jQuery(element).on(&apos;click&apos;, throttled);</span><br><span class="line"></span><br><span class="line">// 取消一个 trailing 的节流调用。</span><br><span class="line">jQuery(window).on(&apos;popstate&apos;, throttled.cancel);</span><br></pre></td></tr></table></figure>
-<p>throttle同样提供了leading和trailing参数，与debounce含义相同</p>
-
-          
+<li>文字输入、自动完成的keyup事件
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/21/函数节流和去抖/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -593,30 +579,18 @@
 
       
         
-          
-            <h2 id="点击按钮生成二维码"><a href="#点击按钮生成二维码" class="headerlink" title="点击按钮生成二维码"></a><strong>点击按钮生成二维码</strong></h2><h4 id="在vue中利用QRCode动态生成二维码"><a href="#在vue中利用QRCode动态生成二维码" class="headerlink" title="在vue中利用QRCode动态生成二维码"></a><strong>在vue中利用QRCode动态生成二维码</strong></h4><p><strong>步骤如下：</strong></p>
+          <h2 id="点击按钮生成二维码"><a href="#点击按钮生成二维码" class="headerlink" title="点击按钮生成二维码"></a><strong>点击按钮生成二维码</strong></h2><h4 id="在vue中利用QRCode动态生成二维码"><a href="#在vue中利用QRCode动态生成二维码" class="headerlink" title="在vue中利用QRCode动态生成二维码"></a><strong>在vue中利用QRCode动态生成二维码</strong></h4><p><strong>步骤如下：</strong></p>
 <ol>
 <li>在vue中安装qrcodejs的依赖  <strong> npm install qrcodejs2</strong></li>
 </ol>
-<p>安装完成后，package.json中依赖中，可以看到已经添加qrcode的依赖</p>
-<p><img src="1.png" alt="img"> </p>
-<ol>
-<li>在要生成二维码的组件中引用</li>
-</ol>
-<p><img src="2.png" alt="img"> </p>
-<ol>
-<li>定义按钮触发生成二维码事件；一个div块，给生成的二维码显示占位</li>
-</ol>
-<p><img src="3.png" alt="img"> </p>
-<p><img src="4.png" alt="img"> </p>
-<ol>
-<li>调用二维码生成方法</li>
-</ol>
-<p><img src="5.png" alt="img"> </p>
-<h4 id="优化（重复点击不重复生成）"><a href="#优化（重复点击不重复生成）" class="headerlink" title="优化（重复点击不重复生成）"></a><strong>优化（重复点击不重复生成）</strong></h4><p>可以为显示二维码的div块，加一个标志位，对标志位进行判断，不允许重复点击重复生成。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;el-button  type=&quot;primary&quot; size=&quot;small&quot; @click.native=&quot;qrcode()&quot;&gt;二维码&lt;/el-button&gt;</span><br><span class="line">    &lt;div id = &quot;qrcode&quot; ref=&quot;qrCodeUrl&quot; done=&quot;0&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    import QRCode from &apos;qrcodejs2&apos;</span><br><span class="line">    export default &#123;</span><br><span class="line">        name: &quot;qrcodeTest&quot;,</span><br><span class="line">        data()&#123;</span><br><span class="line">          return&#123;</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            qrcode()&#123;</span><br><span class="line">                let qrele = document.getElementById(&quot;qrcode&quot;);</span><br><span class="line">                if((qrele.getAttribute(&quot;done&quot;)) === &quot;0&quot;)&#123;</span><br><span class="line">                    var qrcode = new QRCode(this.$refs.qrCodeUrl, &#123;</span><br><span class="line">                        text: &apos;https://www.baidu.com&apos;,</span><br><span class="line">                        width: 100,</span><br><span class="line">                        height: 100,</span><br><span class="line">                        colorDark: &apos;#000000&apos;,</span><br><span class="line">                        colorLight: &apos;#ffffff&apos;,</span><br><span class="line">                        correctLevel: QRCode.CorrectLevel.H</span><br><span class="line">                    &#125;);</span><br><span class="line">                    qrele.setAttribute(&quot;done&quot;,&quot;1&quot;);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-          
+<p>安装完成后，package.json中依赖中，可以看到已经添加qrcode的依赖
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/21/利用QRCode动态生成二维码/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -772,39 +746,16 @@
 
       
         
-          
-            <h1 id="虚拟DOM和diff运算"><a href="#虚拟DOM和diff运算" class="headerlink" title="虚拟DOM和diff运算"></a><strong>虚拟DOM和diff运算</strong></h1><h2 id="DOM的含义"><a href="#DOM的含义" class="headerlink" title="DOM的含义"></a><strong>DOM的含义</strong></h2><p>DOM是Document Object Model的英文缩写，翻译过来是文档对象模型，提供给Javascript用来动态修改文档状态。</p>
+          <h1 id="虚拟DOM和diff运算"><a href="#虚拟DOM和diff运算" class="headerlink" title="虚拟DOM和diff运算"></a><strong>虚拟DOM和diff运算</strong></h1><h2 id="DOM的含义"><a href="#DOM的含义" class="headerlink" title="DOM的含义"></a><strong>DOM的含义</strong></h2><p>DOM是Document Object Model的英文缩写，翻译过来是文档对象模型，提供给Javascript用来动态修改文档状态。</p>
 <h2 id="Virtual-DOM-和真实DOM"><a href="#Virtual-DOM-和真实DOM" class="headerlink" title="Virtual DOM 和真实DOM"></a>Virtual DOM 和真实DOM</h2><p>当我们修改了某个数据，如果直接渲染到真实DOM上，会引起整个DOM树的重绘和重排。我们希望修改一部分数据时不会牵扯到整个DOM树的改变，而是只改动我们需要改动的那一小部分。</p>
-<p>利用virtual DOM和diff运算可以实现。</p>
-<p>所谓的virtual DOM就是将真实的DOM的数据抽取出来，以对象的形式模拟树形对象结构。</p>
-<p>真实DOM:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;123&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>虚拟DOM:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var Vnode = &#123;</span><br><span class="line"></span><br><span class="line">  tag: &apos;div&apos;,</span><br><span class="line"></span><br><span class="line">  children: [</span><br><span class="line"></span><br><span class="line">    &#123; tag: &apos;p&apos;, text: &apos;123&apos; &#125;</span><br><span class="line"></span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="virtual-DOM运行过程"><a href="#virtual-DOM运行过程" class="headerlink" title="virtual DOM运行过程"></a><strong>virtual DOM运行过程</strong></h2><p><img src="1.png" alt="img"></p>
-<h2 id="diff比较算法"><a href="#diff比较算法" class="headerlink" title="diff比较算法"></a><strong>diff比较算法</strong></h2><p>diff比较算法是为了比较新旧DOM节点的异同，根据异同调整更新方法。需要注意的是，比较只会在同层级进行。</p>
-<p><img src="2.png" alt="img"> </p>
-<h3 id="diff比较算法的流程图"><a href="#diff比较算法的流程图" class="headerlink" title="diff比较算法的流程图"></a><strong>diff比较算法的流程图</strong></h3><p><img src="3.png" alt="img"> </p>
-<h3 id="patch函数"><a href="#patch函数" class="headerlink" title="patch函数"></a><strong>patch函数</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function patch (oldVnode, vnode) &#123;</span><br><span class="line">  </span><br><span class="line">    if (sameVnode(oldVnode, vnode)) &#123;</span><br><span class="line">        patchVnode(oldVnode, vnode)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        const oEl = oldVnode.el // 当前oldVnode对应的真实元素节点</span><br><span class="line">        let parentEle = api.parentNode(oEl)  // 父元素</span><br><span class="line">        createEle(vnode)  // 根据Vnode生成新元素</span><br><span class="line">        if (parentEle !== null) &#123;</span><br><span class="line">// 将新元素添加进父元素</span><br><span class="line">            api.insertBefore(parentEle, vnode.el, api.nextSibling(oEl))            api.removeChild(parentEle, oldVnode.el)  // 移除以前的旧元素节点</span><br><span class="line">            oldVnode = null</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return vnode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>patch函数的两个参数oldVnode和vnode分别代表旧节点和待更新节点。</p>
-<h4 id="sameVnode（）函数"><a href="#sameVnode（）函数" class="headerlink" title="sameVnode（）函数"></a><strong>sameVnode（）函数</strong></h4><p>sameVnode（）函数判断两个节点是否相同，如果两个节点都是一样的，那么就调用patchVnode（）函数深入检查他们的子节点。如果两个节点不一样那就说明Vnode完全被改变了，就可以直接替换oldVnode。</p>
-<p>虽然这两个节点不一样但是他们的子节点一样怎么办？别忘了，diff可是逐层比较的，如果第一层不一样那么就不会继续深入比较第二层了。</p>
-<h4 id="patchVnode函数"><a href="#patchVnode函数" class="headerlink" title="patchVnode函数"></a><strong>patchVnode函数</strong></h4><p>​    该方法会通过比较新旧节点，根据不同的状态对DOM做合理的更新操作。具体如下:</p>
-<ul>
-<li>判断oldVnode和Vnode是否指向同一对象，如果是，直接return</li>
-<li>如果他们都有文本节点且不相等，那么将oldVnode的文本节点替换为Vnode的文本节点</li>
-<li>如果oldVnode有子节点，Vnode没有，那么删除oldVnode的子节点</li>
-<li>如果oldVnode没有子节点而Vnode有，那么将Vnode的子节点真实化后添加到节点中</li>
-<li>如果两者都有子节点，那么执行updateChildren比较子节点</li>
-</ul>
-<h4 id="UpdateChildren函数"><a href="#UpdateChildren函数" class="headerlink" title="UpdateChildren函数"></a><strong>UpdateChildren函数</strong></h4><p>​    该函数主要通过while循环一遍遍对比两棵树的子节点来更新DOM。</p>
-<p>​    <strong>具体可参考：</strong></p>
-<p><strong>书：《Vue.js权威指南》（张耀春，黄轶等著）297-299页</strong></p>
-<p><strong>博客：详解vue的diff算法</strong><a href="https://www.cnblogs.com/wind-lanyan/p/9061684.html" target="_blank" rel="noopener">https://www.cnblogs.com/wind-lanyan/p/9061684.html</a></p>
-<p>​         这种方法，比直接替换所有的子节点要少很多DOM操作，在性能上有所提升，子节点越复杂时，提升效果越明显。</p>
-<p>Vue.js 2.0 使用的Virtual DOM技术，除了在更新DOM有性能提升外，还可以很好的支持服务端渲染技术。</p>
-
-          
+<p>利用virtual DOM和diff运算可以实现。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/19/vue中虚拟dom和diff运算/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

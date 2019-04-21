@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/19/vue中虚拟dom和diff运算/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/19/vue中虚拟dom和diff运算/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/19/vue中虚拟dom和diff运算/3.png">
-<meta property="og:updated_time" content="2019-04-21T05:03:22.549Z">
+<meta property="og:updated_time" content="2019-04-21T05:15:07.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue中虚拟dom和diff运算">
 <meta name="twitter:description" content="虚拟DOM和diff运算DOM的含义DOM是Document Object Model的英文缩写，翻译过来是文档对象模型，提供给Javascript用来动态修改文档状态。 Virtual DOM 和真实DOM当我们修改了某个数据，如果直接渲染到真实DOM上，会引起整个DOM树的重绘和重排。我们希望修改一部分数据时不会牵扯到整个DOM树的改变，而是只改动我们需要改动的那一小部分。 利用virtual">
@@ -418,7 +418,7 @@
       
         <h1 id="虚拟DOM和diff运算"><a href="#虚拟DOM和diff运算" class="headerlink" title="虚拟DOM和diff运算"></a><strong>虚拟DOM和diff运算</strong></h1><h2 id="DOM的含义"><a href="#DOM的含义" class="headerlink" title="DOM的含义"></a><strong>DOM的含义</strong></h2><p>DOM是Document Object Model的英文缩写，翻译过来是文档对象模型，提供给Javascript用来动态修改文档状态。</p>
 <h2 id="Virtual-DOM-和真实DOM"><a href="#Virtual-DOM-和真实DOM" class="headerlink" title="Virtual DOM 和真实DOM"></a>Virtual DOM 和真实DOM</h2><p>当我们修改了某个数据，如果直接渲染到真实DOM上，会引起整个DOM树的重绘和重排。我们希望修改一部分数据时不会牵扯到整个DOM树的改变，而是只改动我们需要改动的那一小部分。</p>
-<p>利用virtual DOM和diff运算可以实现。</p>
+<p>利用virtual DOM和diff运算可以实现。<a id="more"></a></p>
 <p>所谓的virtual DOM就是将真实的DOM的数据抽取出来，以对象的形式模拟树形对象结构。</p>
 <p>真实DOM:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;123&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
