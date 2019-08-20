@@ -741,7 +741,9 @@
       
         
           <h3 id="1-v-if"><a href="#1-v-if" class="headerlink" title="1. v-if"></a>1. <strong>v-if</strong></h3><p>条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后<strong>表达式为true</strong>的元素。</p>
-<h3 id="2-v-show"><a href="#2-v-show" class="headerlink" title="2. v-show"></a>2. <strong>v-show</strong></h3><p>条件渲染指令，和v-if的区别就是它只渲染其身后<strong>表达式为false</strong>的元素。
+<h3 id="2-v-show"><a href="#2-v-show" class="headerlink" title="2. v-show"></a>2. <strong>v-show</strong></h3><p>条件渲染指令，元素v-show值为false时，元素会隐藏，但是只是相当于修改元素css属性，使display：none，元素还是会被编译。</p>
+<p>而v-if才能称为实际意义上的条件渲染，若表达式初始值为false，则元素一开始不会被渲染，只有当条件表达式变为true之后才开始编译。</p>
+<p>v-if更适合条件不经常改变的场景，因为其切换开销较大，v-show适用于频繁切换条件。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/11/27/Vue常用命令/#more" rel="contents">

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1. v-if条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后表达式为true的元素。 2. v-show条件渲染指令，和v-if的区别就是它只渲染其身后表达式为false的元素。">
+<meta name="description" content="1. v-if条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后表达式为true的元素。 2. v-show条件渲染指令，元素v-show值为false时，元素会隐藏，但是只是相当于修改元素css属性，使display：none，元素还是会被编译。 而v-if才能称为实际意义上的条件渲染，若表达式初始值为false，则元素一开始不会被渲染，只有当条件表达式变为true之后才开始">
 <meta name="keywords" content="Vue.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue常用命令">
 <meta property="og:url" content="http://yoursite.com/2018/11/27/Vue常用命令/index.html">
 <meta property="og:site_name" content="Amber">
-<meta property="og:description" content="1. v-if条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后表达式为true的元素。 2. v-show条件渲染指令，和v-if的区别就是它只渲染其身后表达式为false的元素。">
+<meta property="og:description" content="1. v-if条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后表达式为true的元素。 2. v-show条件渲染指令，元素v-show值为false时，元素会隐藏，但是只是相当于修改元素css属性，使display：none，元素还是会被编译。 而v-if才能称为实际意义上的条件渲染，若表达式初始值为false，则元素一开始不会被渲染，只有当条件表达式变为true之后才开始">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-27T08:26:03.851Z">
+<meta property="og:updated_time" content="2019-08-20T14:09:45.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue常用命令">
-<meta name="twitter:description" content="1. v-if条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后表达式为true的元素。 2. v-show条件渲染指令，和v-if的区别就是它只渲染其身后表达式为false的元素。">
+<meta name="twitter:description" content="1. v-if条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后表达式为true的元素。 2. v-show条件渲染指令，元素v-show值为false时，元素会隐藏，但是只是相当于修改元素css属性，使display：none，元素还是会被编译。 而v-if才能称为实际意义上的条件渲染，若表达式初始值为false，则元素一开始不会被渲染，只有当条件表达式变为true之后才开始">
 
 
 
@@ -413,7 +413,10 @@
 
       
         <h3 id="1-v-if"><a href="#1-v-if" class="headerlink" title="1. v-if"></a>1. <strong>v-if</strong></h3><p>条件渲染指令，根据其表达式的Boolean值判断是否渲染，只渲染其身后<strong>表达式为true</strong>的元素。</p>
-<h3 id="2-v-show"><a href="#2-v-show" class="headerlink" title="2. v-show"></a>2. <strong>v-show</strong></h3><p>条件渲染指令，和v-if的区别就是它只渲染其身后<strong>表达式为false</strong>的元素。<a id="more"></a></p>
+<h3 id="2-v-show"><a href="#2-v-show" class="headerlink" title="2. v-show"></a>2. <strong>v-show</strong></h3><p>条件渲染指令，元素v-show值为false时，元素会隐藏，但是只是相当于修改元素css属性，使display：none，元素还是会被编译。</p>
+<p>而v-if才能称为实际意义上的条件渲染，若表达式初始值为false，则元素一开始不会被渲染，只有当条件表达式变为true之后才开始编译。</p>
+<p>v-if更适合条件不经常改变的场景，因为其切换开销较大，v-show适用于频繁切换条件。</p>
+<a id="more"></a>
 <h3 id="3-v-else"><a href="#3-v-else" class="headerlink" title="3. v-else"></a>3. <strong>v-else</strong></h3><p><strong>v-else必须跟在v-if/v-show指令之后</strong>，否则不起作用。</p>
 <p>如果v-if/v-show指令表达式为true，则else元素不显示；如果v-if/v-show指令表达式为false，则else元素显示在页面上。</p>
 <h3 id="4-v-for"><a href="#4-v-for" class="headerlink" title="4. v-for"></a>4. <strong>v-for</strong></h3><p><strong>v-for</strong>类似于JS中的遍历，用法是：<font color="blue">v-for = “item in items”</font>。其中items是数组，item是数组中的元素。</p>
